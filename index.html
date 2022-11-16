@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alexander Bolotskov</title>
+    <style>
+      * { box-sizing: border-box; }
+      :root {
+        --dark-blue: #112536;
+        --white: #fafafa;
+        --light-green: greenyellow;
+        --dark-green: green;
+        --blue: #1d48a5;
+        --light-blue: #2992dd;
+
+        --background-color: var(--white);
+        --text-color: var(--dark-blue);
+        --prompt-prefix-color: var(--dark-green);
+        --link-color: var(--blue);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background-color: var(--dark-blue);
+          --text-color: var(--white);
+          --prompt-prefix-color: var(--light-green);
+          --link-color: var(--light-blue);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
