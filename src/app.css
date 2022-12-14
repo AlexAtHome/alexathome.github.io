@@ -1,95 +1,138 @@
 .page {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
 }
 
 .page__container {
-  display: block;
-  max-width: 800px;
-  width: 100%;
-  margin: 30px 0;
+	display: block;
+	max-width: 800px;
+	width: 100%;
+	margin: 30px 0;
 }
 
 .console {
-  font-family: "JetBrains Mono", "Cascadia Mono", "Menlo", "Ubuntu Mono",
-    "Consolas", "Lucida Console", "Courier New", Courier, monospace;
-  line-height: 1.25;
+	font-family: "JetBrains Mono", "Cascadia Mono", "Menlo", "Ubuntu Mono",
+		"Consolas", "Lucida Console", "Courier New", Courier, monospace;
+	line-height: 1.25;
 }
 
 .console__prompt {
-  font-family: inherit;
+	font-family: inherit;
 }
 
 .console__image {
-  float: left;
-  margin: 0 20px 0 0;
-  border-radius: 5px;
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
+	float: left;
+	margin: 0 20px 0 0;
+	border-radius: 5px;
+	width: 140px;
+	height: 140px;
+	object-fit: contain;
 }
 
 .console__prompt::before {
-  content: "[alex@website]$ ";
-  color: var(--prompt-prefix-color);
+	content: "[alex@website]$ ";
+	color: var(--prompt-prefix-color);
 }
 
 .console__prompt,
 .console__output {
-  margin-top: 10px;
-  display: block;
+	padding-top: 10px;
+	display: block;
+}
+
+.console__output {
+	position: relative;
+}
+
+.console__output::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	z-index: 5;
+	background-color: var(--background-color);
+	animation: .25s promptAppear ease-out;
+}
+
+@media (prefers-reduced-motion) {
+	.console__output::after {
+		animation: none;
+	}
+}
+
+@keyframes promptAppear {
+	from {
+		height: 100%
+	}
+
+	to {
+		height: 0%;
+	}
+
 }
 
 .console__prompt_cursor::after {
-  content: "";
-  height: 1em;
-  width: 0.5em;
-  background-color: var(--text-color);
-  display: inline-block;
-  vertical-align: bottom;
-  animation: 2s blink linear infinite;
+	content: "";
+	height: 1em;
+	width: 0.5em;
+	background-color: var(--text-color);
+	display: inline-block;
+	vertical-align: bottom;
+	animation: 2s blink linear infinite;
+}
+
+@media (prefers-reduced-motion) {
+	.console__prompt_cursor::after {
+		display: none;
+	}
 }
 
 .console__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin: 1em 0;
-  line-height: 1.6;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin: 1em 0;
+	line-height: 1.6;
 }
 
 .console__list svg {
-  vertical-align: middle;
-  display: inline-block;
+	vertical-align: middle;
+	display: inline-block;
 }
 
 a {
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  color: var(--link-color);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	color: var(--link-color);
 }
 
 .columns {
-  display: flex;
-  gap: 15px;
-  align-items: stretch;
+	display: flex;
+	gap: 15px;
+	align-items: stretch;
 }
 
 @keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  99% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 1;
+	}
+
+	49% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	99% {
+		opacity: 0;
+	}
 }
