@@ -6,21 +6,36 @@ import { TermCursor, TermPrompt } from "./components/term-prompt";
 import { isReducedMotionPreferred } from "./hooks/prefers-reduced-motion";
 
 export function App() {
-	const isAnimationDisabled = isReducedMotionPreferred()
-	const [visibleSection, setVisibleSection] = useState<Array<'card' | 'list'>>([])
-	if (isAnimationDisabled && !visibleSection.length) {
-		setVisibleSection(['card', 'list'])
-	}
-	return (
-		<main className="page">
-			<div className="console page__container">
-				<TermPrompt delay={1500} onAnimationEnd={() => setVisibleSection(['card'])}>pwd</TermPrompt>
-				{visibleSection.includes('card') && <CallingCard />}
-				{visibleSection.includes('card') && <TermPrompt delay={1500} onAnimationEnd={() => setVisibleSection(['card' ,'list'])}>ls ~/projects</TermPrompt>}
+  const isAnimationDisabled = isReducedMotionPreferred() || localStorage.getItem('front_page_anim') === '1'
+  const [visibleSection, setVisibleSection] = useState<Array<'card' | 'list'>>([])
+  const markAnimationAsPlayed = () => {
+    localStorage.setItem('front_page_anim', '1')
+  }
 
-				{visibleSection.includes('list') && <ProjectList />}
-				{visibleSection.includes('list') && <TermCursor />}
-			</div>
-		</main>
-	);
+  return (
+    <main className="page">
+      {isAnimationDisabled ?
+        (
+          <div className="console page__container">
+            <TermPrompt isAnimDisabled={true}>pwd</TermPrompt>
+            <CallingCard />
+            <TermPrompt isAnimDisabled={true}>ls projects</TermPrompt>
+            <ProjectList />
+            <TermCursor />
+          </div>
+        ) : (
+          <div className="console page__container">
+            <TermPrompt delay={1500} onAnimationEnd={() => setVisibleSection(['card'])}>pwd</TermPrompt>
+            {visibleSection.includes('card') && <CallingCard />}
+            {visibleSection.includes('card') && <TermPrompt delay={1500} onAnimationEnd={() => {
+              setVisibleSection(['card', 'list'])
+              markAnimationAsPlayed()
+            }}>ls ~/projects</TermPrompt>}
+
+            {visibleSection.includes('list') && <ProjectList />}
+            {visibleSection.includes('list') && <TermCursor />}
+          </div>
+        )}
+    </main>
+  );
 }
