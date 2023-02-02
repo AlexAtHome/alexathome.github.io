@@ -1,5 +1,5 @@
 import { FunctionalComponent } from "preact";
-import { Keyboard, Reddit, TextParagraph } from "react-bootstrap-icons";
+import { Controller, Keyboard, Reddit, TextParagraph } from "react-bootstrap-icons";
 
 export const ProjectList: FunctionalComponent = () =>
 	<div className="console__output" aria-label="My projects">
@@ -35,6 +35,17 @@ export const ProjectList: FunctionalComponent = () =>
 					href="https://AlexAtHome.github.io/keycap"
 				>
 					keycap - keyboard test web application
+				</a>
+			</li>
+			<li>
+				<Controller />
+				&nbsp;
+				<a
+					rel="nofollow"
+					target="_blank"
+					href="https://AlexAtHome.github.io/minecraft-steve"
+				>
+          [WIP] 3D model of Steve from Minecraft  in pure CSS
 				</a>
 			</li>
 		</ul>
