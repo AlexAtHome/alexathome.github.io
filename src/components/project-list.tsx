@@ -1,9 +1,20 @@
 import { FunctionalComponent } from "preact";
-import { Controller, Keyboard, Reddit, TextParagraph } from "react-bootstrap-icons";
+import { Braces, Controller, Keyboard, Reddit, TextParagraph } from "react-bootstrap-icons";
 
 export const ProjectList: FunctionalComponent = () =>
 	<div className="console__output" aria-label="My projects">
 		<ul className="console__list">
+			<li>
+				<Braces />
+				&nbsp;
+				<a
+					rel="nofollow"
+					target="_blank"
+					href="https://AlexAtHome.github.io/json"
+				>
+					JSON Format tool
+				</a>
+			</li>
 			<li>
 				<TextParagraph />
 				&nbsp;
