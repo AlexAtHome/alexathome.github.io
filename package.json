@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "eleventy --watch --serve"
+    "start": "npm run serve",
+    "serve": "eleventy --watch --serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "devDependencies": {
+    "prettier": "2.8.8",
+    "tailwindcss": "^3.3.2"
   }
 }
