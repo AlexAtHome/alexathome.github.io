@@ -1,4 +1,12 @@
+const pluginTailwind = require("@kevinnls/eleventy-plugin-tailwind");
+
 module.exports = function (config) {
+	config.addPlugin(pluginTailwind, {
+    entry: "src/style.css",
+    output: "_site/style.css",
+    inputDir: "src"
+  });
+
 	return {
 		dir: {
 			input: 'src',
