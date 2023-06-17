@@ -5,11 +5,16 @@ title: Alex Bolotskov
 <html lang="en" class="latte dark:mocha text-gray-800 dark:text-gray-100 bg-crust font-sans">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>{{ title }}</title>
-	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/assets/style.css">
+  <link rel="preload" href="https://github.com/AlexAtHome.png" as="image" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
 </head>
 <body>
-	<main>
+	<main class="min-h-screen" role="presentation">
 		{{{ content }}}
 	</main>
 </body>

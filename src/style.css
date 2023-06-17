@@ -2,6 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.link {
+		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue visited:text-mauve hover:text-white;
+	}
+
+	.link::before {
+		content: '';
+		@apply absolute w-full h-1 bg-blue/50 top-full z-n1 transition-all;
+	}
+	
+	.link:hover::before {
+		@apply h-full top-0;
+	}
+}
+
 :root {
 	font-size: 14px;
+}
+
+/* sm */
+@media (min-width: 640px) {
+	:root {
+		font-size: 16px;
+	}
+}
+
+/* sm */
+@media (min-width: 768px) {
+	:root {
+		font-size: 18px;
+	}
+}
+
+/* lg */
+@media (min-width: 1024px) {
+	:root {
+		font-size: 20px;
+	}
+}
+
+/* xl */
+@media (min-width: 1280px) {
+	:root {
+		font-size: 22px;
+	}
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+	:root {
+		font-size: 24px;
+	}
 }
