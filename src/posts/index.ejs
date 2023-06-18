@@ -1,0 +1,26 @@
+---
+layout: root.hbs
+---
+
+<header class="my-12">
+	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+		<h1 class="inline-flex flex-col gap-4 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-bl text-accent from-pink to-red">
+			Hello, visitor. This is my blog.
+		</h1>
+	</div>
+</header>
+
+<section class="flex relative flex-col justify-center items-start pb-16">
+	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
+			<% for (let i = 0; i < 10; i++) { %>
+				<%- include('../_includes/article-excerpt', {
+					href: '/posts/example-post',
+					title: 'Scaling Gnome login screen on HiDPI display',
+					excerpt: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+					createdAt: '06/18/2023'
+				}) %>
+			<% } %>
+		</div>
+	</div>
+</section>
