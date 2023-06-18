@@ -15,6 +15,23 @@ title: Alex Bolotskov
 </head>
 <body>
 	<main class="min-h-screen" role="presentation">
+		<header class="fixed right-0 top-0 z-100">
+			<nav class="flex flex-col relative">
+				<a href="/" class="p-3 pb-1 inline-flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity" role="button">
+					<img
+						src="https://github.com/AlexAtHome.png"
+						alt="github profile"
+						class="block self-center object-fill w-4 h-4 rounded-full outline-pink outline outline-2 outline-offset-4"
+						loading="lazy"
+					/>
+				</a>
+				<button class="p-3">
+					<svg class="inline-block bi w-4 h-4" fill="currentColor">
+						<use xlink:href="/assets/icons/bootstrap.svg#list" />
+					</svg>
+				</button>
+			</nav>
+		</header>
 		{{{ content }}}
 	</main>
 	<script type="module" src="/main.js"></script>

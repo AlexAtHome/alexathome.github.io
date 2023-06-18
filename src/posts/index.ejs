@@ -13,14 +13,14 @@ layout: root.hbs
 <section class="flex relative flex-col justify-center items-start pb-16">
 	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
-			<% for (let i = 0; i < 10; i++) { %>
+			<% collections.post.forEach((post) => { %>
 				<%- include('../_includes/article-excerpt', {
-					href: '/posts/example-post',
-					title: 'Scaling Gnome login screen on HiDPI display',
-					excerpt: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-					createdAt: '06/18/2023'
+					href: post.page.url,
+					title: post.data.title,
+					excerpt: post.content,
+					createdAt: post.page.date
 				}) %>
-			<% } %>
+			<% }) %>
 		</div>
 	</div>
 </section>

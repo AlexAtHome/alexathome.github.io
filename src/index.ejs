@@ -1,9 +1,9 @@
 ---
-layout: root.hbs
+layout: root
 ---
 
 <section id="calling-card" class="min-h-screen py-16 flex relative flex-col justify-center items-start bg-gradient-to-br from-base to-40%">
-	<div class="flex relative gap-12 items-end p-3 mx-auto mb-10 w-full max-w-4xl sm:p-4 sm:pl-12 box-border" role="presentation">
+	<div class="flex relative gap-12 items-end p-3 mx-auto mb-10 w-full max-w-4xl box-border" role="presentation">
 		<img
 			src="https://github.com/AlexAtHome.png"
 			alt="github profile"
@@ -46,18 +46,18 @@ layout: root.hbs
 				I like
 				<ul>
 					<li>
-						<svg class="inline-block bi w-8 h-8" fill="currentColor">
+						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
 							<use xlink:href="/assets/icons/bootstrap.svg#code-slash" />
 						</svg> coding
 					</li>
 					<li>
-						<svg class="inline-block bi w-8 h-8" fill="currentColor">
+						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
 							<use xlink:href="/assets/icons/bootstrap.svg#bicycle" />
 						</svg>
 						cycles
 					</li>
 					<li>
-						<svg class="inline-block bi w-8 h-8" fill="currentColor">
+						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
 							<use xlink:href="/assets/icons/bootstrap.svg#keyboard" />
 						</svg>
 						and good keyboards
@@ -69,27 +69,17 @@ layout: root.hbs
 </section>
 
 <section id="articles" class="flex relative flex-col justify-center items-start min-h-screen">
-	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+	<div class="relative p-3 mx-auto w-full max-w-5xl box-border" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
 		<div class="grid grid-cols-2 gap-8">
-			<%- include('_includes/article-excerpt', {
-				href: '/posts/example-post',
-				title: 'Angular i18n files caching',
-				excerpt: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-				createdAt: '06/18/2023'
-			}) %>
-			<%- include('_includes/article-excerpt', {
-				href: '/posts/example-post',
-				title: 'How to shut the hardware beeper up on Linux',
-				excerpt: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-				createdAt: '06/18/2023'
-			}) %>
-			<%- include('_includes/article-excerpt', {
-				href: '/posts/example-post',
-				title: 'Scaling Gnome login screen on HiDPI display',
-				excerpt: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-				createdAt: '06/18/2023'
-			}) %>
+			<% collections.post.slice(-3).forEach((post) => { %>
+				<%- include('_includes/article-excerpt', {
+					href: post.page.url,
+					title: post.data.title,
+					excerpt: post.content,
+					createdAt: post.page.date
+				}) %>
+			<% }) %>
 		</div>
 		<div class="mt-20">
 			<a href="/posts/" class="inline-flex gap-2 items-center link group">
@@ -103,7 +93,7 @@ layout: root.hbs
 </section>
 
 <section id="projects" class="flex relative flex-col justify-center items-start min-h-screen">
-	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+	<div class="relative p-3 mx-auto w-full max-w-5xl" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">Projects</h2>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
 			<%- include('_includes/project-preview', {
