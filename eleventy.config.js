@@ -1,15 +1,18 @@
-const markdownIt = require('markdown-it');
+const markdownIt = require('markdown-it')
 
 module.exports = function (config) {
-	config.addPlugin(require("@11ty/eleventy-plugin-vite"), {
-		plugins: []
-	});
-	config.setLibrary("md", markdownIt({
-    html: true,
-    breaks: true,
-    linkify: false,
-  }));
-	config.amendLibrary("md", mdLib => mdLib.use(require('markdown-it-highlightjs')));
+	config.addPlugin(require('@11ty/eleventy-plugin-vite'), {
+		plugins: [],
+	})
+	config.setLibrary(
+		'md',
+		markdownIt({
+			html: true,
+			breaks: true,
+			linkify: false,
+		})
+	)
+	config.amendLibrary('md', (mdLib) => mdLib.use(require('markdown-it-highlightjs')))
 	config.addPassthroughCopy('src/assets/images')
 	config.addPassthroughCopy({
 		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',
@@ -23,8 +26,10 @@ module.exports = function (config) {
 	config.addPassthroughCopy('src/style.css')
 	config.addWatchTarget('tailwind.config.js')
 
-	config.addLayoutAlias('root', 'root.hbs');
-	config.addLayoutAlias('blog', 'blog.hbs');
+	config.addLayoutAlias('root', 'root.hbs')
+	config.addLayoutAlias('blog', 'blog.hbs')
+
+	config.addShortcode('githubUrl', () => 'https://github.com/AlexAtHome')
 
 	return {
 		dir: {

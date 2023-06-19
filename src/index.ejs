@@ -4,7 +4,7 @@ eleventyImport:
 	collections: ["post"]
 ---
 
-<section id="calling-card" class="min-h-screen py-16 flex relative flex-col justify-center items-start">
+<section id="calling-card" class="py-20 flex relative flex-col justify-center items-start">
 	<div class="flex gap-12 items-end container max-w-4xl" role="presentation">
 		<img
 			src="https://github.com/AlexAtHome.png"
@@ -13,7 +13,7 @@ eleventyImport:
 			loading="lazy"
 		/>
 		<div class="flex flex-col gap-2 text-3xl">
-			Hi! I'm
+			<span class="text-lg">Hi! Welcome to my corner. I'm</span>
 			<span class="text-7xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
 				Alex Bolotskov
 			</span>
@@ -127,6 +127,6 @@ eleventyImport:
 	const frontPageLink = document.querySelector('#front-page-link')
 	frontPageLink.addEventListener('click', event => {
 		event.preventDefault()
-		scrollTo({ behavior: 'smooth' })
+		scrollTo({ top: 0, behavior: 'smooth' })
 	})
 </script>

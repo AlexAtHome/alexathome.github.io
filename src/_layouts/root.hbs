@@ -15,24 +15,41 @@ title: Alex Bolotskov
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
 </head>
 <body>
-	<main class="min-h-screen bg-cover bg-gradient-to-br from-base to-40%" role="presentation">
-		<header class="fixed right-0 top-0 z-100">
-			<nav class="flex flex-col relative">
-				<a id="front-page-link" href="/" class="p-3 pb-1 inline-flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity" role="button">
-					<img
-						src="https://github.com/AlexAtHome.png"
-						alt="github profile"
-						class="block self-center object-fill w-4 h-4 rounded-full outline-pink outline outline-2 outline-offset-4"
-						loading="lazy"
-					/>
-				</a>
-				<button class="p-3">
-					<svg class="inline-block bi w-4 h-4" fill="currentColor">
-						<use xlink:href="/assets/icons/bootstrap.svg#list" />
-					</svg>
-				</button>
+	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-base to-40%" role="presentation">
+		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
+			<nav class="sticky top-0 bg-base/50 backdrop-blur">
+				<div class="container flex flex-row justify-between items-center gap-12 h-16">
+					<div class="flex flex-row items-center gap-4">
+						<a id="front-page-link" href="/" class="ml-1 pr-3 box-content group inline-flex items-center gap-4 transition-opacity" role="button">
+							<img
+								src="https://github.com/AlexAtHome.png"
+								alt="github profile"
+								class="block self-center object-fill w-6 h-6 rounded-full outline-pink outline outline-2 outline-offset-4"
+								loading="lazy"
+							/>
+							<span class="link before:bg-pink/50 text-pink group-hover:before:h-full group-hover:before:top-0 group-hover:before:text-white">Alex's corner</span>
+							
+						</a>
+					</div>
+
+					<ul class="flex justify-center items-center gap-8">
+						<li>
+							<a class="link text-sm text-white before:bg-pink/50 visited:text-current" href="/posts/">Posts</a>
+						</li>
+						<li>
+							<a class="link text-sm text-white before:bg-pink/50 visited:text-current" href="/#projects">Projects</a>
+						</li>
+						<li>
+							<a class="hover:text-pink" href="{{ githubUrl }}" target="_blank">
+								<svg class="inline-block bi w-6 h-6 text-inherit" fill="currentColor">
+									<use xlink:href="/assets/icons/bootstrap.svg#github" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</nav>
-		</header>
+		</div>
 		{{{ content }}}
 	</main>
 	<script type="module" src="/main.js"></script>
