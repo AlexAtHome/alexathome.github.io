@@ -5,53 +5,39 @@
 @layer components {
 	.link {
 		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue visited:text-mauve hover:text-white;
-	}
+		
+		&::before {
+			content: '';
+			@apply absolute w-full h-1 bg-blue/50 top-full z-n1 transition-all;
+		}
 
-	.link::before {
-		content: '';
-		@apply absolute w-full h-1 bg-blue/50 top-full z-n1 transition-all;
-	}
-	
-	.link:hover::before {
-		@apply h-full top-0;
+		&:hover::before {
+			@apply h-full top-0;
+		}
 	}
 }
 
 :root {
 	font-size: 14px;
-}
 
-/* sm */
-@media (min-width: 640px) {
-	:root {
+	@screem sm {
 		font-size: 16px;
 	}
-}
 
-/* sm */
-@media (min-width: 768px) {
-	:root {
+	@screem md {
 		font-size: 18px;
 	}
-}
 
-/* lg */
-@media (min-width: 1024px) {
-	:root {
+	@screen lg {
 		font-size: 20px;
 	}
-}
 
-/* xl */
-@media (min-width: 1280px) {
-	:root {
+	@screen xl {
 		font-size: 22px;
 	}
-}
 
-/* 2xl */
-@media (min-width: 1536px) {
-	:root {
+	@screen 2xl {
 		font-size: 24px;
 	}
 }
+
