@@ -1,5 +1,7 @@
 ---
 layout: root.hbs
+eleventyImport:
+	collections: ["post"]
 ---
 
 <header class="py-12">
@@ -11,6 +13,17 @@ layout: root.hbs
 </header>
 
 <section class="flex relative flex-col justify-center items-start pb-16">
+	<nav class="container">
+		<ol class="flex gap-4">
+			<li><a class="link" href="/">Front page</a></li>
+			<li>
+				<svg class="inline-block bi w-4 h-4" fill="currentColor">
+					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
+				</svg>
+			</li>
+			<li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">Posts</a></li>
+		</ol>
+	</nav>
 	<div class="container" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
 			<% collections.post.forEach((post) => { %>

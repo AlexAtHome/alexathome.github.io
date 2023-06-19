@@ -12,6 +12,23 @@ layout: root
 </header>
 
 <article class="pb-16">
+	<nav class="container">
+		<ol class="flex gap-4">
+			<li><a class="link" href="/">Front page</a></li>
+			<li>
+				<svg class="inline-block bi w-4 h-4" fill="currentColor">
+					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
+				</svg>
+			</li>
+			<li><a class="link" href="/posts/">Posts</a></li>
+			<li>
+				<svg class="inline-block bi w-4 h-4" fill="currentColor">
+					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
+				</svg>
+			</li>
+			<li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
+		</ol>
+	</nav>
 	<div class="relative p-3 mx-auto w-full max-w-5xl box-border md-content" role="presentation">
 		{{{ content }}}
 	</div>
