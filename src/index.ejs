@@ -2,8 +2,8 @@
 layout: root
 ---
 
-<section id="calling-card" class="min-h-screen py-16 flex relative flex-col justify-center items-start bg-gradient-to-br from-base to-40%">
-	<div class="flex relative gap-12 items-end p-3 mx-auto mb-10 w-full max-w-4xl box-border" role="presentation">
+<section id="calling-card" class="min-h-screen py-16 flex relative flex-col justify-center items-start">
+	<div class="flex gap-12 items-end container max-w-4xl" role="presentation">
 		<img
 			src="https://github.com/AlexAtHome.png"
 			alt="github profile"
@@ -69,7 +69,7 @@ layout: root
 </section>
 
 <section id="articles" class="flex relative flex-col justify-center items-start min-h-screen">
-	<div class="relative p-3 mx-auto w-full max-w-5xl box-border" role="presentation">
+	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
 		<div class="grid grid-cols-2 gap-8">
 			<% collections.post.slice(-3).forEach((post) => { %>
@@ -93,7 +93,7 @@ layout: root
 </section>
 
 <section id="projects" class="flex relative flex-col justify-center items-start min-h-screen">
-	<div class="relative p-3 mx-auto w-full max-w-5xl" role="presentation">
+	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">Projects</h2>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
 			<%- include('_includes/project-preview', {

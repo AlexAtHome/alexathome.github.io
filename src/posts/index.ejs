@@ -2,8 +2,8 @@
 layout: root.hbs
 ---
 
-<header class="my-12">
-	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+<header class="py-12">
+	<div class="container" role="presentation">
 		<h1 class="inline-flex flex-col gap-4 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-bl text-accent from-pink to-red">
 			Hello, visitor. This is my blog.
 		</h1>
@@ -11,7 +11,7 @@ layout: root.hbs
 </header>
 
 <section class="flex relative flex-col justify-center items-start pb-16">
-	<div class="relative p-3 mx-auto w-full max-w-5xl sm:p-4 sm:pl-12 box-border" role="presentation">
+	<div class="container" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
 			<% collections.post.forEach((post) => { %>
 				<%- include('../_includes/article-excerpt', {
