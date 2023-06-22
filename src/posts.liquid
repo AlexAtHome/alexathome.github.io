@@ -1,7 +1,9 @@
 ---
 layout: root
+eleventyImport:
+  collections: ["post"]
 pagination:
-  data: collections.post
+  data: collections.all
   size: 6
 	alias: posts
 	reverse: true
