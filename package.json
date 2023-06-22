@@ -1,31 +1,32 @@
 {
-  "name": "blog",
-  "version": "2.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "eleventy --watch --serve --incremental",
-    "build": "eleventy"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-vite": "^4.0.0",
-    "@catppuccin/tailwindcss": "^0.1.1",
-    "bootstrap-icons": "^1.10.5",
-    "markdown-it-highlightjs": "^4.0.1",
-    "markdown-it-prism": "^2.3.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "prettier": "2.8.8",
-    "stylelint": "^15.8.0",
-    "stylelint-config-standard": "^33.0.0",
-    "stylelint-config-tailwindcss": "^0.0.7",
-    "tailwindcss": "^3.3.2"
-  }
+	"name": "blog",
+	"version": "2.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 0",
+		"start": "eleventy --watch --serve --incremental",
+		"debug": "DEBUG=Eleventy* npm run start",
+		"build": "eleventy"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy-plugin-vite": "^4.0.0",
+		"@catppuccin/tailwindcss": "^0.1.1",
+		"bootstrap-icons": "^1.10.5",
+		"markdown-it-highlightjs": "^4.0.1",
+		"markdown-it-prism": "^2.3.0"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.24",
+		"prettier": "2.8.8",
+		"stylelint": "^15.8.0",
+		"stylelint-config-standard": "^33.0.0",
+		"stylelint-config-tailwindcss": "^0.0.7",
+		"tailwindcss": "^3.3.2"
+	}
 }

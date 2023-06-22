@@ -1,5 +1,5 @@
 ---
-layout: root.hbs
+layout: root
 eleventyImport:
 	collections: ["post"]
 ---
@@ -26,14 +26,15 @@ eleventyImport:
 	</nav>
 	<div class="container" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
-			<% collections.post.forEach((post) => { %>
-				<%- include('../_includes/article-excerpt', {
+			{%- for post in collections.post reversed limit: 10 offset:0 -%}
+				{%
+					render 'article-excerpt',
 					href: post.url,
 					title: post.data.title,
 					excerpt: post.content,
-					createdAt: post.date
-				}) %>
-			<% }) %>
+					createdAt: post.page.date
+				%}
+			{%- endfor -%}
 		</div>
 	</div>
 </section>

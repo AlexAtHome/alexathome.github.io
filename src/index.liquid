@@ -13,10 +13,10 @@ eleventyImport:
 			loading="lazy"
 		/>
 		<div class="flex flex-col gap-2 text-3xl">
-			<span class="text-lg">Hi! Welcome to my corner. I'm</span>
-			<span class="text-7xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
-				Alex Bolotskov
-			</span>
+			<h1>
+				<div class="text-lg" role="presentation">Hi! Welcome to my corner. I'm</div>
+				<strong class="block text-7xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">Alex Bolotskov</strong>
+			</h1>
 			<ul class="flex gap-6 items-center text-sm">
 				<li>26 y.o.</li>
 				<li>
@@ -26,27 +26,14 @@ eleventyImport:
 					he/him
 				</li>
 				<li class="inline-flex gap-2">
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#angular"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#react"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#js"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#ts"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#node"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#html"/>
-					</svg>
-					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-						<use xlink:href="/assets/icons/langs.svg#css"/>
-					</svg>
+					{% assign langs = "angular,react,js,ts,node,html,css" | split: ","  %}
+					{% for lang in langs %}
+						<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
+							<use xlink:href="/assets/icons/langs.svg#{{- lang -}}"/>
+						</svg>
+					{% else %}
+						what
+					{% endfor %}
 				</li>
 			</ul>
 			<p>A frontend dev, a passionate gamer and&nbsp;a&nbsp;proud Linux user.</p>
@@ -80,14 +67,15 @@ eleventyImport:
 	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
 		<div class="grid grid-cols-2 gap-8">
-			<% collections.post.slice(-3).forEach((post) => { %>
-				<%- include('/article-excerpt', {
+			{%- for post in collections.post reversed limit: 3 offset:0 -%}
+				{%
+					render 'article-excerpt',
 					href: post.url,
 					title: post.data.title,
 					excerpt: post.content,
-					createdAt: post.date
-				}) %>
-			<% }) %>
+					createdAt: post.page.date
+				%}
+			{%- endfor -%}
 		</div>
 		<div class="mt-20">
 			<a href="/posts/" class="inline-flex gap-2 items-center link group">
@@ -104,27 +92,27 @@ eleventyImport:
 	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">Projects</h2>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-			<%- include('_includes/project-preview', {
+			{% render 'project-preview',
 				name: "viewport",
 				description: "Just a webpage that shows the current viewport and screen resolution",
 				sourceCodeUrl: "https://github.com/AlexAtHome/viewport",
 				webpageUrl: "https://alexathome.github.io/viewport/",
 				icon: 'arrows-fullscreen'
-			}) %>
-			<%- include('_includes/project-preview', {
+			%}
+			{% render 'project-preview',
 				name: "json",
 				description: "JSON format tool",
 				sourceCodeUrl: "https://github.com/AlexAtHome/json",
 				webpageUrl: "https://alexathome.github.io/json/",
 				icon: 'braces'
-			}) %>
-			<%- include('_includes/project-preview', {
+			%}
+			{% render 'project-preview', 
 				name: "vscode-fish-text",
 				description: "Soviet style text generator for Visual Studio Code",
 				sourceCodeUrl: "https://github.com/AlexAtHome/vscode-fish-text",
 				webpageUrl: "https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text",
 				icon: 'body-text'
-			}) %>
+			%}
 		</div>
 	</div>
 </section>

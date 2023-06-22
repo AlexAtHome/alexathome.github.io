@@ -1,11 +1,13 @@
 <div class="flex relative flex-col gap-2 p-4 pr-16 rounded-lg text-md bg-base">
-	<a class="inline-flex gap-2 items-center text-2xl font-bold" target="_blank" href="<%= webpageUrl || sourceCodeUrl %>">
-		<h3><%= name %></h3>
+	<a class="inline-flex gap-2 items-center text-2xl font-bold" target="_blank" href="{{ webpageUrl | default: sourceCodeUrl }}">
+		<h3>{{ name }}</h3>
 	</a>
-	<div class="text-sm line-clamp-2"><%= description %></div>
+	{{ if description }}
+	<div class="text-sm line-clamp-2">{{ description }}</div>
+	{{ endif }}
 	<ul class="flex gap-4 mt-auto">
 		<li>
-			<a href="<%= sourceCodeUrl %>" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
+			<a href="{{ sourceCodeUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
 				<svg class="bi w-[1em] h-[1em]" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#github" />
 				</svg>
@@ -13,7 +15,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="<%= webpageUrl %>" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
+			<a href="{{ webpageUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
 				<svg class="bi w-[1em] h-[1em]" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#globe2" />
 				</svg>
@@ -22,6 +24,6 @@
 		</li>
 	</ul>
 	<svg class="inline-flex absolute bottom-2 right-4 w-16 h-16 text-4xl opacity-30 rotate-12 bi" fill="currentColor">
-		<use xlink:href="/assets/icons/bootstrap.svg#<%= icon %>" />
+		<use xlink:href="/assets/icons/bootstrap.svg#{{ icon }}" />
 	</svg>
 </div>
