@@ -28,10 +28,10 @@ eleventyImport:
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
 			<% collections.post.forEach((post) => { %>
 				<%- include('../_includes/article-excerpt', {
-					href: post.page.url,
+					href: post.url,
 					title: post.data.title,
 					excerpt: post.content,
-					createdAt: post.page.date
+					createdAt: post.date
 				}) %>
 			<% }) %>
 		</div>

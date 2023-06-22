@@ -81,11 +81,11 @@ eleventyImport:
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
 		<div class="grid grid-cols-2 gap-8">
 			<% collections.post.slice(-3).forEach((post) => { %>
-				<%- include('_includes/article-excerpt', {
-					href: post.page.url,
+				<%- include('/article-excerpt', {
+					href: post.url,
 					title: post.data.title,
 					excerpt: post.content,
-					createdAt: post.page.date
+					createdAt: post.date
 				}) %>
 			<% }) %>
 		</div>

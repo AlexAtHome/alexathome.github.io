@@ -26,6 +26,8 @@ module.exports = function (config) {
 	config.addPassthroughCopy('src/style.css')
 	config.addWatchTarget('tailwind.config.js')
 
+	console.log('config file here')
+
 	config.addLayoutAlias('root', 'root.hbs')
 	config.addLayoutAlias('blog', 'blog.hbs')
 
