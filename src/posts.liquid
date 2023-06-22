@@ -1,7 +1,11 @@
 ---
 layout: root
-eleventyImport:
-	collections: ["post"]
+pagination:
+  data: collections.post
+  size: 6
+	alias: posts
+	reverse: true
+	permalink: "posts/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}{% endif %}/index.html"
 ---
 
 <header class="py-12">
@@ -20,13 +24,12 @@ eleventyImport:
 				<svg class="inline-block bi w-4 h-4" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
 				</svg>
-			</li>
-			<li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">Posts</a></li>
+			</li> <li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">Posts</a></li>
 		</ol>
 	</nav>
 	<div class="container" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
-			{%- for post in collections.post reversed limit: 10 offset:0 -%}
+			{%- for post in pagination.items -%}
 				{%
 					render 'article-excerpt',
 					href: post.url,
@@ -37,4 +40,30 @@ eleventyImport:
 			{%- endfor -%}
 		</div>
 	</div>
+
+	{%- if pagination.hrefs.length > 1 -%}
+	<nav class="block relative w-full mt-16">
+		<ul class="flex justify-center items-center gap-4">
+			<li class="contents">
+				<a class="{% unless pagination.href.previous %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 rounded-sm min-w-8 inline-flex items-center justify-center bg-base" href="{{ pagination.href.previous }}">
+					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
+						<use xlink:href="/assets/icons/bootstrap.svg#arrow-left-short"/>
+					</svg>
+				</a>
+			</li>
+			{%- for url in pagination.hrefs -%}
+				<li class="contents">
+					<a {% if page.url == url %}aria-current="page"{% endif %} class="px-2 rounded-sm min-w-8 h-8 inline-flex items-center justify-center {% if page.url == url %}bg-pink text-black{% else %}bg-base{% endif %}" href="{{ url }}">{{ forloop.index }}</a>
+				</li>
+			{%- endfor -%}
+			<li class="contents">
+				<a class="{% unless pagination.href.next %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 min-w-8 rounded-sm inline-flex items-center justify-center bg-base" href="{{ pagination.href.next }}">
+					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
+						<use xlink:href="/assets/icons/bootstrap.svg#arrow-right-short"/>
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	{%- endif -%}
 </section>
