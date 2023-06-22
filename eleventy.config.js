@@ -13,6 +13,10 @@ module.exports = function (config) {
 		})
 	)
 	config.amendLibrary('md', (mdLib) => mdLib.use(require('markdown-it-highlightjs')))
+	config.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "<!-- excerpt -->"
+  });
 	config.addPassthroughCopy('src/assets/images')
 	config.addPassthroughCopy({
 		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',
@@ -22,6 +26,8 @@ module.exports = function (config) {
 	})
 	config.addWatchTarget('src/style.css')
 	config.addWatchTarget('src/main.js')
+	config.addWatchTarget('src/images')
+	config.addPassthroughCopy('src/images')
 	config.addPassthroughCopy('src/main.js')
 	config.addPassthroughCopy('src/style.css')
 	config.addWatchTarget('tailwind.config.js')

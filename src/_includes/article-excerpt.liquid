@@ -8,7 +8,7 @@
 		<div class="text-sm text-stone-400">Created at: <time>{{ createdAt | date : "%b %d %Y" }}</time></div>
 	</header>
 	{{ if excerpt }}
-	<div class="line-clamp-2 w-full">{{ excerpt }}</div>
+	<div class="line-clamp-2 w-full">{{ excerpt | strip_html | truncate: 120 }}</div>
 	{{ endif }}
 	<a href="{{ href }}" class="link">
 		Read the whole article
