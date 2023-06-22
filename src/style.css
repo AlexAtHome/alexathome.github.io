@@ -85,7 +85,7 @@
 		}
 
 		code:not(.hljs) {
-			@apply box-content bg-crust/80 backdrop-blur py-0.5 px-2 border-crust rounded-md;
+			@apply box-content backdrop-blur border-crust rounded-md text-[.8em] dark:text-pink text-red;
 		}
 	}
 }
