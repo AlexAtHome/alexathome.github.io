@@ -17,8 +17,8 @@ title: Alex Bolotskov
 <body>
 	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-base to-40%" role="presentation">
 		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
-			<nav class="sticky top-0 bg-base/50 backdrop-blur">
-				<div class="container flex flex-row justify-between items-center gap-12 h-16">
+			<nav class="relative w-full bg-base/50 backdrop-blur border-b-crust" id="navbar">
+				<div class="container flex flex-row justify-between items-center gap-12 h-12">
 					<div class="flex flex-row items-center gap-4">
 						<a id="front-page-link" href="/" class="ml-1 pr-3 box-content group inline-flex items-center gap-4 transition-opacity" role="button">
 							<img
@@ -34,10 +34,10 @@ title: Alex Bolotskov
 
 					<ul class="flex justify-center items-center gap-8">
 						<li>
-							<a class="link text-sm text-white before:bg-pink/50 visited:text-current" href="/posts/">Posts</a>
+							<a class="link text-sm text-white before:bg-pink hover:text-black visited:text-current" href="/posts/">Posts</a>
 						</li>
 						<li>
-							<a class="link text-sm text-white before:bg-pink/50 visited:text-current" href="/#projects">Projects</a>
+							<a class="link text-sm text-white before:bg-pink hover:text-black visited:text-current" href="/#projects">Projects</a>
 						</li>
 						<li>
 							<a class="hover:text-pink" href="{{ githubUrl }}" target="_blank">
