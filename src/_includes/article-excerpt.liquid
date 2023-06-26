@@ -12,8 +12,6 @@
 	{{ endif }}
 	<a href="{{ href }}" class="link">
 		Read the whole article
-		<svg class="inline-block bi" width="32" height="32" fill="currentColor">
-			<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
-		</svg>
+		{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
 	</a>
 </article>

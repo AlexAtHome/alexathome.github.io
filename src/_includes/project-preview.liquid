@@ -8,17 +8,13 @@
 	<ul class="flex gap-4 mt-auto">
 		<li>
 			<a href="{{ sourceCodeUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
-				<svg class="bi w-[1em] h-[1em]" fill="currentColor">
-					<use xlink:href="/assets/icons/bootstrap.svg#github" />
-				</svg>
+				{% render 'icon', icon: 'github', className: 'bi w-[1em] h-[1em]' %}
 				Repository
 			</a>
 		</li>
 		<li>
 			<a href="{{ webpageUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
-				<svg class="bi w-[1em] h-[1em]" fill="currentColor">
-					<use xlink:href="/assets/icons/bootstrap.svg#globe2" />
-				</svg>
+				{% render 'icon', icon: 'globe2', className: 'bi w-[1em] h-[1em]' %}
 				Website
 			</a>
 		</li>

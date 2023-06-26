@@ -20,9 +20,7 @@ eleventyImport:
 			<ul class="flex gap-6 flex-wrap items-center text-sm">
 				<li>26 y.o.</li>
 				<li>
-					<svg class="inline-block bi w-[1em] h-[1em]" fill="currentColor">
-						<use xlink:href="/assets/icons/bootstrap.svg#gender-male" />
-					</svg>
+					{% render 'icon', icon: 'gender-male', className: 'inline-block w-[1em] h-[1em]' %}
 					he/him
 				</li>
 				<li class="inline-flex gap-2">
@@ -31,8 +29,6 @@ eleventyImport:
 						<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
 							<use xlink:href="/assets/icons/langs.svg#{{- lang -}}"/>
 						</svg>
-					{% else %}
-						what
 					{% endfor %}
 				</li>
 			</ul>
@@ -41,20 +37,15 @@ eleventyImport:
 				I like
 				<ul>
 					<li>
-						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
-							<use xlink:href="/assets/icons/bootstrap.svg#code-slash" />
-						</svg> coding
+						{% render 'icon', icon: 'code-slash', className: 'inline-block w-8 h-8' %}
+						coding
 					</li>
 					<li>
-						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
-							<use xlink:href="/assets/icons/bootstrap.svg#bicycle" />
-						</svg>
+						{% render 'icon', icon: 'bicycle', className: 'inline-block w-8 h-8' %}
 						cycles
 					</li>
 					<li>
-						<svg class="inline-block w-8 h-8 bi" fill="currentColor">
-							<use xlink:href="/assets/icons/bootstrap.svg#keyboard" />
-						</svg>
+						{% render 'icon', icon: 'keyboard', className: 'inline-block w-8 h-8' %}
 						and good keyboards
 					</li>
 				</ul>
@@ -80,9 +71,7 @@ eleventyImport:
 		<div class="mt-20">
 			<a href="/posts/" class="inline-flex gap-2 items-center link group">
 				More articles
-				<svg class="inline-block bi w-[1em] h-[1em]" fill="currentColor">
-					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
-				</svg>
+				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-[1em] h-[1em]' %}
 			</a>
 		</div>
 	</div>
