@@ -8,7 +8,7 @@
 	}
 
 	.link {
-		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue visited:text-mauve transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:bg-blue/50 before:top-full before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
+		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue visited:text-mauve px-2 transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:bg-blue/50 before:top-full before:left-0 before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
 	}
 
 	.md-content {
