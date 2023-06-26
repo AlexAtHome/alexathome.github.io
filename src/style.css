@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 @layer components {
+	:root {
+		font-size: 18px;
+		scroll-behavior: smooth;
+
+		@screen lg {
+			font-size: 20px;
+		}
+
+		@screen xl {
+			font-size: 22px;
+		}
+
+		@screen 2xl {
+			font-size: 24px;
+		}
+	}
+
 	.container {
 		@apply relative p-3 mx-auto w-full max-w-5xl box-border;
 	}
@@ -40,7 +57,7 @@
 		}
 
 		a {
-			@apply link;
+			@apply link p-0 before:h-0.5 leading-tight before:top-[1.2em];
 		}
 
 		s {
@@ -87,22 +104,5 @@
 		code:not(.hljs) {
 			@apply box-content backdrop-blur border-crust rounded-md text-[.8em] dark:text-pink text-red;
 		}
-	}
-}
-
-:root {
-	font-size: 18px;
-	scroll-behavior: smooth;
-
-	@screen lg {
-		font-size: 20px;
-	}
-
-	@screen xl {
-		font-size: 22px;
-	}
-
-	@screen 2xl {
-		font-size: 24px;
 	}
 }
