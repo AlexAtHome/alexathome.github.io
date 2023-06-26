@@ -91,11 +91,8 @@
 }
 
 :root {
-	font-size: 16px;
-
-	@screen md {
-		font-size: 18px;
-	}
+	font-size: 18px;
+	scroll-behavior: smooth;
 
 	@screen lg {
 		font-size: 20px;

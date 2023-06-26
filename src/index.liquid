@@ -5,19 +5,19 @@ eleventyImport:
 ---
 
 <section id="calling-card" class="py-16 flex relative flex-col justify-center items-start">
-	<div class="flex flex-col lg:flex-row-reverse gap-12 items-end container max-w-4xl" role="presentation">
+	<div class="flex flex-col lg:flex-row-reverse gap-12 items-center container max-w-4xl" role="presentation">
 		<img
 			src="https://github.com/AlexAtHome.png"
 			alt="github profile"
-			class="block object-fill lg:mt-4 self-start w-42 h-42 lg:w-36 lg:h-36 rounded-full outline-pink outline outline-4 outline-offset-8 mx-auto"
+			class="block object-fill lg:mt-4 self-start w-36 h-36 rounded-full outline-pink outline outline-4 outline-offset-8 mx-auto"
 			loading="lazy"
 		/>
 		<div class="flex flex-col gap-2 text-3xl">
 			<h1>
 				<div class="text-lg" role="presentation">Hi! Welcome to my corner. I'm</div>
-				<strong class="block text-7xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">Alex Bolotskov</strong>
+				<strong class="block text-6xl sm:text-7xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">Alex Bolotskov</strong>
 			</h1>
-			<ul class="flex gap-6 items-center text-sm">
+			<ul class="flex gap-6 flex-wrap items-center text-sm">
 				<li>26 y.o.</li>
 				<li>
 					<svg class="inline-block bi w-[1em] h-[1em]" fill="currentColor">
@@ -66,7 +66,7 @@ eleventyImport:
 <section id="articles" class="flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
-		<div class="grid grid-cols-2 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			{%- for post in collections.post reversed limit: 3 offset:0 -%}
 				{%
 					render 'article-excerpt',

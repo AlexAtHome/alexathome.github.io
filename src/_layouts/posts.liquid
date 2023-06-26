@@ -22,7 +22,7 @@ pagination:
 </header>
 
 <section class="flex relative flex-col justify-center items-start pb-16">
-	<nav class="container flex gap-4 justify-between items-center">
+	<nav class="container flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
 		<ol class="inline-flex gap-4">
 			<li><a class="link" href="/">Front page</a></li>
 			<li>
@@ -53,7 +53,7 @@ pagination:
 		</ul>
 	</nav>
 	<div class="container" role="presentation">
-		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
 			{%- for post in pagination.items -%}
 				{%
 					render 'article-excerpt',
@@ -67,8 +67,8 @@ pagination:
 	</div>
 
 	{%- if pagination.hrefs.length > 1 -%}
-	<nav class="block relative w-full mt-16">
-		<ul class="flex justify-center items-center gap-4">
+	<nav class="block relative w-full mt-16 px-4">
+		<ul class="flex justify-center flex-wrap items-center gap-4">
 			<li class="contents">
 				<a class="{% unless pagination.href.previous %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 rounded-sm min-w-8 inline-flex items-center justify-center bg-base" href="{{ pagination.href.previous }}">
 					<svg class="w-6 h-6" width="32" height="32" fill="currentColor">

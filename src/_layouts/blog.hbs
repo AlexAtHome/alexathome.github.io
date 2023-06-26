@@ -7,26 +7,26 @@ layout: root
 
 <header class="py-12">
 	<div class="relative p-3 mx-auto w-full max-w-5xl box-border" role="presentation">
-		<h1 class="text-6xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br bg-red from-red to-pink">{{ title }}</h1>
+		<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br bg-red from-red to-pink">{{ title }}</h1>
 	</div>
 </header>
 
 <article class="pb-16">
 	<nav class="container">
-		<ol class="flex gap-4">
-			<li><a class="link" href="/">Front page</a></li>
+		<ol class="flex gap-4 flex-wrap">
+			<li><a class="link whitespace-nowrap" href="/">Front page</a></li>
 			<li>
 				<svg class="inline-block bi w-4 h-4" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
 				</svg>
 			</li>
-			<li><a class="link" href="/posts/">Posts</a></li>
+			<li><a class="link whitespace-nowrap" href="/posts/">Posts</a></li>
 			<li>
 				<svg class="inline-block bi w-4 h-4" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
 				</svg>
 			</li>
-			<li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
+			<li><a class="pointer-events-none text-inherit max-w-xs md:max-w-sm block overflow-hidden whitespace-nowrap overflow-ellipsis" href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
 		</ol>
 	</nav>
 	<div class="relative p-3 mx-auto w-full max-w-5xl box-border md-content" role="presentation">
