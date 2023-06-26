@@ -23,11 +23,11 @@ eleventyImport:
 					{% render 'icon', icon: 'gender-male', className: 'inline-block w-[1em] h-[1em]' %}
 					he/him
 				</li>
-				<li class="inline-flex gap-2">
+				<li class="inline-flex gap-2" aria-label="Specialty">
 					{% assign langs = "angular,react,js,ts,node,html,css" | split: ","  %}
 					{% for lang in langs %}
-						<svg class="w-6 h-6" width="32" height="32" fill="currentColor">
-							<use xlink:href="/assets/icons/langs.svg#{{- lang -}}"/>
+						<svg class="w-6 h-6" width="32" height="32" fill="currentColor" role="presentation" aria-label="{{ lang }}">
+							<use xlink:href="/assets/icons/langs.svg#{{- lang -}}" />
 						</svg>
 					{% endfor %}
 				</li>
