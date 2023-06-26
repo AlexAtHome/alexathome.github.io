@@ -2,9 +2,9 @@
 	<a class="inline-flex gap-2 items-center text-2xl font-bold" target="_blank" href="{{ webpageUrl | default: sourceCodeUrl }}">
 		<h3>{{ name }}</h3>
 	</a>
-	{{ if description }}
+	{% if description %}
 	<div class="text-sm line-clamp-2">{{ description }}</div>
-	{{ endif }}
+	{% endif %}
 	<ul class="flex gap-4 mt-auto">
 		<li>
 			<a href="{{ sourceCodeUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
@@ -12,12 +12,14 @@
 				Repository
 			</a>
 		</li>
+		{% if webpageUrl %}
 		<li>
 			<a href="{{ webpageUrl }}" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
 				{% render 'icon', icon: 'globe2', className: 'bi w-[1em] h-[1em]' %}
 				Website
 			</a>
 		</li>
+		{% endif %}
 	</ul>
 	<svg class="inline-flex absolute bottom-2 right-4 w-16 h-16 text-4xl opacity-30 rotate-12 bi" fill="currentColor" role="presentation">
 		<use xlink:href="/assets/icons/bootstrap.svg#{{ icon }}" />

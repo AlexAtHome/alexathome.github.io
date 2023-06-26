@@ -54,7 +54,7 @@ eleventyImport:
 	</div>
 </section>
 
-<section id="articles" class="flex relative flex-col justify-center items-start min-h-screen">
+<section id="articles" class="py-8 flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -77,7 +77,7 @@ eleventyImport:
 	</div>
 </section>
 
-<section id="projects" class="flex relative flex-col justify-center items-start min-h-screen">
+<section id="projects" class="py-8 flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
 		<h2 class="mb-20 text-5xl font-bold text-pink">Projects</h2>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
@@ -101,6 +101,26 @@ eleventyImport:
 				sourceCodeUrl: "https://github.com/AlexAtHome/vscode-fish-text",
 				webpageUrl: "https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text",
 				icon: 'body-text'
+			%}
+			{% render 'project-preview', 
+				name: "sitealert",
+				description: "A Python script that checks if the given URL does not return the 4xx or 5xx status.",
+				sourceCodeUrl: "https://github.com/AlexAtHome/sitealert",
+				icon: 'exclamation-diamond'
+			%}
+			{% render 'project-preview', 
+				name: "keycap",
+				description: "Keyboard testing app",
+				sourceCodeUrl: "https://github.com/AlexAtHome/keycap",
+				webpageUrl: "https://alexathome.github.io/keycap/",
+				icon: 'keyboard'
+			%}
+			{% render 'project-preview', 
+				name: "minecraft-steve",
+				description: "WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS"
+				sourceCodeUrl: "https://github.com/AlexAtHome/minecraft-steve",
+				webpageUrl: "https://alexathome.github.io/minecraft-steve/",
+				icon: 'joystick'
 			%}
 		</div>
 	</div>
