@@ -2,32 +2,55 @@
 layout: root
 eleventyImport:
   collections: ["post"]
+title: My findings
+tag: all
+breadcrumb: All
 pagination:
-  data: collections.all
+  data: collections.posts
   size: 6
 	alias: posts
 	reverse: true
-	permalink: "posts/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}{% endif %}/index.html"
+	permalink: "{{ tag }}/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}{% endif %}/index.html"
 ---
 
-<header class="py-12">
+<header class="py-8">
 	<div class="container" role="presentation">
 		<h1 class="inline-flex flex-col gap-4 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-bl text-accent from-pink to-red">
-			Hello, visitor. This is my blog.
+			{{ title }}
 		</h1>
 	</div>
 </header>
 
 <section class="flex relative flex-col justify-center items-start pb-16">
-	<nav class="container">
-		<ol class="flex gap-4">
+	<nav class="container flex gap-4 justify-between items-center">
+		<ol class="inline-flex gap-4">
 			<li><a class="link" href="/">Front page</a></li>
 			<li>
 				<svg class="inline-block bi w-4 h-4" fill="currentColor">
 					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
 				</svg>
-			</li> <li><a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">Posts</a></li>
+			</li>
+			<li>
+				{% if tag == 'posts' %}
+				<span href="/posts/" aria-current="page" class="pointer-events-none text-inherit">Posts</span>
+				{% else %}
+				<a class="link" href="/posts/">Posts</a>
+				{% endif %}
+			</li>
+			<li>
+				<svg class="inline-block bi w-4 h-4" fill="currentColor">
+					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
+				</svg>
+			</li>
+			<li>
+				<a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">{{ breadcrumb | escape }}</a>
+			</li>
 		</ol>
+
+		<ul class="inline-flex gap-4 text-sm">
+			<li><a class="link text-center" href="/posts/" {% if tag == 'posts' %}aria-current="page"{% endif %}>All posts</a></li>
+			<li><a class="link text-center" href="/linux/" {% if tag == 'linux' %}aria-current="page"{% endif %}>Linux</a></li>
+		</ul>
 	</nav>
 	<div class="container" role="presentation">
 		<div class="grid grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
@@ -55,7 +78,7 @@ pagination:
 			</li>
 			{%- for url in pagination.hrefs -%}
 				<li class="contents">
-					<a {% if page.url == url %}aria-current="page"{% endif %} class="px-2 rounded-sm min-w-8 h-8 inline-flex items-center justify-center {% if page.url == url %}bg-pink text-black{% else %}bg-base{% endif %}" href="{{ url }}">{{ forloop.index }}</a>
+					<a {% if page.url == url %}aria-current="page"{% endif %} class="px-2 rounded-sm w-10 h-8 inline-flex items-center justify-center {% if page.url == url %}bg-pink text-black{% else %}bg-base{% endif %}" href="{{ url }}">{{ forloop.index }}</a>
 				</li>
 			{%- endfor -%}
 			<li class="contents">

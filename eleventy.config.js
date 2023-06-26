@@ -34,6 +34,7 @@ module.exports = function (config) {
 
 	config.addLayoutAlias('root', 'root.hbs')
 	config.addLayoutAlias('blog', 'blog.hbs')
+	config.addLayoutAlias('posts', 'posts.liquid')
 
 	config.addShortcode('githubUrl', () => 'https://github.com/AlexAtHome')
 
