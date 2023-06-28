@@ -1,7 +1,7 @@
 ---
 layout: root
 eleventyImport:
-	collections: ["post"]
+	collections: ["postlist"]
 ---
 
 <section id="calling-card" class="py-16 flex relative flex-col justify-center items-start">
@@ -56,9 +56,9 @@ eleventyImport:
 
 <section id="articles" class="py-8 flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
-		<h2 class="mb-20 text-5xl font-bold text-pink">I write notes here</h2>
+		<h2 class="mb-20 text-5xl font-bold text-pink">Latest posts</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			{%- for post in collections.post reversed limit: 3 offset:0 -%}
+			{%- for post in collections.postlist limit:3 -%}
 				{%
 					render 'article-excerpt',
 					href: post.url,
@@ -67,12 +67,12 @@ eleventyImport:
 					createdAt: post.page.date
 				%}
 			{%- endfor -%}
-		</div>
-		<div class="mt-20">
-			<a href="/posts/" class="inline-flex gap-2 items-center link group">
-				More articles
-				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-[1em] h-[1em]' %}
-			</a>
+			<div class="inline-grid content-center justify-start">
+				<a href="/posts/" class="inline-flex gap-2 items-center link group">
+					More articles
+					{% render 'icon', icon: 'arrow-right', className: 'inline-block w-[1em] h-[1em]' %}
+				</a>
+			</div>
 		</div>
 	</div>
 </section>

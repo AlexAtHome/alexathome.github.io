@@ -12,11 +12,13 @@ module.exports = function (config) {
 			linkify: false,
 		})
 	)
+	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
+	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
 	config.amendLibrary('md', (mdLib) => mdLib.use(require('markdown-it-highlightjs')))
 	config.setFrontMatterParsingOptions({
-    excerpt: true,
-    excerpt_separator: "<!-- excerpt -->"
-  });
+		excerpt: true,
+		excerpt_separator: '<!-- excerpt -->',
+	})
 	config.addPassthroughCopy('src/assets/images')
 	config.addPassthroughCopy({
 		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',

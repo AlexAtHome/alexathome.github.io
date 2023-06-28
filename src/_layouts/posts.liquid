@@ -1,15 +1,10 @@
 ---
 layout: root
-eleventyImport:
-  collections: ["post"]
 title: My findings
 tag: all
 breadcrumb: All
 pagination:
-  data: collections.posts
   size: 6
-	alias: posts
-	reverse: true
 	permalink: "{{ tag }}/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}{% endif %}/index.html"
 ---
 
@@ -49,7 +44,7 @@ pagination:
 		</ul>
 	</nav>
 	<div class="container" role="presentation">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 md:grid-cols-2">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16">
 			{%- for post in pagination.items -%}
 				{%
 					render 'article-excerpt',
