@@ -1,17 +1,13 @@
 {
 	"name": "blog",
 	"version": "2.0.0",
-	"description": "",
-	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 0",
 		"start": "eleventy --watch --serve --incremental",
 		"debug": "DEBUG=Eleventy* npm run start",
 		"build": "eleventy"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"private": true,
 	"dependencies": {
 		"@11ty/eleventy": "^2.0.1",
 		"@11ty/eleventy-plugin-vite": "^4.0.0",
