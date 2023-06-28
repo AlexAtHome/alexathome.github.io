@@ -1,17 +1,17 @@
-const path = require('node:path')
 const markdownIt = require('markdown-it')
 const { ViteFaviconsPlugin } = require('vite-plugin-favicon2')
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
+		tempFolderName: ".11ty-vite",
 		viteOptions: {
 			plugins: [
 				ViteFaviconsPlugin({
-					logo: path.resolve(__dirname, 'src/images/pfp.png'),
+					logo: '.11ty-vite/images/pfp.png',
 					inject: true,
-					projectRoot: path.resolve(__dirname, '_site'),
-					outputPath: path.resolve(__dirname, '_site'),
+					projectRoot: '.11ty-vite',
+					outputPath: '_site',
 				}),
 			],
 		}
