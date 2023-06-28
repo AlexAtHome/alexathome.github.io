@@ -35,7 +35,7 @@ module.exports = function (config) {
 	config.addWatchTarget('tailwind.config.js')
 
 	config.addLayoutAlias('root', 'root.hbs')
-	config.addLayoutAlias('blog', 'blog.hbs')
+	config.addLayoutAlias('blog', 'blog.liquid')
 	config.addLayoutAlias('posts', 'posts.liquid')
 
 	config.addShortcode('githubUrl', () => 'https://github.com/AlexAtHome')
