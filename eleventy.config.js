@@ -1,8 +1,20 @@
+const path = require('node:path')
 const markdownIt = require('markdown-it')
+const { ViteFaviconsPlugin } = require('vite-plugin-favicon2')
+const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
 module.exports = function (config) {
-	config.addPlugin(require('@11ty/eleventy-plugin-vite'), {
-		plugins: [],
+	config.addPlugin(EleventyVitePlugin, {
+		viteOptions: {
+			plugins: [
+				ViteFaviconsPlugin({
+					logo: path.resolve(__dirname, 'src/images/pfp.png'),
+					inject: true,
+					projectRoot: path.resolve(__dirname, '_site'),
+					outputPath: path.resolve(__dirname, '_site'),
+				}),
+			],
+		}
 	})
 	config.setLibrary(
 		'md',
@@ -39,6 +51,7 @@ module.exports = function (config) {
 	config.addLayoutAlias('posts', 'posts.liquid')
 
 	config.addShortcode('githubUrl', () => 'https://github.com/AlexAtHome')
+	config.addShortcode('pfp', () => '/images/pfp.png')
 
 	return {
 		dir: {
