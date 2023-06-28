@@ -4,12 +4,8 @@
 
 @layer components {
 	:root {
-		font-size: 18px;
+		font-size: 20px;
 		scroll-behavior: smooth;
-
-		@screen lg {
-			font-size: 20px;
-		}
 
 		@screen xl {
 			font-size: 22px;
@@ -70,7 +66,11 @@
 
 		ol,
 		ul {
-			@apply pl-8;
+			@apply pl-6 box-border flex flex-col;
+		}
+
+		li {
+			@apply relative;
 		}
 
 		ul {
@@ -108,5 +108,9 @@
 		code:not(.hljs) {
 			@apply box-content backdrop-blur border-crust rounded-md text-[.8em] dark:text-pink text-red;
 		}
+
+		code.hljs {
+			@apply overflow-auto;
+			}
 	}
 }
