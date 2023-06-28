@@ -61,17 +61,17 @@ pagination:
 	<nav class="block relative w-full mt-16 px-4">
 		<ul class="flex justify-center flex-wrap items-center gap-4">
 			<li class="contents">
-				<a class="{% unless pagination.href.previous %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 rounded-sm min-w-8 inline-flex items-center justify-center bg-base" href="{{ pagination.href.previous }}" title="Previous page">
+				<a class="{% unless pagination.href.previous %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 rounded-sm min-w-8 inline-flex items-center justify-center bg-crust" href="{{ pagination.href.previous }}" title="Previous page">
 					{% render 'icon', icon: 'arrow-left-short', className: 'w-6 h-6' %}
 				</a>
 			</li>
 			{%- for url in pagination.hrefs -%}
 				<li class="contents">
-					<a {% if page.url == url %}aria-current="page"{% endif %} class="px-2 rounded-sm w-10 h-8 inline-flex items-center justify-center {% if page.url == url %}bg-pink text-black{% else %}bg-base{% endif %}" href="{{ url }}">{{ forloop.index }}</a>
+					<a {% if page.url == url %}aria-current="page"{% endif %} class="px-2 rounded-sm w-10 h-8 inline-flex items-center justify-center {% if page.url == url %}bg-pink text-black{% else %}bg-crust{% endif %}" href="{{ url }}">{{ forloop.index }}</a>
 				</li>
 			{%- endfor -%}
 			<li class="contents">
-				<a class="{% unless pagination.href.next %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 min-w-8 rounded-sm inline-flex items-center justify-center bg-base" href="{{ pagination.href.next }}" title="Next page">
+				<a class="{% unless pagination.href.next %}pointer-events-none opacity-40 text-gray-300{% endunless %} w-auto px-2 h-8 min-w-8 rounded-sm inline-flex items-center justify-center bg-crust" href="{{ pagination.href.next }}" title="Next page">
 					{% render 'icon', icon: 'arrow-right-short', className: 'w-6 h-6' %}
 				</a>
 			</li>
