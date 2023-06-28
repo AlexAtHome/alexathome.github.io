@@ -1,21 +1,15 @@
+const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const markdownIt = require('markdown-it')
-const { ViteFaviconsPlugin } = require('vite-plugin-favicon2')
-const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
+const faviconsPlugin = require('eleventy-plugin-gen-favicons')
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
-		tempFolderName: ".11ty-vite",
+		tempFolderName: '.11ty-vite',
 		viteOptions: {
-			plugins: [
-				ViteFaviconsPlugin({
-					logo: '.11ty-vite/images/pfp.png',
-					inject: true,
-					projectRoot: '.11ty-vite',
-					outputPath: '_site',
-				}),
-			],
-		}
+			plugins: [],
+		},
 	})
+	config.addPlugin(faviconsPlugin)
 	config.setLibrary(
 		'md',
 		markdownIt({
@@ -46,7 +40,7 @@ module.exports = function (config) {
 	config.addPassthroughCopy('src/style.css')
 	config.addWatchTarget('tailwind.config.js')
 
-	config.addLayoutAlias('root', 'root.hbs')
+	config.addLayoutAlias('root', 'root.liquid')
 	config.addLayoutAlias('blog', 'blog.liquid')
 	config.addLayoutAlias('posts', 'posts.liquid')
 
