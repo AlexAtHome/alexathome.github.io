@@ -25,7 +25,7 @@
 	}
 
 	.link {
-		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue visited:text-mauve px-2 transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:bg-blue/50 before:top-full before:left-0 before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
+		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue px-2 transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:bg-blue/50 before:top-full before:left-0 before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
 	}
 
 	.md-content {
@@ -36,8 +36,12 @@
 		}
 
 		h1,
-		h2 {
-			@apply my-2 font-bold text-pink leading-normal;
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@apply my-2 font-bold text-maroon dark:text-pink leading-normal;
 		}
 
 		h1 {

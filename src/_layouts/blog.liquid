@@ -9,7 +9,7 @@ date: git Created
 <header class="py-12">
 	<div class="relative p-3 mx-auto w-full max-w-5xl box-border" role="presentation">
 		<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br bg-red from-red to-pink">{{ title }}</h1>
-		<div class="text-slate-600 dark:text-slate-400 flex gap-8 items-center leading-tight mt-4">
+		<div class="text-slate-600 dark:text-slate-400 flex flex-wrap gap-x-8 gap-y-4 items-center leading-tight mt-4">
 			<span class="inline-flex gap-2 items-center">
 				{% render 'icon', icon: 'calendar2-date', className: 'inline-block w-[1em] h-[1em]', title: 'Posted at' %}
 				<time datetime="{{ page.date | date : "%Y-%m-%d" }}">{{ date | date : "%b %d %Y" }}</time>
@@ -17,10 +17,10 @@ date: git Created
 			{% if updatedAt %}
 				<span class="inline-flex gap-2 items-center">
 					{% render 'icon', icon: 'pencil', className: 'inline-block w-[1em] h-[1em]', title: 'Updated at' %}
-					<time datetime="{{ page.updatedAt | date : "%Y-%m-%d" }}">{{ updatedAt | date : "%b %d %Y" }}</time>
+					<time datetime="{{ updatedAt | date : "%Y-%m-%d" }}">{{ updatedAt | date : "%b %d %Y" }}</time>
 				</span>
 			{% endif %}
-			<span class="inline-flex gap-2 items-center">
+			<span class="inline-flex gap-2 items-center flex-wrap">
 			{% for tag in tags %}
 				{% unless tag == 'post' %}
 				<span class="inline-flex gap-2 items-center">

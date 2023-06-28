@@ -56,7 +56,7 @@ eleventyImport:
 
 <section id="articles" class="py-8 flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
-		<h2 class="mb-20 text-5xl font-bold text-pink">Latest posts</h2>
+		<h2 class="mb-20 text-5xl font-bold text-maroon dark:text-pink">Latest posts</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			{%- for post in collections.postlist limit:3 -%}
 				{%
@@ -79,7 +79,7 @@ eleventyImport:
 
 <section id="projects" class="py-8 flex relative flex-col justify-center items-start min-h-screen">
 	<div class="container" role="presentation">
-		<h2 class="mb-20 text-5xl font-bold text-pink">Projects</h2>
+		<h2 class="mb-20 text-5xl font-bold text-maroon dark:text-pink">Projects</h2>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
 			{% render 'project-preview',
 				name: "viewport",
