@@ -9,6 +9,28 @@ date: git Created
 <header class="py-12">
 	<div class="relative p-3 mx-auto w-full max-w-5xl box-border" role="presentation">
 		<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br bg-red from-red to-pink">{{ title }}</h1>
+		<div class="text-slate-600 dark:text-slate-400 flex gap-8 items-center leading-tight mt-4">
+			<span class="inline-flex gap-2 items-center">
+				{% render 'icon', icon: 'calendar2-date', className: 'inline-block w-[1em] h-[1em]', title: 'Posted at' %}
+				<time datetime="{{ page.date | date : "%Y-%m-%d" }}">{{ date | date : "%b %d %Y" }}</time>
+			</span>
+			{% if updatedAt %}
+				<span class="inline-flex gap-2 items-center">
+					{% render 'icon', icon: 'pencil', className: 'inline-block w-[1em] h-[1em]', title: 'Updated at' %}
+					<time datetime="{{ page.updatedAt | date : "%Y-%m-%d" }}">{{ updatedAt | date : "%b %d %Y" }}</time>
+				</span>
+			{% endif %}
+			<span class="inline-flex gap-2 items-center">
+			{% for tag in tags %}
+				{% unless tag == 'post' %}
+				<span class="inline-flex gap-2 items-center">
+					{% render 'icon', icon: 'tag', className: 'inline-block w-[1em] h-[1em]', title: 'Tag' %}
+					{{ tag }}
+				</span>
+				{% endunless %}
+			{% endfor %}
+			</span>
+		</div>
 	</div>
 </header>
 
@@ -17,15 +39,11 @@ date: git Created
 		<ol class="flex gap-4 flex-wrap">
 			<li><a class="link whitespace-nowrap" href="/">Front page</a></li>
 			<li aria-hidden="true">
-				<svg class="inline-block bi w-4 h-4" fill="currentColor" role="presentation">
-					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
-				</svg>
+				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
 			</li>
 			<li><a class="link whitespace-nowrap" href="/posts/">Posts</a></li>
 			<li aria-hidden="true">
-				<svg class="inline-block bi w-4 h-4" fill="currentColor" role="presentation">
-					<use xlink:href="/assets/icons/bootstrap.svg#arrow-right" />
-				</svg>
+				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
 			</li>
 			<li><a class="pointer-events-none text-inherit max-w-xs md:max-w-sm block overflow-hidden whitespace-nowrap overflow-ellipsis" href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
 		</ol>

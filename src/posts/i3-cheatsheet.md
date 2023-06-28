@@ -6,7 +6,7 @@ tags:
     - post
     - linux
 date: 2021-11-09
-updatedAt: git Last Modified
+updatedAt: 2023-06-28
 ---
 
 My own i3 cheatsheet.

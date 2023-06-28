@@ -1,3 +1,6 @@
-<svg class="{{ className | escape }}" fill="currentColor" role="presentation">
+<svg class="{{ className | escape }}" fill="currentColor" role="presentation" aria-label="{{ title | escape }}">
 	<use xlink:href="/assets/icons/bootstrap.svg#{{ icon | escape }}" />
 </svg>
+{% if title %}
+<span class="sr-only">{{ title | escape }}</span>
+{% endif %}

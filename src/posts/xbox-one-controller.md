@@ -7,7 +7,7 @@ tags:
     - linux
     - gaming
 date: 2021-11-09
-updatedAt: git Last Modified
+updatedAt: 2023-06-17
 ---
 
 You need to install the `xboxdrv` driver to make it work.

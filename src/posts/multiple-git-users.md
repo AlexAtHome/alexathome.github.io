@@ -7,7 +7,7 @@ layout: blog
 tags:
     - post
     - productivity
-updatedAt: git Last Modified
+updatedAt: 2023-06-27
 ---
 
 Sometimes you need to maintain different projects under different names.
