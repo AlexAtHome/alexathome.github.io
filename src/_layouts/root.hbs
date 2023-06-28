@@ -9,7 +9,7 @@ title: Alex Bolotskov
 	<meta name="generator" content="{{ eleventy.generator }}">
 	<title>{{ title }}</title>
 	<link rel="stylesheet" href="/assets/style.css">
-  <link rel="preload" href="https://github.com/AlexAtHome.png" as="image" />
+  <link rel="preload" href="{{ pfp }}" as="image" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
@@ -17,12 +17,11 @@ title: Alex Bolotskov
 <body>
 	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-base to-40%" role="presentation">
 		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
-			<nav class="relative w-full bg-base/50 backdrop-blur border-b-crust" id="navbar">
-				<div class="container flex flex-row justify-between items-center gap-4 h-12">
+			<nav class="relative w-full bg-base/50 backdrop-blur border-b-crust" id="navbar"> <div class="container flex flex-row justify-between items-center gap-4 h-12">
 					<div class="flex flex-row items-center gap-4">
 						<a id="front-page-link" href="/" class="ml-1 shrink-0 pr-3 box-content group inline-flex items-center gap-4 transition-opacity" role="button">
 							<img
-								src="https://github.com/AlexAtHome.png"
+								src="{{ pfp }}"
 								alt="github profile"
 								class="block self-center shrink-0 object-fill w-6 h-6 rounded-full outline-pink outline outline-2 outline-offset-4"
 								loading="lazy"
