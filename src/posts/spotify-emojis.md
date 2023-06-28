@@ -13,30 +13,30 @@ Works well in Spotify installed both from an apt repo and Flatpak. I didn't chec
 1. Install the font with color emojis (e.g. Noto Color Emoji).
 
 2. Now you need to let the system know about the emoji symbols. You need to create the file `~/.config/fontconfig/fonts.conf` with the following content:
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-    <fontconfig>
-      <alias>
-        <family>serif</family>
-        <prefer>
-          <family>Noto Color Emoji</family>
-        </prefer>
-      </alias>
-      <alias>
-        <family>sans-serif</family>
-        <prefer>
-          <family>Noto Color Emoji</family>
-        </prefer>
-      </alias>
-      <alias>
-        <family>monospace</family>
-        <prefer>
-          <family>Noto Color Emoji</family>
-        </prefer>
-      </alias>
-    </fontconfig>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias>
+    <family>serif</family>
+    <prefer>
+      <family>Noto Color Emoji</family>
+    </prefer>
+  </alias>
+  <alias>
+    <family>sans-serif</family>
+    <prefer>
+      <family>Noto Color Emoji</family>
+    </prefer>
+  </alias>
+  <alias>
+    <family>monospace</family>
+    <prefer>
+      <family>Noto Color Emoji</family>
+    </prefer>
+  </alias>
+</fontconfig>
+```
 
 3. Apply the configuration with the `fc-cache -f -v` command.
 4. Restart the app if it's running.
