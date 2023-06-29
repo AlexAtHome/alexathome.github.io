@@ -1,6 +1,7 @@
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const markdownIt = require('markdown-it')
 const faviconsPlugin = require('eleventy-plugin-gen-favicons')
+const eleventyTargetSafe = require("eleventy-plugin-target-safe");
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
@@ -10,6 +11,11 @@ module.exports = function (config) {
 		},
 	})
 	config.addPlugin(faviconsPlugin)
+	config.addPlugin(eleventyTargetSafe, {
+		opener: true,
+		follower: true,
+		referrer: true,
+	})
 	config.setLibrary(
 		'md',
 		markdownIt({
