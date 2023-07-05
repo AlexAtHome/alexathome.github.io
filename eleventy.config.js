@@ -37,6 +37,7 @@ module.exports = function (config) {
 		'node_modules/highlight.js/styles/github-dark.css': 'assets/github-dark.css',
 		'node_modules/highlight.js/styles/github.css': 'assets/github.css',
 		'src/icons': 'assets/icons',
+		'src/scripts': 'scripts',
 	})
 	config.addWatchTarget('src/style.css')
 	config.addWatchTarget('src/main.js')
