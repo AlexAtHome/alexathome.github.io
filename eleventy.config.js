@@ -6,6 +6,7 @@ const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const eleventyHTMLValidate = require('eleventy-plugin-html-validate');
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
@@ -21,6 +22,9 @@ module.exports = function (config) {
 		follower: true,
 		referrer: true,
 	})
+	config.addPlugin(lazyloadPlugin)
+	config.addPlugin(eleventyHTMLValidate)
+
 	config.setLibrary(
 		'md',
 		markdownIt({
@@ -41,7 +45,6 @@ module.exports = function (config) {
 			},
 		})
 	)
-	config.addPlugin(lazyloadPlugin)
 
 	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())

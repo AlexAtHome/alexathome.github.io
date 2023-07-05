@@ -15,6 +15,7 @@
 		"@catppuccin/tailwindcss": "^0.1.1",
 		"bootstrap-icons": "^1.10.5",
 		"eleventy-plugin-gen-favicons": "^1.1.2",
+		"eleventy-plugin-html-validate": "^0.0.5",
 		"eleventy-plugin-lazyload": "^1.1.2",
 		"eleventy-plugin-target-safe": "^0.6.0",
 		"markdown-it-eleventy-img": "^0.10.1",
