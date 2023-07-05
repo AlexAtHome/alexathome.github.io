@@ -19,13 +19,13 @@ I just wanted to play some Borderlands 3 and faced a few bugs in the first quest
 - possibly all Echo-net vids from the antagonists
 - all CGI videos
 
-![The screenshot of a soft-locked game](/images/borderlands-3/game-softlocked.jpg)
+![The screenshot of a soft-locked game](src/images/borderlands-3/game-softlocked.jpg)
 
 The reason is that there's no Media Foundation in the system, since you're trying to play the game on Linux. So you'll have to install it to make the clips work.
 
 On steam, open the game's properties and set the specific Proton version. At the moment of creating this post, Proton 5.13 was used, but you can try the later versions.
 
-![](/images/borderlands-3/proton-version.png)
+![](src/images/borderlands-3/proton-version.png)
 
 Now install the dependencies:
 
@@ -77,7 +77,7 @@ See what network interfaces are active.
 ```sh
 ip link
 ```
-![ip link](/images/borderlands-3/ip-link.png)
+![ip link](src/images/borderlands-3/ip-link.png)
 
 In my case, I had the interfaces `virbr0` and `virbr0-nic`. They've been created by `libvirt` and they will be re-created when neccessary. So we can delete them.
 

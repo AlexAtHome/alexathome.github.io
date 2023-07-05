@@ -1,7 +1,9 @@
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const markdownIt = require('markdown-it')
+const path = require('node:path')
 const faviconsPlugin = require('eleventy-plugin-gen-favicons')
-const eleventyTargetSafe = require("eleventy-plugin-target-safe");
+const eleventyTargetSafe = require('eleventy-plugin-target-safe')
+const markdownItEleventyImg = require('markdown-it-eleventy-img')
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
@@ -22,8 +24,21 @@ module.exports = function (config) {
 			html: true,
 			breaks: true,
 			linkify: false,
+		}).use(markdownItEleventyImg, {
+			imgOptions: {
+				widths: [2400, 1200, 800],
+				urlPath: '/images/',
+				outputDir: path.join('_site', 'images'),
+				formats: ['avif', 'webp', 'png'],
+			},
+			globalAttributes: {
+				class: 'markdown-image',
+				decoding: 'async',
+				sizes: '100vw',
+			},
 		})
 	)
+
 	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
 	config.amendLibrary('md', (mdLib) => mdLib.use(require('markdown-it-highlightjs')))

@@ -41,7 +41,7 @@ Works well in Spotify installed both from an apt repo and Flatpak. I didn't chec
 3. Apply the configuration with the `fc-cache -f -v` command.
 4. Restart the app if it's running.
 
-![Imgur](https://i.imgur.com/NJhXmcl.png)
+![Screenshot of Spotify with working emojis](src/images/spotify/emojis.png)
 
 ## Flatpak
 
