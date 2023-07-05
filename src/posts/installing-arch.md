@@ -39,7 +39,7 @@ iwctl station wlan0 connect-hidden SSID
 ping -c 3 ya.ru
 ```
 
-## Разметка диска
+## Disk partitioning
 Let's find the partition where we want to install Arch.
 ```sh
 lsblk
@@ -186,7 +186,7 @@ If you chose another kernel during the [installation](#installation), specify th
 passwd
 ```
 
-## Микрокод
+## Microcode
 [Read more here](https://wiki.archlinux.org/title/Microcode)
 
 ```sh
@@ -399,6 +399,12 @@ sudo systemctl enable --now gdm.service
 
 ### KDE
 [Read here](https://wiki.archlinux.org/title/KDE).
+```sh
+sudo pacman -S plasma
+# or
+sudo pacman -S plasma-meta
+sudo systemctl enable --now sddm.service
+```
 
 ## Install some software
 
