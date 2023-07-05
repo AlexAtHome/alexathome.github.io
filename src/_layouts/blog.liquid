@@ -12,7 +12,7 @@ date: git Created
 		<div class="text-slate-600 dark:text-slate-400 flex flex-wrap gap-x-8 gap-y-4 items-center leading-tight mt-4">
 			<span class="inline-flex gap-2 items-center">
 				{% render 'icon', icon: 'calendar2-date', className: 'inline-block w-[1em] h-[1em]', title: 'Posted at' %}
-				<time datetime="{{ page.date | date : "%Y-%m-%d" }}">{{ date | date : "%b %d %Y" }}</time>
+				<time datetime="{{ page.date | date : "%Y-%m-%d" }}">{{ page.date | date : "%b %d %Y" }}</time>
 			</span>
 			{% if updatedAt %}
 				<span class="inline-flex gap-2 items-center">
