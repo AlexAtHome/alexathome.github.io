@@ -4,6 +4,7 @@ const path = require('node:path')
 const faviconsPlugin = require('eleventy-plugin-gen-favicons')
 const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
+const lazyloadPlugin = require('eleventy-plugin-lazyload')
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
@@ -38,6 +39,7 @@ module.exports = function (config) {
 			},
 		})
 	)
+	config.addPlugin(lazyloadPlugin)
 
 	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
