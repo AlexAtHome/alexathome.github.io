@@ -3,19 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-	:root {
-		font-size: 20px;
-		scroll-behavior: smooth;
-
-		@screen xl {
-			font-size: 22px;
-		}
-
-		@screen 2xl {
-			font-size: 24px;
-		}
-	}
-
 	.container {
 		@apply relative p-3 mx-auto w-full max-w-5xl box-border;
 	}
@@ -85,7 +72,7 @@
 			@apply w-full rounded-xl backdrop-blur text-sm;
 
 			> code[class] {
-				@apply leading-loose ;
+				@apply leading-loose;
 			}
 		}
 
@@ -111,6 +98,40 @@
 
 		code.hljs {
 			@apply overflow-auto;
-			}
+		}
+	}
+}
+
+@layer base {
+	:root {
+		font-size: 20px;
+		scroll-behavior: smooth;
+		scrollbar-color: #94a3b8 #fff;
+
+		@media (prefers-color-scheme: dark) {
+			scrollbar-color: #334155 #1e1e2e;
+		}
+
+		@screen xl {
+			font-size: 22px;
+		}
+
+		@screen 2xl {
+			font-size: 24px;
+		}
+	}
+
+	body {
+		&::-webkit-scrollbar {
+			@apply w-1.5 h-1.5;
+		}
+
+		&::-webkit-scrollbar-track {
+			@apply bg-base;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			@apply rounded-lg dark:bg-slate-700 bg-slate-400;
+		}
 	}
 }
