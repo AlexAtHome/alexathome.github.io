@@ -81,11 +81,11 @@
 			@apply list-decimal;
 		}
 
-		pre {
-			@apply w-full;
+		pre[class] {
+			@apply w-full rounded-xl backdrop-blur text-sm;
 
-			> code.hljs {
-				@apply px-4 text-sm leading-loose backdrop-blur rounded-xl w-full;
+			> code[class] {
+				@apply leading-loose ;
 			}
 		}
 
@@ -105,7 +105,7 @@
 			@apply font-mono;
 		}
 
-		code:not(.hljs) {
+		code:not([class]) {
 			@apply box-content backdrop-blur border-crust rounded-md text-[.8em] dark:text-pink text-red;
 		}
 

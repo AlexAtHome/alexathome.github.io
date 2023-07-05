@@ -5,6 +5,7 @@ const faviconsPlugin = require('eleventy-plugin-gen-favicons')
 const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (config) {
 	config.addPlugin(EleventyVitePlugin, {
@@ -14,6 +15,7 @@ module.exports = function (config) {
 		},
 	})
 	config.addPlugin(faviconsPlugin)
+	config.addPlugin(syntaxHighlight)
 	config.addPlugin(eleventyTargetSafe, {
 		opener: true,
 		follower: true,
@@ -49,9 +51,9 @@ module.exports = function (config) {
 	})
 	config.addPassthroughCopy('src/assets/images')
 	config.addPassthroughCopy({
+		'node_modules/prism-themes/themes/prism-one-dark.css': 'assets/one-dark.css',
+		'node_modules/prism-themes/themes/prism-one-light.css': 'assets/one-light.css',
 		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',
-		'node_modules/highlight.js/styles/github-dark.css': 'assets/github-dark.css',
-		'node_modules/highlight.js/styles/github.css': 'assets/github.css',
 		'src/icons': 'assets/icons',
 		'src/scripts': 'scripts',
 	})

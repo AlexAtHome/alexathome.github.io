@@ -18,7 +18,7 @@ diskpart
 > EXIT
 ```
 4. Let's say it's a C disk (as usual). Now you need to run `bcdboot` program.
-```
+```cmd
 bcdboot C:\windows
 ```
 Now you can close `cmd.exe` and reboot.
