@@ -13,6 +13,7 @@
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"@11ty/eleventy-plugin-vite": "^4.0.0",
 		"@catppuccin/tailwindcss": "^0.1.1",
+		"bootstrap-icon-element": "^1.0.0",
 		"bootstrap-icons": "^1.10.5",
 		"eleventy-plugin-gen-favicons": "^1.1.2",
 		"eleventy-plugin-html-validate": "^0.0.5",

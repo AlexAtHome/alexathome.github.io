@@ -56,7 +56,7 @@ module.exports = function (config) {
 	config.addPassthroughCopy({
 		'node_modules/prism-themes/themes/prism-one-dark.css': 'assets/one-dark.css',
 		'node_modules/prism-themes/themes/prism-one-light.css': 'assets/one-light.css',
-		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',
+		'node_modules/bootstrap-icons/icons': 'assets/icons/bootstrap',
 		'src/icons': 'assets/icons',
 		'src/scripts': 'scripts',
 	})

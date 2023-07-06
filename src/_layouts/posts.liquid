@@ -21,7 +21,7 @@ pagination:
 		<ol class="inline-flex gap-4">
 			<li><a class="link" href="/">Front page</a></li>
 			<li role="presentation">
-				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
+				<bs-i name="arrow-right"></bs-i>
 			</li>
 			<li>
 				{% if tag == 'posts' %}
@@ -31,7 +31,7 @@ pagination:
 				{% endif %}
 			</li>
 			<li role="presentation">
-				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
+				<bs-i name="arrow-right"></bs-i>
 			</li>
 			<li>
 				<a class="pointer-events-none text-inherit" href="{{ page.url }}" aria-current="page">{{ breadcrumb | escape }}</a>
@@ -62,7 +62,7 @@ pagination:
 		<ul class="flex justify-center flex-wrap items-center gap-4">
 			<li class="contents">
 				<a class="{% unless pagination.href.previous %}pointer-events-none opacity-40 text-slate-600 dark:text-slate-300{% endunless %} w-auto px-2 h-8 rounded-sm min-w-8 inline-flex items-center justify-center bg-crust" href="{{ pagination.href.previous }}" title="Previous page">
-					{% render 'icon', icon: 'arrow-left-short', className: 'w-6 h-6' %}
+					<bs-i name="arrow-left-short"></bs-i>
 				</a>
 			</li>
 			{%- for url in pagination.hrefs -%}
@@ -72,7 +72,7 @@ pagination:
 			{%- endfor -%}
 			<li class="contents">
 				<a class="{% unless pagination.href.next %}pointer-events-none opacity-40 text-slate-600dark:text-slate-300{% endunless %} w-auto px-2 h-8 min-w-8 rounded-sm inline-flex items-center justify-center bg-crust" href="{{ pagination.href.next }}" title="Next page">
-					{% render 'icon', icon: 'arrow-right-short', className: 'w-6 h-6' %}
+					<bs-i name="arrow-right-short"></bs-i>
 				</a>
 			</li>
 		</ul>

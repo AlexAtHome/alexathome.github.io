@@ -11,12 +11,12 @@ date: git Created
 		<h1 class="text-3xl lg:text-5xl xl:text-6xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br bg-red from-red to-pink">{{ title }}</h1>
 		<div class="text-slate-600 dark:text-slate-400 flex flex-wrap gap-x-8 gap-y-4 items-center leading-tight mt-4">
 			<span class="inline-flex gap-2 items-center">
-				{% render 'icon', icon: 'calendar2-date', className: 'inline-block w-[1em] h-[1em]', title: 'Posted at' %}
+				<bs-i name="calendar2-date"></bs-i>
 				<time datetime="{{ page.date | date : "%Y-%m-%d" }}">{{ page.date | date : "%b %d %Y" }}</time>
 			</span>
 			{% if updatedAt %}
 				<span class="inline-flex gap-2 items-center">
-					{% render 'icon', icon: 'pencil', className: 'inline-block w-[1em] h-[1em]', title: 'Updated at' %}
+					<bs-i name="pencil"></bs-i>
 					<time datetime="{{ updatedAt | date : "%Y-%m-%d" }}">{{ updatedAt | date : "%b %d %Y" }}</time>
 				</span>
 			{% endif %}
@@ -24,7 +24,7 @@ date: git Created
 			{% for tag in tags %}
 				{% unless tag == 'post' %}
 				<span class="inline-flex gap-2 items-center">
-					{% render 'icon', icon: 'tag', className: 'inline-block w-[1em] h-[1em]', title: 'Tag' %}
+					<bs-i name="tag"></bs-i>
 					{{ tag }}
 				</span>
 				{% endunless %}
@@ -39,11 +39,11 @@ date: git Created
 		<ol class="flex gap-4 flex-wrap">
 			<li><a class="link whitespace-nowrap" href="/">Front page</a></li>
 			<li aria-hidden="true">
-				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
+				<bs-i name="arrow-right"></bs-i>
 			</li>
 			<li><a class="link whitespace-nowrap" href="/posts/">Posts</a></li>
 			<li aria-hidden="true">
-				{% render 'icon', icon: 'arrow-right', className: 'inline-block w-4 h-4' %}
+				<bs-i name="arrow-right"></bs-i>
 			</li>
 			<li><a class="pointer-events-none text-inherit max-w-[300px] block overflow-hidden whitespace-nowrap overflow-ellipsis" href="{{ page.url }}" aria-current="page">{{ title }}</a></li>
 		</ol>
