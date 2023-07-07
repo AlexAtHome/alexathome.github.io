@@ -1,0 +1,21 @@
+<div class="flex relative flex-col gap-2 p-4 pr-16 rounded-lg text-md bg-crust">
+	<a class="inline-flex gap-2 items-center text-2xl font-bold" target="_blank" :href="webpageUrl || sourceCodeUrl">
+		<h3 @text="name"></h3>
+	</a>
+	<div class="text-sm line-clamp-2"><slot></slot></div>
+	<ul class="flex gap-4 mt-auto">
+		<li>
+			<a :href="sourceCodeUrl" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
+				<bs-i name="github"></bs-i>
+				Repository
+			</a>
+		</li>
+		<li webc:if="webpageUrl">
+			<a :href="webpageUrl" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
+				<bs-i name="globe2"></bs-i>
+				Website
+			</a>
+		</li>
+	</ul>
+	<bs-i :name="icon" class="absolute bottom-2 right-4 w-16 h-16 text-4xl opacity-30 rotate-12"></bs-i>
+</div>

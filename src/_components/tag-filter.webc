@@ -1,0 +1,4 @@
+	<ul class="inline-flex gap-4 text-sm">
+		<li><a class="link text-center" href="/posts/" :aria-current="currentTag === 'posts' ? 'page' : null">All posts</a></li>
+		<li><a class="link text-center" href="/linux/" :aria-current="currentTag === 'linux' ? 'page' : null">Linux</a></li>
+	</ul>

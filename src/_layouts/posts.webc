@@ -1,0 +1,36 @@
+---
+layout: root
+title: My findings
+tag: all
+breadcrumb: All
+pagination:
+  size: 8
+---
+
+<header class="py-8">
+	<div class="container" role="presentation">
+		<h1 class="inline-flex flex-col gap-4 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-bl text-accent from-pink to-red" @text="title"></h1>
+	</div>
+</header>
+
+<section class="flex relative flex-col justify-center items-start pb-16">
+	<nav class="container flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
+		<breadcrumbs :@list="[{ label: 'Posts', href: '/posts', current: tag === 'posts' }, { label: breadcrumb, href: page.url, current: true }]"></breadcrumbs>
+		<tag-filter :@current-tag="tag"></tag-filter>
+	</nav>
+	<div class="container" role="presentation">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16">
+			<article-excerpt
+				webc:for="post of pagination.items"
+				:@href="post.url"
+				:@title="post.data.title"
+				:@excerpt="post.page.excerpt"
+				:@created-at="post.page.date"
+			></article-excerpt>
+		</div>
+	</div>
+
+	<nav webc:if="pagination.hrefs.length > 1" class="block relative w-full mt-16 px-4">
+		<pagination :@pagination="pagination" :@page="page"></pagination>
+	</nav>
+</section>

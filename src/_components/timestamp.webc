@@ -1,0 +1,12 @@
+<script webc:type="js">
+	const { DateTime } = require("luxon");
+	const dt =
+		value instanceof Date
+			? DateTime.fromJSDate(value, { zone: "utc" })
+			: DateTime.fromISO(value);
+
+	const datetime = dt.toFormat("yyyy-LL-dd");
+	const display = dt.toFormat(format ?? 'DD');
+
+	`<time datetime="${datetime}">${display}</time>`;
+</script>

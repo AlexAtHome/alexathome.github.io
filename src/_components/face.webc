@@ -1,0 +1,1 @@
+<img src="/images/pfp.png" alt="github profile" :class="classname" />

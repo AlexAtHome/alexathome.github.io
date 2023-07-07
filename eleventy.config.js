@@ -1,20 +1,26 @@
+const { RetrieveGlobals } = require('node-retrieve-globals')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
+const { EleventyRenderPlugin } = require('@11ty/eleventy')
 const markdownIt = require('markdown-it')
 const path = require('node:path')
 const faviconsPlugin = require('eleventy-plugin-gen-favicons')
 const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const eleventyHTMLValidate = require('eleventy-plugin-html-validate');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const eleventyHTMLValidate = require('eleventy-plugin-html-validate')
+const pluginWebc = require('@11ty/eleventy-plugin-webc')
 
 module.exports = function (config) {
+	// Plugins
 	config.addPlugin(EleventyVitePlugin, {
 		tempFolderName: '.11ty-vite',
 		viteOptions: {
 			plugins: [],
 		},
 	})
+	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
+	config.addPlugin(EleventyRenderPlugin)
 	config.addPlugin(faviconsPlugin)
 	config.addPlugin(syntaxHighlight)
 	config.addPlugin(eleventyTargetSafe, {
@@ -25,6 +31,7 @@ module.exports = function (config) {
 	config.addPlugin(lazyloadPlugin)
 	config.addPlugin(eleventyHTMLValidate)
 
+	// Libraries
 	config.setLibrary(
 		'md',
 		markdownIt({
@@ -46,34 +53,47 @@ module.exports = function (config) {
 		})
 	)
 
+	// Collections
 	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
+
+	// Frontmatter options
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
 		excerpt_separator: '<!-- excerpt -->',
+		engines: {
+			javascript: function (frontMatterCode) {
+				const vm = new RetrieveGlobals(frontMatterCode)
+				const data = {}
+				return vm.getGlobalContext(data, {
+					reuseGlobal: true,
+					dynamicImport: true,
+				})
+			},
+		},
 	})
-	config.addPassthroughCopy('src/assets/images')
+
+	// Passthrough copies
 	config.addPassthroughCopy({
-		'node_modules/prism-themes/themes/prism-one-dark.css': 'assets/one-dark.css',
-		'node_modules/prism-themes/themes/prism-one-light.css': 'assets/one-light.css',
-		'node_modules/bootstrap-icons/icons': 'assets/icons/bootstrap',
+		// 'node_modules/bootstrap-icons/icons': 'assets/icons/bootstrap',
 		'src/icons': 'assets/icons',
 		'src/scripts': 'scripts',
 	})
-	config.addWatchTarget('src/style.css')
-	config.addWatchTarget('src/main.js')
-	config.addWatchTarget('src/images')
 	config.addPassthroughCopy('src/images')
 	config.addPassthroughCopy('src/main.js')
 	config.addPassthroughCopy('src/style.css')
+
+	// Watch targets
 	config.addWatchTarget('tailwind.config.js')
+	config.addWatchTarget('src/style.css')
+	config.addWatchTarget('src/main.js')
+	config.addWatchTarget('src/images')
+	config.addWatchTarget('src/_components')
 
-	config.addLayoutAlias('root', 'root.liquid')
-	config.addLayoutAlias('blog', 'blog.liquid')
-	config.addLayoutAlias('posts', 'posts.liquid')
-
-	config.addShortcode('githubUrl', () => 'https://github.com/AlexAtHome')
-	config.addShortcode('pfp', () => '/images/pfp.png')
+	// Layout aliases
+	config.addLayoutAlias('root', 'root.webc')
+	config.addLayoutAlias('blog', 'blog.webc')
+	config.addLayoutAlias('posts', 'posts.webc')
 
 	return {
 		dir: {

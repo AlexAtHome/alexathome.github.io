@@ -6,13 +6,12 @@ title: Alex Bolotskov
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="{{ eleventy.generator }}">
-	<title>{{ title }}</title>
-  <link rel="preload" href="{% pfp %}" as="image" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
-	{% favicons './src/images/pfp.png' %}
+	<meta name="generator" :content="eleventy.generator">
+	<title @text="title"></title>
+	<link webc:keep rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+	<link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link webc:keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
+	<style @raw="getBundle('css')" webc:keep></style>
 </head>
 <body>
 	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-crust to-40%">
@@ -21,12 +20,7 @@ title: Alex Bolotskov
 				<div class="container flex flex-row justify-between items-center gap-4 h-12">
 					<div class="flex flex-row items-center gap-4">
 						<a id="front-page-link" href="/" class="ml-1 shrink-0 pr-3 box-content group inline-flex items-center gap-4 transition-opacity" role="button">
-							<img
-								src="{% pfp %}"
-								alt="github profile"
-								class="block self-center shrink-0 object-fill w-6 h-6 rounded-full outline-pink outline outline-2 outline-offset-4"
-								loading="lazy"
-							/>
+							<face classname="block self-center shrink-0 object-fill w-6 h-6 rounded-full outline-pink outline outline-2 outline-offset-4"></face>
 							<span class="hidden font-bold md:block link before:bg-pink group-hover:text-white dark:group-hover:text-black text-maroon dark:text-pink group-hover:before:h-full group-hover:before:top-0 group-hover:before:text-white before:bg-gradient-to-tr before:from-green before:to-blue">Alex's corner</span>
 						</a>
 					</div>
@@ -39,7 +33,7 @@ title: Alex Bolotskov
 							<a class="link text-sm text-slate-700 dark:text-white before:bg-pink hover:text-black visited:text-current" href="/#projects">Projects</a>
 						</li>
 						<li>
-							<a class="hover:text-pink" aria-label="Github Profile" href="{% githubUrl %}" target="_blank">
+							<a class="hover:text-pink" aria-label="Github Profile" href="https://github.com/AlexAtHome" target="_blank">
 								<bs-i name="github" class="text-xl text-inherit"></bs-i>
 							</a>
 						</li>
@@ -47,8 +41,8 @@ title: Alex Bolotskov
 				</div>
 			</nav>
 		</div>
-		{{ content }}
+		<template @raw="content" webc:nokeep></template>
 	</main>
-	<script type="module" src="/main.js"></script>
+	<script webc:keep type="module" src="/main.js"></script>
 </body>
 </html>

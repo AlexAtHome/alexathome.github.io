@@ -1,0 +1,10 @@
+<ol class="inline-flex gap-4 flex-wrap">
+	<li><a class="link whitespace-nowrap" href="/">Front page</a></li>
+	<template webc:nokeep webc:for="crumb of list">
+		<li class="inline-flex gap-4 items-center">
+			<bs-i name="arrow-right" aria-hidden="true"></bs-i>
+			<a webc:if="crumb.current" aria-current="page" :href="crumb.href" class="pointer-events-none text-inherit max-w-[300px] md:max-w-full block overflow-hidden whitespace-nowrap overflow-ellipsis" @text="crumb.label"></a>
+			<a webc:else class="link whitespace-nowrap" :href="crumb.href" @text="crumb.label" class="link"></a>
+		</li>
+	</template>
+</ol>
