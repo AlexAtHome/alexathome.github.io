@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: 'Nunito, -apple-system, system-ui, sans-serif',
+				sans: 'Sofia Sans, -apple-system, system-ui, sans-serif',
 				mono: 'JetBrains Mono, monospace'
 			},
 			zIndex: {

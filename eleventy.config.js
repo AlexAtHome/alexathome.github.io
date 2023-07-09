@@ -9,6 +9,7 @@ const lazyloadPlugin = require('eleventy-plugin-lazyload')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const eleventyHTMLValidate = require('eleventy-plugin-html-validate')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
+const eleventyGoogleFonts = require("eleventy-google-fonts");
 
 module.exports = function (config) {
 	// Plugins
@@ -29,6 +30,7 @@ module.exports = function (config) {
 	})
 	config.addPlugin(lazyloadPlugin)
 	config.addPlugin(eleventyHTMLValidate)
+  config.addPlugin(eleventyGoogleFonts);
 
 	// Libraries
 	config.setLibrary(
