@@ -137,16 +137,16 @@
 }
 
 @layer utilities {
-	bs-i {
+	.bs-icon svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.bs-icon {
 		display: inline-flex;
 		width: 1em;
 		height: 1em;
 		vertical-align: middle;
-	}
-
-	bs-i svg {
-		display: block;
-		width: 100%;
-		height: 100%;
 	}
 }

@@ -1,4 +1,3 @@
-const { RetrieveGlobals } = require('node-retrieve-globals')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const { EleventyRenderPlugin } = require('@11ty/eleventy')
 const markdownIt = require('markdown-it')
@@ -61,21 +60,10 @@ module.exports = function (config) {
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
 		excerpt_separator: '<!-- excerpt -->',
-		engines: {
-			javascript: function (frontMatterCode) {
-				const vm = new RetrieveGlobals(frontMatterCode)
-				const data = {}
-				return vm.getGlobalContext(data, {
-					reuseGlobal: true,
-					dynamicImport: true,
-				})
-			},
-		},
 	})
 
 	// Passthrough copies
 	config.addPassthroughCopy({
-		// 'node_modules/bootstrap-icons/icons': 'assets/icons/bootstrap',
 		'src/icons': 'assets/icons',
 		'src/scripts': 'scripts',
 	})

@@ -6,16 +6,16 @@
 	<ul class="flex gap-4 mt-auto">
 		<li>
 			<a :href="sourceCodeUrl" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
-				<bs-i name="github"></bs-i>
+				<bs-i @name="github"></bs-i>
 				Repository
 			</a>
 		</li>
 		<li webc:if="webpageUrl">
 			<a :href="webpageUrl" target="_blank" class="inline-flex gap-2 justify-center items-center text-sm">
-				<bs-i name="globe2"></bs-i>
+				<bs-i @name="globe2"></bs-i>
 				Website
 			</a>
 		</li>
 	</ul>
-	<bs-i :name="icon" class="absolute bottom-2 right-4 w-16 h-16 text-4xl opacity-30 rotate-12"></bs-i>
+	<bs-i :@name="icon" @class-name="absolute bottom-2 right-4 w-16 h-16 text-4xl opacity-30 rotate-12"></bs-i>
 </div>

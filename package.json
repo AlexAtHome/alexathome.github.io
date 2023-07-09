@@ -14,7 +14,6 @@
 		"@11ty/eleventy-plugin-vite": "^4.0.0",
 		"@11ty/eleventy-plugin-webc": "^0.11.1",
 		"@catppuccin/tailwindcss": "^0.1.1",
-		"bootstrap-icon-element": "^1.0.0",
 		"bootstrap-icons": "^1.10.5",
 		"date-fns": "^2.30.0",
 		"eleventy-plugin-gen-favicons": "^1.1.2",
@@ -22,7 +21,6 @@
 		"eleventy-plugin-lazyload": "^1.1.2",
 		"eleventy-plugin-target-safe": "^0.6.0",
 		"markdown-it-eleventy-img": "^0.10.1",
-		"node-retrieve-globals": "^2.0.8",
 		"prism-themes": "github:PrismJS/prism-themes",
 		"tailwindcss": "^3.3.2"
 	},

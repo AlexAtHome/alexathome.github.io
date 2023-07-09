@@ -8,11 +8,12 @@ title: Alex Bolotskov
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" :content="eleventy.generator">
 	<title @text="title"></title>
+	<template webc:nokeep @raw="favicons('./src/images/pfp.png')"></template>
 	<link webc:keep rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
 	<link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link webc:keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
 	<style @raw="getBundle('css')" webc:keep></style>
-	<template webc:nokeep @raw="favicons('./src/images/pfp.png')"></template>
+	<script @raw="getBundle('js')" webc:keep></script>
 </head>
 <body>
 	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-crust to-40%">
@@ -34,8 +35,8 @@ title: Alex Bolotskov
 							<a class="link text-sm text-slate-700 dark:text-white before:bg-pink hover:text-black visited:text-current" href="/#projects">Projects</a>
 						</li>
 						<li>
-							<a class="hover:text-pink" aria-label="Github Profile" href="https://github.com/AlexAtHome" target="_blank">
-								<bs-i name="github" class="text-xl text-inherit"></bs-i>
+							<a class="hover:text-pink text-xl" aria-label="Github Profile" href="https://github.com/AlexAtHome" target="_blank">
+								<bs-i @name="github"></bs-i>
 							</a>
 						</li>
 					</menu>

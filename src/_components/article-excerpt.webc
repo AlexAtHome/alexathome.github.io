@@ -12,6 +12,6 @@
 	</div>
 	<a :href="href" class="link">
 		Read the whole article
-		<bs-i name="arrow-right"></bs-i>
+		<bs-i @name="arrow-right"></bs-i>
 	</a>
 </article>

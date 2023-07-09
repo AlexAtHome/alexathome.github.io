@@ -15,7 +15,7 @@ eleventyImport:
 			<ul class="flex flex-wrap gap-6 items-center text-sm">
 				<li>26 y.o.</li>
 				<li>
-					<bs-i name="gender-male"></bs-i>
+					<bs-i @name="gender-male"></bs-i>
 					he/him
 				</li>
 				<li class="inline-flex gap-2">
@@ -27,15 +27,15 @@ eleventyImport:
 				I like
 				<ul>
 					<li>
-						<bs-i name="code-slash"></bs-i>
+						<bs-i @name="code-slash"></bs-i>
 						coding
 					</li>
 					<li>
-						<bs-i name="bicycle"></bs-i>
+						<bs-i @name="bicycle"></bs-i>
 						cycles
 					</li>
 					<li>
-						<bs-i name="keyboard"></bs-i>
+						<bs-i @name="keyboard"></bs-i>
 						and good keyboards
 					</li>
 				</ul>
@@ -59,7 +59,7 @@ eleventyImport:
 			<div class="inline-grid justify-start content-center">
 				<a href="/posts/" class="inline-flex gap-2 items-center link group">
 					More articles
-					<bs-i name="arrow-right"></bs-i>
+					<bs-i @name="arrow-right"></bs-i>
 				</a>
 			</div>
 		</div>
