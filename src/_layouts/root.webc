@@ -9,9 +9,7 @@ title: Alex Bolotskov
 	<meta name="generator" :content="eleventy.generator">
 	<title @text="title"></title>
 	<template webc:nokeep @raw="favicons('./src/images/pfp.png')"></template>
-	<link webc:keep rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
-	<link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link webc:keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Nunito:ital,wght@0,400;0,700;0,800;0,900&display=swap" />
+	<template webc:nokeep @raw="eleventyGoogleFonts('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Sofia+Sans:ital,wght@0,400;0,700&display=swap')"></template>
 	<style @raw="getBundle('css')" webc:keep></style>
 	<script @raw="getBundle('js')" webc:keep></script>
 </head>
