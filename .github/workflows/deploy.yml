@@ -29,5 +29,6 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: _site
+          fqdn: alexalex.dev
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
