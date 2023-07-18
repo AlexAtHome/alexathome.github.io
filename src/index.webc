@@ -73,7 +73,7 @@ eleventyImport:
 			<project-preview
 				@name="viewport"
 				@source-code-url="https://github.com/AlexAtHome/viewport"
-				@webpage-url="https://alexathome.github.io/viewport/"
+				@webpage-url="https://viewport.alexalex.dev"
 				@icon="arrows-fullscreen"
 			>
 				Just a webpage that shows the current viewport and screen resolution
@@ -81,7 +81,7 @@ eleventyImport:
 			<project-preview
 				@name="json"
 				@source-code-url="https://github.com/AlexAtHome/json"
-				@webpage-url="https://alexathome.github.io/json/"
+				@webpage-url="https://json.alexalex.dev"
 				@icon="braces"
 			>
 				JSON format tool
