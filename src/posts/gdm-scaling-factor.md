@@ -9,23 +9,23 @@ date: 2021-11-09
 updatedAt: 2023-03-03
 ---
 
-Обычно GDM пытается сам получить scaling factor, но получается у него, как я понял, не всегда.
+Usually GDM tries to calculate the scaling factor by itself, but it doesn't always work well.
 <!-- excerpt -->
-Открываем схему из glib-2:
+Open a schema from glib-2:
 
 ```shell
 sudo vim /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
 ```
 
-Ищем следующий кусок кода:
+Find the following segment of code:
 ```xml
 <key name="scaling-factor" type="u">
 <default>0</default>
 ```
-и меняем значение `<default>` на 2 (или 3, или 4 - как больше нравится). 0 здесь означает, что GDM попытается определить `scaling-factor` самостоятельно.
+and replace the value of `<default>` with 2 (or 3, or 4 - whatever is to your liking). 0 will make GDM try to set `scaling-factor` automatically.
 
-Сохраняем файл и закрываем его. Запускаем команду:
+Save and quit the file. Then run the following command:
 ```shell
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 ```
-Готово. Можно завершить сеанс и проверить, что масштабирование увеличено.
+Done! Now log out and verify that the scaling has changed.
