@@ -14,6 +14,16 @@ module.exports = {
 			skew: {
 				24: '24deg',
 				32: '32deg',
+			},
+			animation: {
+				'fade-in': 'fade .5s linear',
+				'fade-out': 'fade .5s linear reverse'
+			},
+			keyframes: {
+				fade: {
+					'0%': { opacity: 0 },
+					'100%': { opacity: 1 },
+				}
 			}
 		},
 	},

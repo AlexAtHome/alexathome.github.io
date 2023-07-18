@@ -2,7 +2,7 @@
 title: Alex Bolotskov
 ---
 <!DOCTYPE html>
-<html lang="en" class="latte dark:mocha text-gray-800 dark:text-gray-100 bg-white dark:bg-base font-sans">
+<html lang="en" class="latte dark:mocha text-gray-800 dark:text-gray-100 font-sans">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,10 +13,10 @@ title: Alex Bolotskov
 	<style @raw="getBundle('css')" webc:keep></style>
 	<script @raw="getBundle('js')" webc:keep></script>
 </head>
-<body>
-	<main class="min-h-screen bg-gradient-to-br bg-no-repeat bg-[length:auto_100vh] from-crust to-40%">
+<body class="bg-white dark:bg-base ">
+	<main class="min-h-screen ">
 		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
-			<nav class="relative w-full bg-crust/50 backdrop-blur border-b-base" id="navbar">
+			<nav class="relative w-full bg-base/50 backdrop-blur border-b-base" id="navbar">
 				<div class="container flex flex-row justify-between items-center gap-4 h-12">
 					<div class="flex flex-row items-center gap-4">
 						<a id="front-page-link" href="/" class="ml-1 shrink-0 pr-3 box-content group inline-flex items-center gap-4 transition-opacity" role="button">
@@ -41,7 +41,14 @@ title: Alex Bolotskov
 				</div>
 			</nav>
 		</div>
-		<template @raw="content" webc:nokeep></template>
+		<div class="animate-fade-in">
+			<template @raw="content" webc:nokeep></template>
+		</div>
+		<footer class="container">
+			<menu class="flex flex-row">
+				<li><a href="https://github.com/AlexAtHome/AlexAtHome.github.io" class="link dark:text-white"><bs-i @name="code-slash"></bs-i>&nbsp;Source code</a></li>
+			</menu>
+		</footer>
 	</main>
 	<script webc:keep type="module" src="/main.js"></script>
 </body>
