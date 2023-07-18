@@ -1,8 +1,8 @@
 ---
-title: Отключаем хардверный бипер в Linux
+title: Disable the pc speaker Linux
 layout: blog
 tags:
-    - tags
+    - post
     - linux
 date: 2021-11-09
 ---
