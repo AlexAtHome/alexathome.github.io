@@ -1,6 +1,5 @@
 ---
 title: Xbox controller on Linux via Bluetooth
-source: https://www.addictivetips.com/ubuntu-linux-tips/wireless-xbox-one-controllers-on-linux-with-xow/
 layout: blog
 tags:
     - post
