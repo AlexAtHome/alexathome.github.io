@@ -11,17 +11,25 @@ date: git Created
 		<div class="text-slate-600 dark:text-slate-400 flex flex-wrap gap-x-8 gap-y-4 items-center leading-tight mt-4">
 			<span class="inline-flex gap-2 items-center">
 				<bs-i @name="calendar2-date"></bs-i>
+				<span class="sr-only">Created at</span>
 				<timestamp :@value="page.date"></timestamp>
 			</span>
-			<span webc:if="updatedAt" class="inline-flex gap-2 items-center">
+			<span webc:if="!!updatedAt" class="inline-flex gap-2 items-center">
 				<bs-i @name="pencil"></bs-i>
+				<span class="sr-only">Updated at</span>
 				<timestamp :@value="updatedAt"></timestamp>
 			</span>
 			<span webc:if="tags.length > 1" class="inline-flex gap-2 items-center flex-wrap">
+				<span class="sr-only">Tags</span>
 				<span webc:for="tag of tags" webc:if="tag !== 'post'" class="inline-flex gap-2 items-center">
 					<bs-i @name="tag"></bs-i>
 					<template webc:nokeep @text="tag"></template>
 				</span>
+			</span>
+			<span webc:if="!!source" class="inline-flex gap-2 items-center">
+				<bs-i @name="box-arrow-up-right"></bs-i>
+				<span class="sr-only">Source</span>
+				<a class="link" :href="source" target="_blank" rel="nofollow noreferrer noopener" @text="hostname(source)"></a>
 			</span>
 		</div>
 	</div>

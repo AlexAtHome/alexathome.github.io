@@ -58,6 +58,9 @@ module.exports = function (config) {
 	config.addCollection('postlist', (api) => api.getFilteredByTag('post').reverse())
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
 
+	// Filters
+	config.addFilter('hostname', url => new URL(url).hostname.replace('www.', ''));
+
 	// Frontmatter options
 	config.setFrontMatterParsingOptions({
 		excerpt: true,
