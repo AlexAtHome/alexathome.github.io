@@ -13,30 +13,30 @@ eleventyImport:
 				<strong class="block text-6xl font-normal leading-none text-transparent bg-clip-text bg-gradient-to-r sm:text-7xl from-green to-blue">Alex Bolotskov</strong>
 			</h1>
 			<ul class="flex flex-wrap gap-6 items-center text-sm">
+				<li class="inline-flex gap-2">
+					<tech-stack></tech-stack>
+				</li>
 				<li>26 y.o.</li>
 				<li>
 					<bs-i @name="gender-male"></bs-i>
 					he/him
 				</li>
-				<li class="inline-flex gap-2">
-					<tech-stack></tech-stack>
-				</li>
 			</ul>
-			<p>A frontend dev, a gamer and&nbsp;a&nbsp;proud Linux user.</p>
+			<p>Professional front end developer.</p>
 			<p>
 				I like
 				<ul>
 					<li>
 						<bs-i @name="code-slash"></bs-i>
-						coding
+						coding things
 					</li>
 					<li>
 						<bs-i @name="bicycle"></bs-i>
-						cycles
+						bicycles
 					</li>
 					<li>
 						<bs-i @name="keyboard"></bs-i>
-						and good keyboards
+						and mechanical keyboards <small class="text-sm">(not clicky ones)</small>
 					</li>
 				</ul>
 			</p>
