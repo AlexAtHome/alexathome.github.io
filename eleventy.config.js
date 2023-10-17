@@ -9,15 +9,26 @@ const lazyloadPlugin = require('eleventy-plugin-lazyload')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const eleventyHTMLValidate = require('eleventy-plugin-html-validate')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
-const eleventyGoogleFonts = require("eleventy-google-fonts");
+const eleventyGoogleFonts = require('eleventy-google-fonts')
+const { nativeSW } = require('vite-plugin-native-sw')
 
-module.exports = function (config) {
+module.exports = function(config) {
 	// Plugins
 	config.addPlugin(EleventyVitePlugin, {
 		tempFolderName: '.11ty-vite',
 		viteOptions: {
-			plugins: [],
+			plugins: [
+				nativeSW({
+					entries: [
+						{
+							src: path.resolve(__dirname, 'src', 'sw.js'),
+							dist: 'sw.js',
+						},
+					],
+				}),
+			],
 		},
+		polyfill: false,
 	})
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
 	config.addPlugin(EleventyRenderPlugin)
@@ -30,7 +41,7 @@ module.exports = function (config) {
 	})
 	config.addPlugin(lazyloadPlugin)
 	config.addPlugin(eleventyHTMLValidate)
-  config.addPlugin(eleventyGoogleFonts);
+	config.addPlugin(eleventyGoogleFonts)
 
 	// Libraries
 	config.setLibrary(
@@ -59,7 +70,7 @@ module.exports = function (config) {
 	config.addCollection('linuxlist', (api) => api.getFilteredByTag('linux').reverse())
 
 	// Filters
-	config.addFilter('hostname', url => new URL(url).hostname.replace('www.', ''));
+	config.addFilter('hostname', (url) => new URL(url).hostname.replace('www.', ''))
 
 	// Frontmatter options
 	config.setFrontMatterParsingOptions({
