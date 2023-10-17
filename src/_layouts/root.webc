@@ -13,8 +13,8 @@ title: Alex Bolotskov
 	<style @raw="getBundle('css')" webc:keep></style>
 	<script @raw="getBundle('js')" webc:keep></script>
 </head>
-<body class="bg-white dark:bg-base ">
-	<main class="min-h-screen ">
+<body class="bg-white dark:bg-base">
+	<main class="min-h-screen">
 		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
 			<nav class="relative w-full bg-base/50 backdrop-blur border-b-base" id="navbar">
 				<div class="container flex flex-row justify-between items-center gap-4 h-12">
@@ -41,7 +41,7 @@ title: Alex Bolotskov
 				</div>
 			</nav>
 		</div>
-		<div class="animate-fade-in">
+		<div>
 			<template @raw="content" webc:nokeep></template>
 		</div>
 		<footer class="container">
