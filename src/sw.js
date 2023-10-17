@@ -53,7 +53,7 @@ const enableNavigationPreload = async () => {
 }
 
 self.addEventListener('install', (event) => {
-	event.waitUntil(addResourcesToCache(['/', 'index.html', 'style.css', 'main.js', '/images/pfp.png']))
+	event.waitUntil(addResourcesToCache(['/']))
 })
 
 self.addEventListener('activate', (event) => {

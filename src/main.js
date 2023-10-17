@@ -6,7 +6,16 @@ if (location.pathname === '/') {
 }
 
 registerSW('sw.js')
-	.then(() => console.log('done'))
+	.then((registration) => {
+		registration.addEventListener('updatefound', () => {
+			const updatedWorker = registration.installing
+			updatedWorker.addEventListener('statechange', () => {
+				if (updatedWorker.state === 'installed' && !!navigator.serviceWorker.controller) {
+					location.reload()
+				}
+			}, { once: true })
+		}, { once: true })
+	})
 	.catch((error) => {
 		console.error('Failed to register the service worker!', error)
 	})
