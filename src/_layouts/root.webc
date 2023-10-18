@@ -10,8 +10,7 @@ title: Alex Bolotskov
 	<meta name="generator" :content="eleventy.generator">
 	<title @text="title"></title>
 	<template webc:nokeep @raw="favicons('./src/images/pfp.png')"></template>
-	<template webc:nokeep
-		@raw="eleventyGoogleFonts('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Sofia+Sans:ital,wght@0,400;0,700&display=swap')"></template>
+	<template webc:nokeep @raw="eleventyGoogleFonts('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Sofia+Sans:ital,wght@0,400;0,700&display=swap')"></template>
 	<style @raw="getBundle('css')" webc:keep></style>
 	<script @raw="getBundle('js')" webc:keep></script>
 </head>
@@ -53,9 +52,7 @@ title: Alex Bolotskov
 				</div>
 			</nav>
 		</div>
-		<div>
-			<template @raw="content" webc:nokeep></template>
-		</div>
+		<template @raw="content" webc:nokeep></template>
 		<footer class="container">
 			<menu class="flex flex-row">
 				<li><a href="https://github.com/AlexAtHome/AlexAtHome.github.io" class="link dark:text-white"><bs-i
@@ -64,6 +61,6 @@ title: Alex Bolotskov
 		</footer>
 	</main>
 	<script webc:keep type="module" src="/main.js"></script>
+	<script @raw="getBundle('js', 'defer')" webc:keep></script>
 </body>
-
 </html>

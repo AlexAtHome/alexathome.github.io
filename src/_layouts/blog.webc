@@ -38,6 +38,4 @@ date: git Created
 	</nav>
 </header>
 
-<div class="pb-16">
-	<article class="relative p-3 mx-auto w-full max-w-5xl box-border md-content" @raw="content"></article>
-</div>
+<article class="relative p-3 pb-16 mx-auto w-full max-w-5xl box-border md-content" @raw="content"></article>

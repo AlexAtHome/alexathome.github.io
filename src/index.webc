@@ -4,6 +4,16 @@ eleventyImport:
 collections: ["postlist"]
 ---
 
+<script webc:bucket="defer">
+document.addEventListener('DOMContentLoaded', function() {
+	const frontPageLink = document.querySelector('#front-page-link')
+	frontPageLink.addEventListener('click', event => {
+		event.preventDefault()
+		scrollTo({ top: 0, behavior: 'smooth' })
+	})
+})
+</script>
+
 <section id="calling-card" class="flex relative flex-col justify-center items-start py-16">
 	<div class="container flex flex-col gap-12 items-center max-w-4xl lg:flex-row-reverse" role="presentation">
 		<face
