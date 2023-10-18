@@ -5,13 +5,13 @@ collections: ["postlist"]
 ---
 
 <script webc:bucket="defer">
-document.addEventListener('DOMContentLoaded', function() {
-	const frontPageLink = document.querySelector('#front-page-link')
-	frontPageLink.addEventListener('click', event => {
-		event.preventDefault()
-		scrollTo({ top: 0, behavior: 'smooth' })
+	document.addEventListener('DOMContentLoaded', function () {
+		const frontPageLink = document.querySelector('#front-page-link')
+		frontPageLink.addEventListener('click', event => {
+			event.preventDefault()
+			scrollTo({top: 0, behavior: 'smooth'})
+		})
 	})
-})
 </script>
 
 <section id="calling-card" class="flex relative flex-col justify-center items-start py-16">

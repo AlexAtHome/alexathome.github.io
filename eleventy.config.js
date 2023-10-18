@@ -24,6 +24,7 @@ module.exports = function(config) {
 					},
 					workbox: {
 						clientsClaim: true,
+						cleanupOutdatedCaches: true,
 					}
 				}),
 			],
