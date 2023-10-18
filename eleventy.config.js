@@ -7,7 +7,6 @@ const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const eleventyHTMLValidate = require('eleventy-plugin-html-validate')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
 const { VitePWA } = require('vite-plugin-pwa')
@@ -41,7 +40,6 @@ module.exports = function(config) {
 		referrer: true,
 	})
 	config.addPlugin(lazyloadPlugin)
-	config.addPlugin(eleventyHTMLValidate)
 	config.addPlugin(eleventyGoogleFonts)
 
 	// Libraries
