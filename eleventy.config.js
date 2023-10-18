@@ -10,7 +10,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const eleventyHTMLValidate = require('eleventy-plugin-html-validate')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
-const { nativeSW } = require('vite-plugin-native-sw')
+const { VitePWA } = require('vite-plugin-pwa')
 
 module.exports = function(config) {
 	// Plugins
@@ -18,13 +18,14 @@ module.exports = function(config) {
 		tempFolderName: '.11ty-vite',
 		viteOptions: {
 			plugins: [
-				nativeSW({
-					entries: [
-						{
-							src: path.resolve(__dirname, 'src', 'sw.js'),
-							dist: 'sw.js',
-						},
-					],
+				VitePWA({
+					registerType: 'autoUpdate',
+					manifest: {
+						display: 'browser'
+					},
+					workbox: {
+						clientsClaim: true,
+					}
 				}),
 			],
 		},

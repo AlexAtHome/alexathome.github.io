@@ -24,7 +24,7 @@
 		"markdown-it-eleventy-img": "^0.10.1",
 		"prism-themes": "github:PrismJS/prism-themes",
 		"tailwindcss": "^3.3.2",
-		"vite-plugin-native-sw": "^1.2.1"
+		"vite-plugin-pwa": "^0.16.5"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
