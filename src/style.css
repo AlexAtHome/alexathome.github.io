@@ -8,7 +8,7 @@
 	}
 
 	.link {
-		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue px-2 transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:bg-blue/50 before:top-full before:left-0 before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
+		@apply inline-flex relative gap-2 items-center border-b border-transparent text-blue-400 px-2 transition-colors hover:text-white before:-skew-x-12 before:absolute before:w-full before:h-1 before:top-full before:left-0 before:z-n1 before:transition-all hover:before:h-full hover:before:top-0;
 	}
 
 	.md-content {
@@ -24,7 +24,7 @@
 		h4,
 		h5,
 		h6 {
-			@apply my-2 font-bold text-maroon dark:text-pink leading-normal;
+			@apply my-2 font-bold dark:text-pink-400 leading-normal;
 		}
 
 		h1 {
@@ -77,7 +77,7 @@
 		}
 
 		kbd {
-			@apply text-sm p-0.5 px-2 pb-0 border bg-crust rounded-md border-black box-content;
+			@apply text-sm p-0.5 px-2 pb-0 border bg-gray-800 rounded-md border-black box-content;
 		}
 
 		blockquote {
@@ -93,7 +93,7 @@
 		}
 
 		code:not([class]) {
-			@apply box-content backdrop-blur border-crust rounded-md text-[.8em] dark:text-pink text-red;
+			@apply box-content backdrop-blur border-gray-800 rounded-md text-[.8em] dark:text-pink-400 text-red-500;
 		}
 
 		code.hljs {
@@ -126,7 +126,7 @@
 		}
 
 		&::-webkit-scrollbar-track {
-			@apply bg-base;
+			@apply bg-black;
 		}
 
 		&::-webkit-scrollbar-thumb {

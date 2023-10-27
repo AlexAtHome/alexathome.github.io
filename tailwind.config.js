@@ -2,6 +2,7 @@
 module.exports = {
 	content: ['./src/**/*.{html,md,webc}'],
 	theme: {
+		colors: require('@evilmartians/harmony/tailwind'),
 		extend: {
 			fontFamily: {
 				sans: 'Sofia Sans, -apple-system, system-ui, sans-serif',
@@ -27,5 +28,4 @@ module.exports = {
 			}
 		},
 	},
-	plugins: [require('@catppuccin/tailwindcss')],
 }

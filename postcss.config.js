@@ -1,7 +1,8 @@
 module.exports = {
-  plugins: {
+	plugins: {
 		'tailwindcss/nesting': {},
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+		tailwindcss: {},
+		'@csstools/postcss-oklab-function': { preserve: true },
+		autoprefixer: {},
+	},
 }

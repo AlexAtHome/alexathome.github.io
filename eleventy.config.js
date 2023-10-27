@@ -11,7 +11,7 @@ const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
 const { VitePWA } = require('vite-plugin-pwa')
 
-module.exports = function(config) {
+module.exports = function (config) {
 	// Plugins
 	config.addPlugin(EleventyVitePlugin, {
 		tempFolderName: '.11ty-vite',
@@ -89,15 +89,15 @@ module.exports = function(config) {
 
 	// Watch targets
 	config.addWatchTarget('tailwind.config.js')
-	config.addWatchTarget('src/style.css')
-	config.addWatchTarget('src/main.js')
-	config.addWatchTarget('src/images')
-	config.addWatchTarget('src/_components')
+	config.addWatchTarget('src')
 
 	// Layout aliases
 	config.addLayoutAlias('root', 'root.webc')
 	config.addLayoutAlias('blog', 'blog.webc')
 	config.addLayoutAlias('posts', 'posts.webc')
+
+	// Global data
+	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/AlexAtHome.github.io')
 
 	return {
 		dir: {
