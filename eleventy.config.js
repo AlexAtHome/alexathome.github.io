@@ -86,6 +86,7 @@ module.exports = function (config) {
 	config.addPassthroughCopy('src/images')
 	config.addPassthroughCopy('src/main.js')
 	config.addPassthroughCopy('src/style.css')
+	config.addPassthroughCopy('src/fonts')
 
 	// Watch targets
 	config.addWatchTarget('tailwind.config.js')

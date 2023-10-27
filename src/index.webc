@@ -4,105 +4,69 @@ eleventyImport:
 collections: ["postlist"]
 ---
 
-<script webc:bucket="defer">
-	document.addEventListener('DOMContentLoaded', function () {
-		const frontPageLink = document.querySelector('#front-page-link')
-		frontPageLink.addEventListener('click', event => {
-			event.preventDefault()
-			scrollTo({top: 0, behavior: 'smooth'})
-		})
-	})
-</script>
-
-<section id="calling-card" class="flex relative flex-col justify-center items-start py-16">
-	<div class="container flex flex-col gap-12 items-center max-w-4xl lg:flex-row-reverse" role="presentation">
-		<face
-			classname="block object-fill lg:mt-4 self-start w-36 h-36 rounded-full outline-pink outline outline-4 outline-offset-8 mx-auto">
-		</face>
-		<div class="flex flex-col gap-2 text-3xl">
-			<h1>
-				<span class="text-lg" role="presentation">Hi! Welcome to my corner. I'm</span>
-				<strong
-					class="block text-6xl font-normal leading-none text-transparent bg-clip-text bg-gradient-to-r sm:text-7xl from-green to-blue">Alex
-					Bolotskov</strong>
-			</h1>
-			<ul class="flex flex-wrap gap-6 items-center text-sm">
-				<li class="inline-flex gap-2">
-					<tech-stack></tech-stack>
-				</li>
-				<li>26 y.o.</li>
-				<li>
-					<bs-i @name="gender-male"></bs-i>
-					he/him
-				</li>
-			</ul>
-			<p>Professional front end developer.</p>
-			<p>
-				I like
-			<ul>
-				<li>
-					<bs-i @name="code-slash"></bs-i>
-					coding things
-				</li>
-				<li>
-					<bs-i @name="bicycle"></bs-i>
-					bicycles
-				</li>
-				<li>
-					<bs-i @name="keyboard"></bs-i>
-					and mechanical keyboards <small class="text-sm">(not clicky ones)</small>
-				</li>
-			</ul>
-			</p>
-		</div>
+<main class="main md:flex-row">
+	<div class="flex flex-col grow-0 items-start basis-1/5 gap-2">
+		<face classname="inline-flex shrink-0 object-fill w-20 h-20 rounded-full"></face>
+		<span class="heading text-4xl text-pink-500 mb-2">Alex Bolotskov</span>
+		<ul class="flex flex-wrap gap-6 items-start">
+			<li class="flex gap-2">
+				<tech-stack></tech-stack>
+			</li>
+			<li>26 y.o.</li>
+			<li>
+				<bs-i @name="gender-male"></bs-i>
+				he/him
+			</li>
+		</ul>
+		<section>
+			<p>Hi!</p>
+			<p>Don't mind me. I just post some stuff here</p>
+		</section>
 	</div>
-</section>
 
-<section id="articles" class="flex relative flex-col justify-center items-start py-8 min-h-screen">
-	<div class="container" role="presentation">
-		<h2 class="mb-20 text-5xl font-bold text-maroon dark:text-pink">Latest posts</h2>
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			<article-excerpt webc:for="post of collections.postlist.slice(0, 3)" :@href="post.url" :@title="post.data.title"
-				:@excerpt="post.page.excerpt" :@created-at="post.page.date"></article-excerpt>
+	<div class="grow flex flex-col gap-12">
+		<section>
+			<h2 class="text-3xl heading">Latest posts</h2>
+			<ol class="grid grid-cols-1 gap-6 items-start">
+				<article-excerpt webc:for="post of collections.postlist.slice(0, 5)" :@href="post.url" :@title="post.data.title"
+					:@excerpt="post.page.excerpt" :@created-at="post.page.date"
+					:@tag="post.data.tags[1] || post.data.tags[0]"></article-excerpt>
 
-			<div class="inline-grid justify-start content-center">
-				<a href="/posts/" class="inline-flex gap-2 items-center link group">
-					More articles
+				<a href="/posts/" class="inline-flex gap-2 items-center link w-auto">
+					More posts
 					<bs-i @name="arrow-right"></bs-i>
 				</a>
-			</div>
-		</div>
-	</div>
-</section>
+			</ol>
+		</section>
 
-<section id="projects" class="flex relative flex-col justify-center items-start py-8 min-h-screen">
-	<div class="container" role="presentation">
-		<h2 class="mb-20 text-5xl font-bold text-maroon dark:text-pink">Projects</h2>
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-			<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
-				@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">
-				Just a webpage that shows the current viewport and screen resolution
-			</project-preview>
-			<project-preview @name="json" @source-code-url="https://github.com/AlexAtHome/json"
-				@webpage-url="https://json.alexalex.dev" @icon="braces">
-				JSON format tool
-			</project-preview>
-			<project-preview @name="vscode-fish-text" @source-code-url="https://github.com/AlexAtHome/vscode-fish-text"
-				@webpage-url="https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text" @icon="body-text">
-				Soviet style text generator for Visual Studio Code
-			</project-preview>
-			<project-preview @name="sitealert" @source-code-url="https://github.com/AlexAtHome/sitealert"
-				@icon="exclamation-diamond">
-				A Python script that checks if the given URL does not return the 4xx or 5xx status.
-			</project-preview>
-			<project-preview @name="keycap" @source-code-url="https://github.com/AlexAtHome/keycap"
-				@webpage-url="https://alexathome.github.io/keycap/" @icon="keyboard">
-				Keyboard testing app
-			</project-preview>
-			<project-preview @name="minecraft-steve" @source-code-url="https://github.com/AlexAtHome/minecraft-steve"
-				@webpage-url="https://alexathome.github.io/minecraft-steve/" @icon="joystick">
-				WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS
-			</project-preview>
-		</div>
+		<section>
+			<h2 class="text-3xl heading">Projects I run and even use myself</h2>
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+				<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
+					@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">
+					Just a webpage that shows the current viewport and screen resolution
+				</project-preview>
+				<project-preview @name="json" @source-code-url="https://github.com/AlexAtHome/json"
+					@webpage-url="https://json.alexalex.dev" @icon="braces">
+					JSON format tool
+				</project-preview>
+				<project-preview @name="vscode-fish-text" @source-code-url="https://github.com/AlexAtHome/vscode-fish-text"
+					@webpage-url="https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text" @icon="body-text">
+					Soviet style text generator for Visual Studio Code
+				</project-preview>
+				<project-preview @name="sitealert" @source-code-url="https://github.com/AlexAtHome/sitealert"
+					@icon="exclamation-diamond">
+					A Python script that checks if the given URL does not return the 4xx or 5xx status.
+				</project-preview>
+				<project-preview @name="keycap" @source-code-url="https://github.com/AlexAtHome/keycap"
+					@webpage-url="https://alexathome.github.io/keycap/" @icon="keyboard">
+					Keyboard testing app
+				</project-preview>
+				<project-preview @name="minecraft-steve" @source-code-url="https://github.com/AlexAtHome/minecraft-steve"
+					@webpage-url="https://alexathome.github.io/minecraft-steve/" @icon="joystick">
+					WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS
+				</project-preview>
+			</div>
+		</section>
 	</div>
-</section>
+</main>

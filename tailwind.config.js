@@ -5,7 +5,8 @@ module.exports = {
 		colors: require('@evilmartians/harmony/tailwind'),
 		extend: {
 			fontFamily: {
-				sans: 'Sofia Sans, -apple-system, system-ui, sans-serif',
+				heading: 'Wix Madefor Display, -apple-system, system-ui, sans-serif',
+				sans: 'Jost, -apple-system, system-ui, sans-serif',
 				mono: 'JetBrains Mono, monospace'
 			},
 			zIndex: {

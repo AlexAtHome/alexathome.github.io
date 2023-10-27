@@ -2,65 +2,30 @@
 title: Alex Bolotskov
 ---
 <!DOCTYPE html>
-<html lang="en" class="latte dark:mocha text-gray-800 dark:text-gray-100 font-sans">
+<html lang="en" class="bg-white dark:bg-black text-gray-800 dark:text-gray-100 font-sans">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" :content="eleventy.generator">
+	<base href="/">
 	<title @text="title"></title>
-	<template webc:nokeep @raw="favicons('./src/images/pfp.png')"></template>
-	<template webc:nokeep @raw="eleventyGoogleFonts('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Sofia+Sans:ital,wght@0,400;0,700&display=swap')"></template>
-	<style @raw="getBundle('css')" webc:keep></style>
-	<script @raw="getBundle('js')" webc:keep></script>
+	<style @html="getCSS(page.url)" webc:keep></style>
+	<script type="module" @html="getJS(page.url)" webc:keep></script>
+	<template webc:nokeep @html="favicons('./src/images/pfp.png')"></template>
 </head>
 
-<body class="bg-white dark:bg-base">
-	<main class="min-h-screen">
-		<div class="sticky top-0 h-0 z-50 pb-16" role="presentation">
-			<nav class="relative w-full bg-base/50 backdrop-blur border-b-base" id="navbar">
-				<div class="container flex flex-row justify-between items-center gap-4 h-12">
-					<div class="flex flex-row items-center gap-4">
-						<a id="front-page-link" href="/"
-							class="ml-1 shrink-0 pr-3 box-content group inline-flex items-center gap-4 transition-opacity"
-							role="button">
-							<face
-								classname="block self-center shrink-0 object-fill w-6 h-6 rounded-full outline-pink outline outline-2 outline-offset-4">
-							</face>
-							<span
-								class="hidden font-bold md:block link before:bg-pink group-hover:text-white dark:group-hover:text-black text-maroon dark:text-pink group-hover:before:h-full group-hover:before:top-0 group-hover:before:text-white before:bg-gradient-to-tr before:from-green before:to-blue">Alex's
-								corner</span>
-						</a>
-					</div>
+<body class="min-h-screen flex flex-col box-border">
+	<header class="fixed top-4 left-4 h-0 z-50" id="navbar">
+		<side-menu></side-menu>
+	</header>
 
-					<menu class="flex justify-center items-center gap-8">
-						<li>
-							<a class="link text-sm text-slate-800 dark:text-white before:bg-pink hover:text-black visited:text-current"
-								href="/posts/">Posts</a>
-						</li>
-						<li>
-							<a class="link text-sm text-slate-700 dark:text-white before:bg-pink hover:text-black visited:text-current"
-								href="/#projects">Projects</a>
-						</li>
-						<li>
-							<a class="hover:text-pink text-xl" aria-label="Github Profile" href="https://github.com/AlexAtHome"
-								target="_blank">
-								<bs-i @name="github"></bs-i>
-							</a>
-						</li>
-					</menu>
-				</div>
-			</nav>
-		</div>
-		<template @raw="content" webc:nokeep></template>
-		<footer class="container">
-			<menu class="flex flex-row">
-				<li><a href="https://github.com/AlexAtHome/AlexAtHome.github.io" class="link dark:text-white"><bs-i
-							@name="code-slash"></bs-i>&nbsp;Source code</a></li>
-			</menu>
-		</footer>
-	</main>
+	<template @html="content" webc:nokeep></template>
+
+	<footer class="container  mt-auto">
+		<p>Crafted by <a :href="githubUrl" class="link">me</a></p>
+	</footer>
 	<script webc:keep type="module" src="/main.js"></script>
-	<script @raw="getBundle('js', 'defer')" webc:keep></script>
 </body>
+
 </html>

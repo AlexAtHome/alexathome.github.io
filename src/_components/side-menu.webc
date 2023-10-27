@@ -1,0 +1,82 @@
+<button type="button" class="relative inline-flex items-center gap-2 text-lg z-20 bg-black bg-clip-text mix-blend-difference" aria-label="Open menu">
+	<bs-i @name="list" @class-name="text-3xl"></bs-i>
+	<span class="sr-only">Menu</span>
+</button>
+
+<!-- TODO: design a cool new menu -->
+<div hidden
+	class="fixed bg-pink-700 text-gray-50 top-0 bottom-0 left-0 w-44 p-4 pt-16 z-10 transition-transform flex flex-col gap-4 items-start"
+	id="menu-pane" role="dialog">
+	<nav>
+		<menu class="flex flex-col gap-2">
+			<li><a class="link text-white visited:text-white" href="/">Front page</a></li>
+			<li><a class="link text-white visited:text-white" href="/posts/">Blog</a></li>
+			<li><a class="link text-white visited:text-white" href="/#projects">Projects</a></li>
+			<li><a class="link text-white visited:text-white" href="/credits/">Credits</a></li>
+		</menu>
+	</nav>
+
+	<hr>
+
+	<div class="flex flex-col gap-4">
+		<face classname="block shrink-0 object-fill w-12 h-12 rounded-full"></face>
+		<ul class="flex gap-4" aria-label="Link">
+			<li>
+				<a href="https://github.com/AlexAtHome" rel="noreferrer noopener">
+					<bs-i @name="github"></bs-i>
+					<span class="sr-only">Github</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<style webc:scoped>
+	/* TODO: Fix menu flicking on repeated refresh */
+	:host:not(:defined) #menu-pane[hidden] {
+		visibility: hidden;
+	}
+
+	:host:defined #menu-pane[hidden] {
+		transform: translateX(-200%);
+	}
+
+	:host:not(:defined) button:focus~#menu-pane,
+	:host:not(:defined) #menu-pane:focus-within,
+	:host[open] #menu-pane {
+		transform: none
+	}
+</style>
+
+<script>
+	class SideMenuElement extends HTMLElement {
+		/** @type HTMLDivElement */
+		#menu
+
+		/** @type HTMLButtonElement */
+		#button
+
+		connectedCallback() {
+			this.#button = this.querySelector(':scope button')
+			this.#menu = this.querySelector(':scope #menu-pane')
+			this.#button.addEventListener('click', this.togglePane.bind(this))
+		}
+
+		disconnectedCallback() {
+			this.#button.removeEventListener('click', this.togglePane.bind(this))
+		}
+
+		togglePane() {
+			if (this.getAttribute('open') !== null) {
+				this.removeAttribute('open')
+				this.#menu.hidden = true
+				this.#menu.ariaHidden = 'true'
+			} else {
+				this.setAttribute('open', 'open')
+				this.#menu.hidden = false
+				this.#menu.ariaHidden = 'false'
+			}
+		}
+	}
+	window.customElements.define('side-menu', SideMenuElement)
+</script>
