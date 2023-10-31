@@ -26,7 +26,7 @@ title: Alex Bolotskov
 	<template @html="content" webc:nokeep></template>
 
 	<footer class="container mt-auto">
-		<p>Crafted by <a :href="githubUrl" class="link text-pink-400">me</a></p>
+		<p>Designed and crafted by <a :href="githubUrl" class="link text-pink-400">me :3</a></p>
 	</footer>
 	<script webc:keep type="module" src="/main.js"></script>
 </body>

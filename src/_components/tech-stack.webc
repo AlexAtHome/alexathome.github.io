@@ -1,3 +1,3 @@
-<svg webc:for="lang of ['angular', 'js', 'ts', 'node', 'html', 'css', 'react']" class="w-6 h-6" width="32" height="32" fill="currentColor" role="presentation" :aria-label="lang">
+<svg webc:for="lang of ['angular', 'js', 'ts', 'node', 'bash', 'html', 'css', 'react', 'go', 'python']" class="w-6 h-6" width="32" height="32" fill="currentColor" role="presentation" :aria-label="lang">
 	<use :xlink:href="`/assets/icons/langs.svg#${lang}`" />
 </svg>
