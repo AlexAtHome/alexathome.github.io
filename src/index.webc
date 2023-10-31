@@ -4,69 +4,75 @@ eleventyImport:
 collections: ["postlist"]
 ---
 
-<main class="main md:flex-row">
-	<div class="flex flex-col grow-0 items-start basis-1/5 gap-2">
+<main class="main grid grid-cols-1 md:grid-cols-3 3xl:grid-cols-5 3xl:max-w-full">
+	<div class="flex flex-col grow-0 items-start basis-1/5 gap-4 col-span-1" id="twitter-bio-lmao">
 		<face classname="inline-flex shrink-0 object-fill w-20 h-20 rounded-full"></face>
 		<span class="heading text-4xl text-pink-500 mb-2">Alex Bolotskov</span>
-		<ul class="flex flex-wrap gap-6 items-start">
-			<li class="flex gap-2">
-				<tech-stack></tech-stack>
-			</li>
-			<li>26 y.o.</li>
-			<li>
+		<span class="flex gap-2" aria-label="My tech stach">
+			<tech-stack></tech-stack>
+		</span>
+		<ul class="flex gap-2 items-start">
+			<li class="text-xl" aria-label="I'm from Russia">🇷🇺</li>
+			<li aria-label="I'm 26 years old">26 y.o.</li>
+			<li aria-label="My pronouns are he/him">
 				<bs-i @name="gender-male"></bs-i>
 				he/him
 			</li>
 		</ul>
-		<section>
-			<p>Hi!</p>
-			<p>Don't mind me. I just post some stuff here</p>
-		</section>
+		<p>Experienced frontend developer that doesn't hesitate to go a little beyond the&nbsp;web tech and likes to think
+			outside the box.</p>
+		<div role="presentation">
+			<p role="presentation">I like</p>
+			<ul aria-label="My favorite activities">
+				<li><bs-i @name="controller"></bs-i> gaming</li>
+				<li><bs-i @name="code-slash"></bs-i> <span class="font-mono">coding</span></li>
+				<li><bs-i @name="bicycle"></bs-i> bycicles</li>
+				<li><bs-i @name="keyboard"></bs-i> mechanical keyboards</li>
+			</ul>
+		</div>
 	</div>
 
-	<div class="grow flex flex-col gap-12">
-		<section>
-			<h2 class="text-3xl heading">Latest posts</h2>
-			<ol class="grid grid-cols-1 gap-6 items-start">
-				<article-excerpt webc:for="post of collections.postlist.slice(0, 5)" :@href="post.url" :@title="post.data.title"
-					:@excerpt="post.page.excerpt" :@created-at="post.page.date"
-					:@tag="post.data.tags[1] || post.data.tags[0]"></article-excerpt>
+	<section class="md:col-span-2">
+		<h2 class="text-3xl heading">Latest posts</h2>
+		<ol class="grid grid-cols-1 gap-6 items-start">
+			<article-excerpt webc:for="post of collections.postlist.slice(0, 5)" :@href="post.url" :@title="post.data.title"
+				:@excerpt="post.page.excerpt" :@created-at="post.page.date"
+				:@tag="post.data.tags[1] || post.data.tags[0]"></article-excerpt>
 
-				<a href="/posts/" class="inline-flex gap-2 items-center link w-auto">
-					More posts
-					<bs-i @name="arrow-right"></bs-i>
-				</a>
-			</ol>
-		</section>
+			<a href="/posts/" class="inline-flex gap-2 items-center link w-auto">
+				More posts
+				<bs-i @name="arrow-right"></bs-i>
+			</a>
+		</ol>
+	</section>
 
-		<section>
-			<h2 class="text-3xl heading">Projects I run and even use myself</h2>
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-				<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
-					@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">
-					Just a webpage that shows the current viewport and screen resolution
-				</project-preview>
-				<project-preview @name="json" @source-code-url="https://github.com/AlexAtHome/json"
-					@webpage-url="https://json.alexalex.dev" @icon="braces">
-					JSON format tool
-				</project-preview>
-				<project-preview @name="vscode-fish-text" @source-code-url="https://github.com/AlexAtHome/vscode-fish-text"
-					@webpage-url="https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text" @icon="body-text">
-					Soviet style text generator for Visual Studio Code
-				</project-preview>
-				<project-preview @name="sitealert" @source-code-url="https://github.com/AlexAtHome/sitealert"
-					@icon="exclamation-diamond">
-					A Python script that checks if the given URL does not return the 4xx or 5xx status.
-				</project-preview>
-				<project-preview @name="keycap" @source-code-url="https://github.com/AlexAtHome/keycap"
-					@webpage-url="https://alexathome.github.io/keycap/" @icon="keyboard">
-					Keyboard testing app
-				</project-preview>
-				<project-preview @name="minecraft-steve" @source-code-url="https://github.com/AlexAtHome/minecraft-steve"
-					@webpage-url="https://alexathome.github.io/minecraft-steve/" @icon="joystick">
-					WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS
-				</project-preview>
-			</div>
-		</section>
-	</div>
+	<section class="md:col-span-3 3xl:col-span-2">
+		<h2 class="text-3xl heading">Projects I run and even use myself</h2>
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+			<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
+				@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">
+				Just a webpage that shows the current viewport and screen resolution
+			</project-preview>
+			<project-preview @name="json" @source-code-url="https://github.com/AlexAtHome/json"
+				@webpage-url="https://json.alexalex.dev" @icon="braces">
+				JSON format tool
+			</project-preview>
+			<project-preview @name="vscode-fish-text" @source-code-url="https://github.com/AlexAtHome/vscode-fish-text"
+				@webpage-url="https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text" @icon="body-text">
+				Soviet style text generator for Visual Studio Code
+			</project-preview>
+			<project-preview @name="sitealert" @source-code-url="https://github.com/AlexAtHome/sitealert"
+				@icon="exclamation-diamond">
+				A Python script that checks if the given URL does not return the 4xx or 5xx status.
+			</project-preview>
+			<project-preview @name="keycap" @source-code-url="https://github.com/AlexAtHome/keycap"
+				@webpage-url="https://alexathome.github.io/keycap/" @icon="keyboard">
+				Keyboard testing app
+			</project-preview>
+			<project-preview @name="minecraft-steve" @source-code-url="https://github.com/AlexAtHome/minecraft-steve"
+				@webpage-url="https://alexathome.github.io/minecraft-steve/" @icon="joystick">
+				WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS
+			</project-preview>
+		</div>
+	</section>
 </main>

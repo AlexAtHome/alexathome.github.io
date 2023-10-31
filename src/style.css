@@ -16,7 +16,7 @@
 	}
 
 	.link {
-		@apply underline underline-offset-8 hover:underline-offset-4 dark:text-blue-400 text-blue-700 visited:text-violet-700 transition-colors;
+		@apply underline underline-offset-8 hover:underline-offset-4 dark:text-blue-400 text-blue-700 transition-colors;
 	}
 
 	.md-content {
@@ -129,8 +129,18 @@
 			scrollbar-color: #334155 #1e1e2e;
 		}
 
+		font-size: 16px;
+
+		@screen md {
+			font-size: 18px;
+		}
+
 		@screen xl {
 			font-size: 20px;
+		}
+
+		@screen 4xl {
+			font-size: 28px;
 		}
 	}
 
@@ -146,6 +156,11 @@
 		&::-webkit-scrollbar-thumb {
 			@apply rounded-lg dark:bg-slate-700 bg-slate-400;
 		}
+
+		background-size: cover;
+		background-image: linear-gradient(45deg,
+			0%	 oklch(5% .50 0),
+		);
 	}
 }
 

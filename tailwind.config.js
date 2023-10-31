@@ -4,6 +4,10 @@ module.exports = {
 	theme: {
 		colors: require('@evilmartians/harmony/tailwind'),
 		extend: {
+			screens: {
+				'3xl': '1750px',
+				'4xl': '2000px'
+			},
 			fontFamily: {
 				heading: 'Wix Madefor Display, -apple-system, system-ui, sans-serif',
 				sans: 'Jost, -apple-system, system-ui, sans-serif',
