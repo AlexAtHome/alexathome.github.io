@@ -1,1 +1,1 @@
-<img src="/images/pfp.png" alt="github profile" :class="classname" />
+<img src="/images/pfp.png" alt="Alexander's profile picture" :class="classname" />

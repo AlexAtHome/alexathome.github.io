@@ -1,29 +1,32 @@
-<button type="button" class="relative inline-flex items-center gap-2 text-lg z-20 bg-black bg-clip-text mix-blend-difference" aria-label="Open menu">
-	<bs-i @name="list" @class-name="text-3xl"></bs-i>
-	<span class="sr-only">Menu</span>
-</button>
-
-<!-- TODO: design a cool new menu -->
 <div hidden
-	class="fixed bg-pink-700 text-gray-50 top-0 bottom-0 left-0 w-44 p-4 pt-16 z-10 transition-transform flex flex-col gap-4 items-start"
+	class="fixed bg-pink-600 text-gray-50 top-0 h-screen left-0 w-full max-w-xs z-20 transition-transform flex flex-col gap-4 items-start text-xl"
 	id="menu-pane" role="dialog">
-	<nav>
-		<menu class="flex flex-col gap-2">
-			<li><a class="link text-white visited:text-white" href="/">Front page</a></li>
-			<li><a class="link text-white visited:text-white" href="/posts/">Blog</a></li>
-			<li><a class="link text-white visited:text-white" href="/#projects">Projects</a></li>
-			<li><a class="link text-white visited:text-white" href="/credits/">Credits</a></li>
-		</menu>
+	<button id="menu-close-btn" type="button"
+		class="relative top-4 left-4 inline-flex items-center gap-2 text-lg text-white" aria-label="Close menu">
+		<bs-i @name="x-lg" @class-name="text-3xl"></bs-i>
+		<span class="sr-only">Menu</span>
+	</button>
+
+	<nav class="pt-16 w-full">
+		<ul class="flex flex-col">
+			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white" href="/">Front
+					page</a></li>
+			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
+					href="/posts/">Blog</a></li>
+			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
+					href="/#projects">Projects</a></li>
+			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
+					href="/credits/">Credits</a></li>
+		</ul>
 	</nav>
 
 	<hr>
 
-	<div class="flex flex-col gap-4">
-		<face classname="block shrink-0 object-fill w-12 h-12 rounded-full"></face>
+	<div class="flex flex-col gap-4 px-4 w-full">
 		<ul class="flex gap-4" aria-label="Link">
 			<li>
 				<a href="https://github.com/AlexAtHome" rel="noreferrer noopener">
-					<bs-i @name="github"></bs-i>
+					<bs-i @name="github" @class-name="text-3xl"></bs-i>
 					<span class="sr-only">Github</span>
 				</a>
 			</li>
@@ -56,14 +59,20 @@
 		/** @type HTMLButtonElement */
 		#button
 
+		/** @type HTMLButtonElement */
+		#closeButton
+
 		connectedCallback() {
-			this.#button = this.querySelector(':scope button')
+			this.#button = document.querySelector('#burger-btn')
+			this.#closeButton = this.querySelector('#menu-close-btn')
 			this.#menu = this.querySelector(':scope #menu-pane')
 			this.#button.addEventListener('click', this.togglePane.bind(this))
+			this.#closeButton.addEventListener('click', this.togglePane.bind(this))
 		}
 
 		disconnectedCallback() {
 			this.#button.removeEventListener('click', this.togglePane.bind(this))
+			this.#closeButton.removeEventListener('click', this.togglePane.bind(this))
 		}
 
 		togglePane() {
@@ -76,6 +85,11 @@
 				this.#menu.hidden = false
 				this.#menu.ariaHidden = 'false'
 			}
+			this.#toggleScroll()
+		}
+
+		#toggleScroll() {
+			document.documentElement.style.overflow = this.#menu.hidden ? '' : 'hidden'
 		}
 	}
 	window.customElements.define('side-menu', SideMenuElement)

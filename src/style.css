@@ -4,11 +4,11 @@
 
 @layer components {
 	.container {
-		@apply flex flex-col gap-8 relative p-6 md:p-3 md:px-12 mx-auto w-full max-w-7xl box-border;
+		@apply flex flex-col gap-8 gap-y-16 md:gap-y-8 relative p-4 md:p-3 md:px-16 mx-auto w-full max-w-7xl box-border;
 	}
 
 	.main {
-		@apply container pt-16;
+		@apply container md:pt-16;
 	}
 
 	.heading {
@@ -129,11 +129,7 @@
 			scrollbar-color: #334155 #1e1e2e;
 		}
 
-		font-size: 16px;
-
-		@screen md {
-			font-size: 18px;
-		}
+		font-size: 18px;
 
 		@screen xl {
 			font-size: 20px;
@@ -166,15 +162,14 @@
 
 @layer utilities {
 	.bs-icon svg {
-		width: 100%;
-		height: 100%;
+		width: 1em;
+		height: 1em;
 		display: block;
+		font-size: inherit;
 	}
 
 	.bs-icon {
 		display: inline-flex;
-		width: 1em;
-		height: 1em;
 		vertical-align: middle;
 	}
 }
