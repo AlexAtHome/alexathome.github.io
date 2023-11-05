@@ -1,5 +1,5 @@
 <div hidden
-	class="fixed bg-pink-600 text-gray-50 top-0 h-screen left-0 w-full max-w-xs z-20 transition-transform flex flex-col gap-4 items-start text-xl"
+	class="fixed bg-pink-600 text-gray-50 top-0 h-screen left-0 w-full max-w-xs z-50 transition-transform flex flex-col gap-4 items-start text-xl"
 	id="menu-pane" role="dialog">
 	<button id="menu-close-btn" type="button"
 		class="relative top-4 left-4 inline-flex items-center gap-2 text-lg text-white" aria-label="Close menu">
@@ -33,6 +33,7 @@
 		</ul>
 	</div>
 </div>
+<div class="overlay fixed z-40 left-0 top-0 right-0 bottom-0 bg-black/50"></div>
 
 <style webc:scoped>
 	/* TODO: Fix menu flicking on repeated refresh */
@@ -49,6 +50,11 @@
 	:host[open] #menu-pane {
 		transform: none
 	}
+
+	:host:not(:defined) .overlay,
+	:host:defined #menu-pane[hidden]~.overlay {
+		display: none;
+	}
 </style>
 
 <script>
@@ -62,12 +68,17 @@
 		/** @type HTMLButtonElement */
 		#closeButton
 
+		/** @type HTMLDivElement */
+		#overlay
+
 		connectedCallback() {
 			this.#button = document.querySelector('#burger-btn')
 			this.#closeButton = this.querySelector('#menu-close-btn')
 			this.#menu = this.querySelector(':scope #menu-pane')
+			this.#overlay = this.querySelector(':scope .overlay')
 			this.#button.addEventListener('click', this.togglePane.bind(this))
 			this.#closeButton.addEventListener('click', this.togglePane.bind(this))
+			this.#overlay.addEventListener('click', this.togglePane.bind(this))
 		}
 
 		disconnectedCallback() {
