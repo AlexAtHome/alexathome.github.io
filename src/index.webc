@@ -1,6 +1,5 @@
 ---
 layout: root
-eleventyImport:
 collections: ["postlist"]
 ---
 
@@ -48,7 +47,7 @@ collections: ["postlist"]
 
 	<section class="md:col-span-3 3xl:col-span-2">
 		<h2 class="text-3xl heading">Projects I run and even use myself</h2>
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-16">
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-12">
 			<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
 				@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">
 				Just a webpage that shows the current viewport and screen resolution

@@ -15,8 +15,6 @@
 					href="/posts/">Blog</a></li>
 			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
 					href="/#projects">Projects</a></li>
-			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
-					href="/credits/">Credits</a></li>
 		</ul>
 	</nav>
 
