@@ -1,6 +1,5 @@
 ---
 title: How to mark root certificates as trusted
-layout: blog
 tags:
     - post
     - macos

@@ -1,6 +1,5 @@
 ---
 title: Xbox controller on Linux via Bluetooth
-layout: blog
 tags:
     - post
     - linux

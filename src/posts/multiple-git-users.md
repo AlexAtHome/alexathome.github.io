@@ -1,9 +1,7 @@
 ---
 title: Living a double life with multiple Git authors
 date: 2020-11-14
-slug: multiple-git-users
 source: https://deepsource.io/blog/managing-different-git-profiles/
-layout: blog
 tags:
     - post
     - productivity

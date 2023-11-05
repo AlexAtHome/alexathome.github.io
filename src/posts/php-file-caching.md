@@ -1,6 +1,5 @@
 ---
 title: Caching files with query parameters in PHP
-layout: blog
 tags:
     - post
     - php

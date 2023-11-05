@@ -1,6 +1,5 @@
 ---
 title: Deferred display of content with PHP
-layout: blog
 date: 2021-11-09
 tags:
     - post

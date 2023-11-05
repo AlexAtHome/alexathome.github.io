@@ -1,6 +1,5 @@
 ---
 title: Make a bootable USB drive with dd
-layout: blog
 tags:
     - post
     - linux

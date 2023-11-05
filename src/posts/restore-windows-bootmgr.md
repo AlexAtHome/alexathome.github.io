@@ -1,6 +1,5 @@
 ---
 title: Restoring Windows 10 boot loader
-layout: blog
 tags:
     - post
     - windows

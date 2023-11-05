@@ -1,6 +1,5 @@
 ---
 title: Disable the pc speaker Linux
-layout: blog
 tags:
     - post
     - linux

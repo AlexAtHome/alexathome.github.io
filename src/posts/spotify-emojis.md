@@ -1,7 +1,6 @@
 ---
 title: Displaying Emojis in Spotify and other Electron apps on Linux
 source: https://victor.kropp.name/blog/emoji-on-linux/
-layout: blog
 tags:
     - post
     - linux

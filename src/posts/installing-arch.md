@@ -1,6 +1,5 @@
 ---
 title: Arch Linux Installation Guide. The short version.
-layout: blog
 tags:
     - post
     - linux

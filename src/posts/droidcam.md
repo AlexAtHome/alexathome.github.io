@@ -1,6 +1,5 @@
 ---
 title: How to install Droidcam on Fedora and Arch Linux
-layout: blog
 tags:
     - post
     - linux

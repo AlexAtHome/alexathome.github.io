@@ -1,6 +1,5 @@
 ---
 title: Fix bugs in Borderlands 3 on Fedora
-layout: blog
 source: https://www.shernet.com/linux/borderlands-3-on-linux/
 tags:
     - post

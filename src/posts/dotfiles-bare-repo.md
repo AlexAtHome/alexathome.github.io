@@ -1,6 +1,5 @@
 ---
 title: Store and manage dotfile configs in a bare repository
-layout: blog
 tags:
     - post
     - productivity

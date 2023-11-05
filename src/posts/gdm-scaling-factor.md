@@ -1,7 +1,6 @@
 ---
 title: Scaling Gnome login screen on HiDPI display
 source: https://askubuntu.com/questions/906797/scaling-gnome-login-screen-on-hidpi-display
-layout: blog
 tags:
     - post
     - linux

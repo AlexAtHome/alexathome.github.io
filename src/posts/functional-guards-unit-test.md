@@ -1,6 +1,5 @@
 ---
 title: Unit-testing functional guards in Angular
-layout: blog
 tags:
   - post
   - frontend

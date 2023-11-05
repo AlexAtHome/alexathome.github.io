@@ -1,7 +1,6 @@
 ---
 title: i3wm cheatsheet
 source: https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf
-layout: blog
 tags:
     - post
     - linux
