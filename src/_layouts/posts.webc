@@ -7,30 +7,21 @@ pagination:
   size: 8
 ---
 
-<header class="py-8">
-	<div class="container" role="presentation">
-		<h1 class="inline-flex flex-col gap-4 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-bl text-accent from-pink to-red" @text="title"></h1>
-	</div>
-	<nav class="container flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
-		<breadcrumbs :@list="[{ label: 'Posts', href: '/posts', current: tag === 'posts' }, { label: breadcrumb, href: page.url, current: true }]"></breadcrumbs>
+<div class="container 3xl:max-w-full gap-4 mb-8">
+	<h1 class="heading text-3xl mb-0" @text="title"></h1>
+	<nav class="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
+		<breadcrumbs
+			:@list="[{ label: 'Posts', href: '/posts', current: tag === 'posts' }, { label: breadcrumb, href: page.url, current: true }]">
+		</breadcrumbs>
 		<tag-filter :@current-tag="tag"></tag-filter>
 	</nav>
-</header>
+</div>
 
-<section class="flex relative flex-col justify-center items-start pb-16">
-	<div class="container" role="presentation">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16">
-			<article-excerpt
-				webc:for="post of pagination.items"
-				:@href="post.url"
-				:@title="post.data.title"
-				:@excerpt="post.page.excerpt"
-				:@created-at="post.page.date"
-			></article-excerpt>
-		</div>
-	</div>
+<main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 3xl:max-w-full">
+	<article-excerpt webc:for="post of pagination.items" :@href="post.url" :@title="post.data.title"
+		:@excerpt="post.page.excerpt" :@created-at="post.page.date"></article-excerpt>
+</main>
 
-	<nav webc:if="pagination.hrefs.length > 1" class="block relative w-full mt-16 px-4">
-		<pagination :@pagination="pagination" :@page="page"></pagination>
-	</nav>
-</section>
+<nav webc:if="pagination.hrefs.length > 1" class="block relative w-full mt-4 px-4 3xl:max-w-full">
+	<pagination :@pagination="pagination" :@page="page"></pagination>
+</nav>
