@@ -8,7 +8,6 @@ title: Alex Bolotskov
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" :content="eleventy.generator">
-	<base href="/">
 	<title @text="title"></title>
 	<style @html="getCSS(page.url)" webc:keep></style>
 	<script type="module" @html="getJS(page.url)" webc:keep></script>
@@ -26,7 +25,7 @@ title: Alex Bolotskov
 	<template @html="content" webc:nokeep></template>
 
 	<footer class="container mt-auto 3xl:max-w-full">
-		<p>Designed and crafted by <a :href="githubUrl" class="link text-pink-400">me :3</a></p>
+		<p>Designed and crafted by <a :href="githubUrl" class="link text-pink-500">me :3</a></p>
 	</footer>
 	<script webc:keep type="module" src="/main.js"></script>
 </body>
