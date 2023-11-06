@@ -4,6 +4,10 @@ tags:
     - post
     - linux
 date: 2021-11-09
+cover:
+  image: /images/arch-install-process.jpg
+  caption: Photo by <a class="link" href="https://unsplash.com/@m_malkovich?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">petr sidorov</a> on <a class="link" href="https://unsplash.com/photos/woman-in-gray-sweater-holding-round-brown-hat-ZOxkaXFvw6A?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  alt: A woman playing a tambourine in the forest
 ---
 
 This post is the result of me walking into every pitfall on my way to install Arch Linux.
