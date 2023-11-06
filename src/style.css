@@ -12,7 +12,7 @@
 	}
 
 	.heading {
-		@apply font-heading font-bold mb-8 text-pink-500;
+		@apply font-heading font-bold mb-8 text-pink-500 leading-tight;
 	}
 
 	.link {
@@ -20,7 +20,7 @@
 	}
 
 	.md-content {
-		@apply leading-loose flex flex-col gap-6;
+		@apply leading-loose flex flex-col gap-4;
 
 		> * {
 			@apply relative max-w-3xl mr-auto;
@@ -32,7 +32,7 @@
 		h4,
 		h5,
 		h6 {
-			@apply my-2 font-bold dark:text-pink-400 leading-normal;
+			@apply my-2 heading leading-normal;
 		}
 
 		h1 {
