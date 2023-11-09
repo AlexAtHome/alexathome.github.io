@@ -11,7 +11,7 @@ module.exports = {
 			fontFamily: {
 				heading: 'Wix Madefor Display, -apple-system, system-ui, sans-serif',
 				sans: 'Jost, -apple-system, system-ui, sans-serif',
-				mono: 'JetBrains Mono, monospace'
+				mono: 'Roboto Mono, JetBrains Mono, monospace'
 			},
 			zIndex: {
 				100: '100',
