@@ -60,17 +60,17 @@ collections: ["postlist"]
 				@webpage-url="https://marketplace.visualstudio.com/items?itemName=mamoru.vscode-fish-text" @icon="body-text">
 				Soviet style text generator for Visual Studio Code
 			</project-preview>
+			<project-preview @name="speech-code" @source-code-url="https://github.com/AlexAtHome/speech-code"
+				@webpage-url="https://speech.alexalex.dev" @icon="body-text">
+				Soviet style text generator
+			</project-preview>
 			<project-preview @name="sitealert" @source-code-url="https://github.com/AlexAtHome/sitealert"
 				@icon="exclamation-diamond">
 				A Python script that checks if the given URL does not return the 4xx or 5xx status.
 			</project-preview>
 			<project-preview @name="keycap" @source-code-url="https://github.com/AlexAtHome/keycap"
-				@webpage-url="https://alexathome.github.io/keycap/" @icon="keyboard">
+				@webpage-url="https://keycap.alexalex.dev" @icon="keyboard">
 				Keyboard testing app
-			</project-preview>
-			<project-preview @name="minecraft-steve" @source-code-url="https://github.com/AlexAtHome/minecraft-steve"
-				@webpage-url="https://alexathome.github.io/minecraft-steve/" @icon="joystick">
-				WIP 3D model of Steve from Minecraft&#8482; done entirely (sort of) in CSS
 			</project-preview>
 		</div>
 	</section>
