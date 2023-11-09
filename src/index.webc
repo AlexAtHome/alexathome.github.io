@@ -32,7 +32,7 @@ collections: ["postlist"]
 	</div>
 
 	<section class="md:col-span-2">
-		<h2 class="text-3xl heading">Latest posts</h2>
+		<h2 class="heading-1">Latest posts</h2>
 		<ol class="grid grid-cols-1 gap-6 items-start">
 			<article-excerpt webc:for="post of collections.postlist.slice(0, 5)" :@href="post.url" :@title="post.data.title"
 				:@excerpt="post.page.excerpt" :@created-at="post.page.date"
@@ -46,7 +46,7 @@ collections: ["postlist"]
 	</section>
 
 	<section class="md:col-span-3 3xl:col-span-2">
-		<h2 class="text-3xl heading">Projects I run and even use myself</h2>
+		<h2 class="heading-1">My projects</h2>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-12">
 			<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
 				@webpage-url="https://viewport.alexalex.dev" @icon="arrows-fullscreen">

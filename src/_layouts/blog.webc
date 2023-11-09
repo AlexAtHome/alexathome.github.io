@@ -12,7 +12,7 @@ date: git Created
 			</breadcrumbs>
 		</nav>
 
-		<h1 class="heading text-3xl lg:text-5xl text-pink-500 mb-0" @text="title"></h1>
+		<h1 class="heading-1 mb-0" @text="title"></h1>
 
 		<div
 			class="text-slate-600 dark:text-slate-400 flex flex-row flex-wrap gap-x-8 gap-y-4 items-center leading-tight text-sm">

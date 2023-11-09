@@ -15,6 +15,10 @@
 		@apply font-heading font-bold mb-8 text-pink-500 leading-tight;
 	}
 
+	.heading-1 {
+		@apply text-3xl lg:text-6xl heading;
+	}
+
 	.link {
 		@apply underline underline-offset-8 hover:underline-offset-4 dark:text-blue-400 text-blue-700 transition-colors;
 	}
