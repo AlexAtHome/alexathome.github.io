@@ -6,7 +6,7 @@ collections: ["postlist"]
 <main class="main grid grid-cols-1 md:grid-cols-3 3xl:grid-cols-5 3xl:max-w-full">
 	<div class="flex flex-col items-stretch gap-4 col-span-1" id="twitter-bio-lmao">
 		<face classname="inline-flex shrink-0 object-fill w-20 h-20 rounded-full"></face>
-		<span class="heading text-4xl text-pink-500 mb-2">Alex Bolotskov</span>
+		<span class="heading text-4xl mb-2">Alex Bolotskov</span>
 		<span class="flex gap-2 flex-wrap" aria-label="My tech stach">
 			<tech-stack></tech-stack>
 		</span>
