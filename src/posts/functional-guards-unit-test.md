@@ -5,6 +5,7 @@ tags:
   - frontend
   - angular
 source: https://www.youtube.com/watch?v=MDCKq_e7Q04
+date: 2023-07-05
 ---
 
 TL;DR: Run the guard inside the [`TestBed.runInInjectionContext`](https://angular.io/api/core/testing/TestBed#runininjectioncontext) callback.

@@ -6,6 +6,7 @@ tags:
     - linux
     - git
 source: https://www.atlassian.com/git/tutorials/dotfiles
+date: 2023-07-22
 ---
 It's a cool way to store and manage dotfile configuration files.
 
