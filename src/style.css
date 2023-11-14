@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
 	.container {
 		@apply flex flex-col gap-8 gap-y-16 md:gap-y-8 relative p-4 md:p-3 md:px-16 mx-auto w-full max-w-7xl box-border;
@@ -154,6 +153,11 @@
 		@screen 4xl {
 			font-size: 28px;
 		}
+	}
+
+	::selection {
+		background: var(--accent);
+		color: white;
 	}
 
 	body {
