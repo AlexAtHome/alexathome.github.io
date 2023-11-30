@@ -11,12 +11,7 @@ collections: ["postlist"]
 			<tech-stack></tech-stack>
 		</span>
 		<ul class="flex gap-2 items-start">
-			<li class="text-xl" aria-label="I'm from Russia">🇷🇺</li>
 			<li aria-label="I'm 26 years old">26 y.o.</li>
-			<li aria-label="My pronouns are he/him">
-				<bs-i @name="gender-male"></bs-i>
-				he/him
-			</li>
 		</ul>
 		<p>Experienced frontend developer that doesn't hesitate to go a little beyond the&nbsp;web tech and likes to think
 			outside the box.</p>
