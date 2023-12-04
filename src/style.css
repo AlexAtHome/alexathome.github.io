@@ -27,6 +27,10 @@
 		color: var(--accent);
 	}
 
+	.bg-accent {
+		background-color: var(--accent);
+	}
+
 	.md-content {
 		@apply leading-loose flex flex-col gap-4;
 
