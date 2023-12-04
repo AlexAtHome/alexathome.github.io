@@ -11,7 +11,6 @@ title: Alex Bolotskov
 	<title @text="title"></title>
 	<style @html="getCSS(page.url)" webc:keep></style>
 	<script type="module" @html="getJS(page.url)" webc:keep></script>
-	<template webc:nokeep @html="favicons('./src/images/pfp.png')"></template>
 </head>
 
 <body class="min-h-screen flex flex-col box-border">

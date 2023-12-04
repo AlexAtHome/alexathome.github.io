@@ -2,7 +2,6 @@ const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const { EleventyRenderPlugin } = require('@11ty/eleventy')
 const markdownIt = require('markdown-it')
 const path = require('node:path')
-const faviconsPlugin = require('eleventy-plugin-gen-favicons')
 const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
@@ -33,7 +32,6 @@ module.exports = function (config) {
 	})
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
 	config.addPlugin(EleventyRenderPlugin)
-	config.addPlugin(faviconsPlugin)
 	config.addPlugin(syntaxHighlight)
 	config.addPlugin(eleventyTargetSafe, {
 		opener: true,
