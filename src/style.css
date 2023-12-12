@@ -159,8 +159,7 @@
 	}
 
 	::selection {
-		background: var(--accent);
-		color: white;
+		@apply dark:bg-accent-400 dark:text-black bg-accent-600 text-white;
 	}
 
 	body {
