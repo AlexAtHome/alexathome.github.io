@@ -1,7 +1,7 @@
 <div class="flex relative flex-col gap-4 rounded-lg text-md bg-crust">
 	<a class="leading-snug inline-flex gap-2 items-center text-2xl link text-inherit visited:text-inherit no-underline hover:underline"
 		target="_blank" :href="webpageUrl || sourceCodeUrl">
-		<bs-i :@name="icon" @class-name="text-accent"></bs-i>
+		<bs-i :@name="icon" @class-name="text-accent-400"></bs-i>
 		<h3 class="leading-snug" @text="name"></h3>
 	</a>
 	<div class="text-sm line-clamp-2">

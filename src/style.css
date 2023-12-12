@@ -8,7 +8,7 @@
 	}
 
 	.side-menu-item {
-		@apply link inline-flex flex-col text-center hover:bg-accent focus:bg-accent no-underline px-1 py-2 w-full items-center text-inherit hover:text-black;
+		@apply link inline-flex flex-col text-center hover:bg-accent-400 focus:bg-accent-400 no-underline px-1 py-2 w-full items-center text-inherit hover:text-black;
 	}
 
 	.main {
@@ -16,7 +16,7 @@
 	}
 
 	.heading {
-		@apply font-heading font-bold mb-8 text-accent leading-tight;
+		@apply font-heading font-bold mb-8 text-accent-500 leading-tight;
 	}
 
 	.heading-1 {
@@ -25,14 +25,6 @@
 
 	.link {
 		@apply underline underline-offset-8 hover:underline-offset-4 dark:text-blue-400 text-blue-700 transition-colors;
-	}
-
-	.text-accent {
-		color: var(--accent);
-	}
-
-	.bg-accent {
-		background-color: var(--accent);
 	}
 
 	.md-content {
@@ -146,7 +138,7 @@
 	}
 
 	:root {
-		--accent: oklch(0.78 0.2 174.76);
+		--accent-hue: 174.76;
 
 		scroll-behavior: smooth;
 		scrollbar-color: #94a3b8 #fff;
