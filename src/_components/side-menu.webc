@@ -1,5 +1,5 @@
 <div
-	class="fixed dark:text-white dark:bg-black bg-white text-gray-50 top-0 h-screen left-0 w-16 py-8 z-50 transition-transform flex flex-col gap-4 items-start text-xs"
+	class="fixed dark:text-white text-gray-50 top-0 h-screen left-0 w-16 py-8 z-50 transition-transform flex flex-col gap-4 items-start text-xs"
 	id="menu-pane">
 
 	<nav class="w-full text-white">

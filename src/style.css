@@ -8,7 +8,7 @@
 	}
 
 	.side-menu-item {
-		@apply link inline-flex flex-col text-center hover:bg-accent-400 focus:bg-accent-400 no-underline px-1 py-2 w-full items-center text-inherit hover:text-black;
+		@apply link rounded-sm inline-flex flex-col text-center hover:bg-accent-400 focus:outline outline-accent-500 outline-2 outline-offset-2 no-underline px-1 py-2 w-full items-center dark:text-accent-500 text-accent-700 leading-none hover:text-black gap-2;
 	}
 
 	.main {
@@ -16,7 +16,7 @@
 	}
 
 	.heading {
-		@apply font-heading font-bold mb-8 text-accent-500 leading-tight;
+		@apply font-heading font-bold mb-8 dark:text-accent-500 text-accent-700 leading-tight;
 	}
 
 	.heading-1 {
