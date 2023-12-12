@@ -1,102 +1,34 @@
-<div hidden
-	class="fixed bg-accent text-gray-50 top-0 h-screen left-0 w-full max-w-xs z-50 transition-transform flex flex-col gap-4 items-start text-xl"
-	id="menu-pane" role="dialog">
-	<button id="menu-close-btn" type="button"
-		class="relative top-4 left-4 inline-flex items-center gap-2 text-lg text-white" aria-label="Close menu">
-		<bs-i @name="x-lg" @class-name="text-3xl"></bs-i>
-		<span class="sr-only">Menu</span>
-	</button>
+<div
+	class="fixed dark:text-white dark:bg-black bg-white text-gray-50 top-0 h-screen left-0 w-16 py-8 z-50 transition-transform flex flex-col gap-4 items-start text-xs"
+	id="menu-pane">
 
-	<nav class="pt-16 w-full">
-		<ul class="flex flex-col">
-			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white" href="/">Front
-					page</a></li>
-			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
-					href="/posts/">Blog</a></li>
-			<li class="inline-flex"><a class="link no-underline hover:bg-pink-700 px-4 py-2 w-full text-white"
-					href="/#projects">Projects</a></li>
-		</ul>
+	<nav class="w-full text-white">
+		<menu class="flex flex-col">
+			<li webc:if="isFaceVisible" class="inline-flex">
+				<a class="side-menu-item" href="/">
+					<face classname="inline-flex shrink-0 object-fill w-8 h-8 rounded-full"></face>
+					Front page
+				</a>
+			</li>
+			<li class="inline-flex">
+				<a class="side-menu-item" href="/posts/">
+					<bs-i @name="journal-code" @class-name="text-2xl"></bs-i>
+					Blog
+				</a>
+			</li>
+			<li class="inline-flex">
+				<a class="side-menu-item" href="/#projects">
+					<bs-i @name="joystick" @class-name="text-2xl"></bs-i>
+					Projects
+				</a>
+			</li>
+		</menu>
 	</nav>
 
-	<hr>
-
-	<div class="flex flex-col gap-4 px-4 w-full">
-		<a href="https://github.com/AlexAtHome" rel="noreferrer noopener"
-			class="inline-flex gap-4 items-center hover:underline">
-			<bs-i @name="github" @class-name="text-3xl"></bs-i>
-			<span>Github</span>
+	<div class="flex flex-col gap-4 w-full mt-auto">
+		<a href="https://github.com/AlexAtHome" rel="noreferrer noopener" class="side-menu-item">
+			<bs-i @name="github" @class-name="text-2xl self-center"></bs-i>
+			<span class="sr-only">Github</span>
 		</a>
 	</div>
 </div>
-<div class="overlay fixed z-40 left-0 top-0 right-0 bottom-0 bg-black/50"></div>
-
-<style webc:scoped>
-	/* TODO: Fix menu flicking on repeated refresh */
-	:host:not(:defined) #menu-pane[hidden] {
-		visibility: hidden;
-	}
-
-	:host:defined #menu-pane[hidden] {
-		transform: translateX(-200%);
-	}
-
-	:host:not(:defined) button:focus~#menu-pane,
-	:host:not(:defined) #menu-pane:focus-within,
-	:host[open] #menu-pane {
-		transform: none
-	}
-
-	:host:not(:defined) .overlay,
-	:host:defined #menu-pane[hidden]~.overlay {
-		display: none;
-	}
-</style>
-
-<script>
-	class SideMenuElement extends HTMLElement {
-		/** @type HTMLDivElement */
-		#menu
-
-		/** @type HTMLButtonElement */
-		#button
-
-		/** @type HTMLButtonElement */
-		#closeButton
-
-		/** @type HTMLDivElement */
-		#overlay
-
-		connectedCallback() {
-			this.#button = document.querySelector('#burger-btn')
-			this.#closeButton = this.querySelector('#menu-close-btn')
-			this.#menu = this.querySelector(':scope #menu-pane')
-			this.#overlay = this.querySelector(':scope .overlay')
-			this.#button.addEventListener('click', this.togglePane.bind(this))
-			this.#closeButton.addEventListener('click', this.togglePane.bind(this))
-			this.#overlay.addEventListener('click', this.togglePane.bind(this))
-		}
-
-		disconnectedCallback() {
-			this.#button.removeEventListener('click', this.togglePane.bind(this))
-			this.#closeButton.removeEventListener('click', this.togglePane.bind(this))
-		}
-
-		togglePane() {
-			if (this.getAttribute('open') !== null) {
-				this.removeAttribute('open')
-				this.#menu.hidden = true
-				this.#menu.ariaHidden = 'true'
-			} else {
-				this.setAttribute('open', 'open')
-				this.#menu.hidden = false
-				this.#menu.ariaHidden = 'false'
-			}
-			this.#toggleScroll()
-		}
-
-		#toggleScroll() {
-			document.documentElement.style.overflow = this.#menu.hidden ? '' : 'hidden'
-		}
-	}
-	window.customElements.define('side-menu', SideMenuElement)
-</script>

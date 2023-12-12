@@ -14,12 +14,11 @@ title: Alex Bolotskov
 </head>
 
 <body class="min-h-screen flex flex-col box-border">
-	<side-menu class="z-50"></side-menu>
-	<header
-		class="sticky md:fixed p-4 md:p-0 top-0 left-0 w-full md:top-4 md:left-4 md:right-auto dark:bg-black/50 bg-white/50 md:bg-none backdrop-blur h-min md:h-0 z-40"
+	<header class="sticky md:hidden p-4 top-0 left-0 w-full dark:bg-black/50 bg-white/50 backdrop-blur h-min z-40"
 		id="navbar">
 		<burger-button></burger-button>
 	</header>
+	<side-menu :is-face-visible="page.url !== '/'" class="z-50"></side-menu>
 
 	<template @html="content" webc:nokeep></template>
 
