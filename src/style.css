@@ -109,7 +109,7 @@
 		}
 
 		code:not([class]) {
-			@apply box-content backdrop-blur border-gray-800 rounded-md text-[.8em] dark:text-pink-400 text-red-500;
+			@apply box-content backdrop-blur border-gray-800 rounded-md text-[.8em] dark:text-accent-400 text-accent-500;
 		}
 
 		code.hljs {
