@@ -40,7 +40,7 @@ collections: ["postlist"]
 		</ol>
 	</section>
 
-	<section class="md:col-span-3 3xl:col-span-2">
+	<section class="md:col-span-3 3xl:col-span-2" id="projects">
 		<h2 class="heading-1">My projects</h2>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-12">
 			<project-preview @name="viewport" @source-code-url="https://github.com/AlexAtHome/viewport"
