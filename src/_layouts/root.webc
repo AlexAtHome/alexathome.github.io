@@ -14,17 +14,13 @@ title: Alex Bolotskov
 </head>
 
 <body class="min-h-screen flex flex-col box-border">
-	<header class="sticky md:hidden p-4 top-0 left-0 w-full dark:bg-black/50 bg-white/50 backdrop-blur h-min z-40"
-		id="navbar">
-		<burger-button></burger-button>
-	</header>
-	<side-menu :is-face-visible="page.url !== '/'" class="z-50"></side-menu>
 
 	<template @html="content" webc:nokeep></template>
 
-	<footer class="container mt-auto 3xl:max-w-full">
+	<footer class="container mt-auto 3xl:max-w-full mb-16 md:mb-0">
 		<p>Designed and crafted by <a :href="githubUrl" class="link text-accept">me :3</a></p>
 	</footer>
+	<side-menu :is-face-visible="page.url !== '/'" class="z-50"></side-menu>
 	<script webc:keep type="module" src="/main.js"></script>
 </body>
 
