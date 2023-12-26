@@ -24,7 +24,9 @@ title: Alex Bolotskov
 	<footer class="container mt-auto 3xl:max-w-full mb-20 md:mb-0">
 		<p>Designed and crafted by <a :href="githubUrl" class="link text-accept">me :3</a></p>
 	</footer>
-	<snow-fall></snow-fall>
+	<is-land on:media="not (prefers-reduced-motion)">
+		<snow-fall></snow-fall>
+	</is-land>
 	<script webc:keep type="module" src="/main.js"></script>
 </body>
 
