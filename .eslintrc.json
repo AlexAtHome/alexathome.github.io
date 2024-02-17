@@ -1,0 +1,21 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": false,
+		"node": false
+	},
+	"extends": "eslint:recommended",
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"overrides": [
+		{
+			"files": ["eleventy.config.js"],
+			"env": {
+				"browser": false,
+				"commonjs": true,
+				"node": true
+			}
+		}
+	]
+}

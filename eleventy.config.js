@@ -19,12 +19,12 @@ module.exports = function (config) {
 				VitePWA({
 					registerType: 'autoUpdate',
 					manifest: {
-						display: 'browser'
+						display: 'browser',
 					},
 					workbox: {
 						clientsClaim: true,
 						cleanupOutdatedCaches: true,
-					}
+					},
 				}),
 			],
 		},
