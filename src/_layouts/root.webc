@@ -9,6 +9,7 @@ title: Alex Bolotskov
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" :content="eleventy.generator">
 	<title @text="title"></title>
+	<link rel="stylesheet" href="../style.css">
 	<style @html="getCSS(page.url)" webc:keep></style>
 	<script type="module" @html="getJS(page.url)" webc:keep></script>
 </head>
@@ -24,7 +25,11 @@ title: Alex Bolotskov
 	<footer class="container mt-auto 3xl:max-w-full mb-20 md:mb-0">
 		<p>Designed and crafted by <a :href="githubUrl" class="link text-accept">me :3</a></p>
 	</footer>
-	<script webc:keep type="module" src="/main.js"></script>
+	<script webc:if="eleventy.env.runMode === 'build'">
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/sw.js');
+		}
+	</script>
 </body>
 
 </html>

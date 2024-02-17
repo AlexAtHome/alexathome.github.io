@@ -30,7 +30,7 @@
 	.md-content {
 		@apply leading-loose flex flex-col gap-4;
 
-		> * {
+		>* {
 			@apply relative max-w-3xl mr-auto;
 		}
 
@@ -87,7 +87,7 @@
 		pre[class] {
 			@apply w-full rounded-xl backdrop-blur text-sm;
 
-			> code[class] {
+			>code[class] {
 				@apply leading-loose;
 			}
 		}
@@ -99,7 +99,7 @@
 		blockquote {
 			@apply w-full py-4 px-12 italic flex justify-center items-center;
 
-			> p {
+			>p {
 				@apply text-xl;
 			}
 		}

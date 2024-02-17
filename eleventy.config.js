@@ -1,35 +1,17 @@
-const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
-const { EleventyRenderPlugin } = require('@11ty/eleventy')
-const markdownIt = require('markdown-it')
 const path = require('node:path')
+const markdownIt = require('markdown-it')
+const { EleventyRenderPlugin } = require('@11ty/eleventy')
 const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
 const lazyloadPlugin = require('eleventy-plugin-lazyload')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
-const { VitePWA } = require('vite-plugin-pwa')
+const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
-module.exports = function (config) {
+module.exports = function(config) {
 	// Plugins
-	config.addPlugin(EleventyVitePlugin, {
-		tempFolderName: '.11ty-vite',
-		viteOptions: {
-			plugins: [
-				VitePWA({
-					registerType: 'autoUpdate',
-					manifest: {
-						display: 'browser',
-					},
-					workbox: {
-						clientsClaim: true,
-						cleanupOutdatedCaches: true,
-					},
-				}),
-			],
-		},
-		polyfill: false,
-	})
+	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
 	config.addPlugin(EleventyRenderPlugin)
 	config.addPlugin(syntaxHighlight)
@@ -77,18 +59,18 @@ module.exports = function (config) {
 	})
 
 	// Passthrough copies
+	config.setServerPassthroughCopyBehavior('passthrough')
 	config.addPassthroughCopy({
 		'src/icons': 'assets/icons',
-		'src/scripts': 'scripts',
 	})
 	config.addPassthroughCopy('src/images')
 	config.addPassthroughCopy('src/main.js')
-	config.addPassthroughCopy('src/style.css')
 	config.addPassthroughCopy('src/fonts')
 
 	// Watch targets
 	config.addWatchTarget('tailwind.config.js')
 	config.addWatchTarget('src')
+	config.addWatchTarget('src/style.css')
 
 	// Layout aliases
 	config.addLayoutAlias('root', 'root.webc')
