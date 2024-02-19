@@ -9,7 +9,7 @@ const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
 const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
-module.exports = function(config) {
+module.exports = function (config) {
 	// Plugins
 	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })

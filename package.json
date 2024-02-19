@@ -5,7 +5,9 @@
 		"test": "echo \"Error: no test specified\" && exit 0",
 		"start": "eleventy --watch --serve --incremental & tailwindcss -i src/tailwind.css -c tailwind.config.js -o src/style.css --watch",
 		"debug": "DEBUG=Eleventy* npm run start",
-		"build": "NODE_ENV=production tailwindcss -i src/tailwind.css -c tailwind.config.js -o src/style.css --minify && eleventy"
+		"build": "npm run build:css && npm run build:pages",
+		"build:css": "NODE_ENV=production tailwindcss -i src/tailwind.css -c tailwind.config.js -o src/style.css --minify",
+		"build:pages": "eleventy"
 	},
 	"private": true,
 	"dependencies": {
@@ -22,13 +24,13 @@
 		"eleventy-plugin-target-safe": "^0.6.0",
 		"markdown-it-eleventy-img": "^0.10.1",
 		"prism-themes": "github:PrismJS/prism-themes",
-		"tailwindcss": "^3.3.2"
+		"tailwindcss": "^3.3.2",
+		"postcss": "^8.4.24"
 	},
 	"devDependencies": {
 		"@csstools/postcss-oklab-function": "^3.0.7",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.56.0",
-		"postcss": "^8.4.24",
 		"prettier": "2.8.8",
 		"stylelint": "^15.9.0",
 		"stylelint-config-standard": "^33.0.0",
