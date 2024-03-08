@@ -121,19 +121,19 @@
 @layer base {
 	@font-face {
 		font-family: 'Jost';
-		src: url('fonts/Jost.woff2') format('woff2-variations');
+		src: url('/fonts/Jost.woff2') format('woff2-variations');
 		font-display: swap;
 	}
 
 	@font-face {
 		font-family: 'Wix Madefor Display';
-		src: url('fonts/WixMadeforDisplay.woff2') format('woff2-variations');
+		src: url('/fonts/WixMadeforDisplay.woff2') format('woff2-variations');
 		font-display: swap;
 	}
 
 	@font-face {
 		font-family: 'Roboto Mono';
-		src: url('fonts/RobotoMono.ttf');
+		src: url('/fonts/RobotoMono.ttf');
 		font-display: swap;
 	}
 
