@@ -1,0 +1,589 @@
+<!DOCTYPE html><html lang="en" class="bg-white dark:bg-black text-gray-800 dark:text-gray-100 font-sans"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Eleventy v2.0.1">
+	<title>How to mark root certificates as trusted</title>
+	<base href="/">
+	
+	<style>/**
+ * One Dark theme for prism.js
+ * Based on Atom's One Dark theme: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
+ */
+
+/**
+ * One Dark colours (accurate as of commit 8ae45ca on 6 Sep 2018)
+ * From colors.less
+ * --mono-1: hsl(220, 14%, 71%);
+ * --mono-2: hsl(220, 9%, 55%);
+ * --mono-3: hsl(220, 10%, 40%);
+ * --hue-1: hsl(187, 47%, 55%);
+ * --hue-2: hsl(207, 82%, 66%);
+ * --hue-3: hsl(286, 60%, 67%);
+ * --hue-4: hsl(95, 38%, 62%);
+ * --hue-5: hsl(355, 65%, 65%);
+ * --hue-5-2: hsl(5, 48%, 51%);
+ * --hue-6: hsl(29, 54%, 61%);
+ * --hue-6-2: hsl(39, 67%, 69%);
+ * --syntax-fg: hsl(220, 14%, 71%);
+ * --syntax-bg: hsl(220, 13%, 18%);
+ * --syntax-gutter: hsl(220, 14%, 45%);
+ * --syntax-guide: hsla(220, 14%, 71%, 0.15);
+ * --syntax-accent: hsl(220, 100%, 66%);
+ * From syntax-variables.less
+ * --syntax-selection-color: hsl(220, 13%, 28%);
+ * --syntax-gutter-background-color-selected: hsl(220, 13%, 26%);
+ * --syntax-cursor-line: hsla(220, 100%, 80%, 0.04);
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	background: hsl(220, 13%, 18%);
+	color: hsl(220, 14%, 71%);
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Selection */
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] *::-moz-selection,
+pre[class*="language-"] *::-moz-selection {
+	background: hsl(220, 13%, 28%);
+	color: inherit;
+	text-shadow: none;
+}
+
+code[class*="language-"]::selection,
+code[class*="language-"] *::selection,
+pre[class*="language-"] *::selection {
+	background: hsl(220, 13%, 28%);
+	color: inherit;
+	text-shadow: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 0.2em 0.3em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+/* Print */
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+	color: hsl(220, 10%, 40%);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+	color: hsl(220, 14%, 71%);
+}
+
+.token.attr-name,
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.number,
+.token.atrule {
+	color: hsl(29, 54%, 61%);
+}
+
+.token.keyword {
+	color: hsl(286, 60%, 67%);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+	color: hsl(355, 65%, 65%);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+	color: hsl(95, 38%, 62%);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+	color: hsl(207, 82%, 66%);
+}
+
+.token.url {
+	color: hsl(187, 47%, 55%);
+}
+
+/* HTML overrides */
+.token.attr-value > .token.punctuation.attr-equals,
+.token.special-attr > .token.attr-value > .token.value.css {
+	color: hsl(220, 14%, 71%);
+}
+
+/* CSS overrides */
+.language-css .token.selector {
+	color: hsl(355, 65%, 65%);
+}
+
+.language-css .token.property {
+	color: hsl(220, 14%, 71%);
+}
+
+.language-css .token.function,
+.language-css .token.url > .token.function {
+	color: hsl(187, 47%, 55%);
+}
+
+.language-css .token.url > .token.string.url {
+	color: hsl(95, 38%, 62%);
+}
+
+.language-css .token.important,
+.language-css .token.atrule .token.rule {
+	color: hsl(286, 60%, 67%);
+}
+
+/* JS overrides */
+.language-javascript .token.operator {
+	color: hsl(286, 60%, 67%);
+}
+
+.language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation {
+	color: hsl(5, 48%, 51%);
+}
+
+/* JSON overrides */
+.language-json .token.operator {
+	color: hsl(220, 14%, 71%);
+}
+
+.language-json .token.null.keyword {
+	color: hsl(29, 54%, 61%);
+}
+
+/* MD overrides */
+.language-markdown .token.url,
+.language-markdown .token.url > .token.operator,
+.language-markdown .token.url-reference.url > .token.string {
+	color: hsl(220, 14%, 71%);
+}
+
+.language-markdown .token.url > .token.content {
+	color: hsl(207, 82%, 66%);
+}
+
+.language-markdown .token.url > .token.url,
+.language-markdown .token.url-reference.url {
+	color: hsl(187, 47%, 55%);
+}
+
+.language-markdown .token.blockquote.punctuation,
+.language-markdown .token.hr.punctuation {
+	color: hsl(220, 10%, 40%);
+	font-style: italic;
+}
+
+.language-markdown .token.code-snippet {
+	color: hsl(95, 38%, 62%);
+}
+
+.language-markdown .token.bold .token.content {
+	color: hsl(29, 54%, 61%);
+}
+
+.language-markdown .token.italic .token.content {
+	color: hsl(286, 60%, 67%);
+}
+
+.language-markdown .token.strike .token.content,
+.language-markdown .token.strike .token.punctuation,
+.language-markdown .token.list.punctuation,
+.language-markdown .token.title.important > .token.punctuation {
+	color: hsl(355, 65%, 65%);
+}
+
+/* General */
+.token.bold {
+	font-weight: bold;
+}
+
+.token.comment,
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.namespace {
+	opacity: 0.8;
+}
+
+/* Plugin overrides */
+/* Selectors should have higher specificity than those in the plugins' default stylesheets */
+
+/* Show Invisibles plugin overrides */
+.token.token.tab:not(:empty):before,
+.token.token.cr:before,
+.token.token.lf:before,
+.token.token.space:before {
+	color: hsla(220, 14%, 71%, 0.15);
+	text-shadow: none;
+}
+
+/* Toolbar plugin overrides */
+/* Space out all buttons and move them away from the right edge of the code block */
+div.code-toolbar > .toolbar.toolbar > .toolbar-item {
+	margin-right: 0.4em;
+}
+
+/* Styling the buttons */
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span {
+	background: hsl(220, 13%, 26%);
+	color: hsl(220, 9%, 55%);
+	padding: 0.1em 0.4em;
+	border-radius: 0.3em;
+}
+
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
+	background: hsl(220, 13%, 28%);
+	color: hsl(220, 14%, 71%);
+}
+
+/* Line Highlight plugin overrides */
+/* The highlighted line itself */
+.line-highlight.line-highlight {
+	background: hsla(220, 100%, 80%, 0.04);
+}
+
+/* Default line numbers in Line Highlight plugin */
+.line-highlight.line-highlight:before,
+.line-highlight.line-highlight[data-end]:after {
+	background: hsl(220, 13%, 26%);
+	color: hsl(220, 14%, 71%);
+	padding: 0.1em 0.6em;
+	border-radius: 0.3em;
+	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2); /* same as Toolbar plugin default */
+}
+
+/* Hovering over a linkable line number (in the gutter area) */
+/* Requires Line Numbers plugin as well */
+pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: hsla(220, 100%, 80%, 0.04);
+}
+
+/* Line Numbers and Command Line plugins overrides */
+/* Line separating gutter from coding area */
+.line-numbers.line-numbers .line-numbers-rows,
+.command-line .command-line-prompt {
+	border-right-color: hsla(220, 14%, 71%, 0.15);
+}
+
+/* Stuff in the gutter */
+.line-numbers .line-numbers-rows > span:before,
+.command-line .command-line-prompt > span:before {
+	color: hsl(220, 14%, 45%);
+}
+
+/* Match Braces plugin overrides */
+/* Note: Outline colour is inherited from the braces */
+.rainbow-braces .token.token.punctuation.brace-level-1,
+.rainbow-braces .token.token.punctuation.brace-level-5,
+.rainbow-braces .token.token.punctuation.brace-level-9 {
+	color: hsl(355, 65%, 65%);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-2,
+.rainbow-braces .token.token.punctuation.brace-level-6,
+.rainbow-braces .token.token.punctuation.brace-level-10 {
+	color: hsl(95, 38%, 62%);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-3,
+.rainbow-braces .token.token.punctuation.brace-level-7,
+.rainbow-braces .token.token.punctuation.brace-level-11 {
+	color: hsl(207, 82%, 66%);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-4,
+.rainbow-braces .token.token.punctuation.brace-level-8,
+.rainbow-braces .token.token.punctuation.brace-level-12 {
+	color: hsl(286, 60%, 67%);
+}
+
+/* Diff Highlight plugin overrides */
+/* Taken from https://github.com/atom/github/blob/master/styles/variables.less */
+pre.diff-highlight > code .token.token.deleted:not(.prefix),
+pre > code.diff-highlight .token.token.deleted:not(.prefix) {
+	background-color: hsla(353, 100%, 66%, 0.15);
+}
+
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection {
+	background-color: hsla(353, 95%, 66%, 0.25);
+}
+
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) *::selection {
+	background-color: hsla(353, 95%, 66%, 0.25);
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix),
+pre > code.diff-highlight .token.token.inserted:not(.prefix) {
+	background-color: hsla(137, 100%, 55%, 0.15);
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection {
+	background-color: hsla(135, 73%, 55%, 0.25);
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
+	background-color: hsla(135, 73%, 55%, 0.25);
+}
+
+/* Previewers plugin overrides */
+/* Based on https://github.com/atom-community/atom-ide-datatip/blob/master/styles/atom-ide-datatips.less and https://github.com/atom/atom/blob/master/packages/one-dark-ui */
+/* Border around popup */
+.prism-previewer.prism-previewer:before,
+.prism-previewer-gradient.prism-previewer-gradient div {
+	border-color: hsl(224, 13%, 17%);
+}
+
+/* Angle and time should remain as circles and are hence not included */
+.prism-previewer-color.prism-previewer-color:before,
+.prism-previewer-gradient.prism-previewer-gradient div,
+.prism-previewer-easing.prism-previewer-easing:before {
+	border-radius: 0.3em;
+}
+
+/* Triangles pointing to the code */
+.prism-previewer.prism-previewer:after {
+	border-top-color: hsl(224, 13%, 17%);
+}
+
+.prism-previewer-flipped.prism-previewer-flipped.after {
+	border-bottom-color: hsl(224, 13%, 17%);
+}
+
+/* Background colour within the popup */
+.prism-previewer-angle.prism-previewer-angle:before,
+.prism-previewer-time.prism-previewer-time:before,
+.prism-previewer-easing.prism-previewer-easing {
+	background: hsl(219, 13%, 22%);
+}
+
+/* For angle, this is the positive area (eg. 90deg will display one quadrant in this colour) */
+/* For time, this is the alternate colour */
+.prism-previewer-angle.prism-previewer-angle circle,
+.prism-previewer-time.prism-previewer-time circle {
+	stroke: hsl(220, 14%, 71%);
+	stroke-opacity: 1;
+}
+
+/* Stroke colours of the handle, direction point, and vector itself */
+.prism-previewer-easing.prism-previewer-easing circle,
+.prism-previewer-easing.prism-previewer-easing path,
+.prism-previewer-easing.prism-previewer-easing line {
+	stroke: hsl(220, 14%, 71%);
+}
+
+/* Fill colour of the handle */
+.prism-previewer-easing.prism-previewer-easing circle {
+	fill: transparent;
+}
+/*! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid oklch(.917969 .016 275/1)}:after,:before{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Jost,-apple-system,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:Roboto Mono,JetBrains Mono,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:initial}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:initial;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:initial}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:oklch(.789063 .016 275/1)}input::placeholder,textarea::placeholder{opacity:1;color:oklch(.789063 .016 275/1)}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}@font-face{font-family:Jost;src:url(/fonts/Jost.woff2) format("woff2-variations");font-display:swap}@font-face{font-family:Wix Madefor Display;src:url(/fonts/WixMadeforDisplay.woff2) format("woff2-variations");font-display:swap}@font-face{font-family:Roboto Mono;src:url(/fonts/RobotoMono.ttf);font-display:swap}:root{--accent-hue:174.76;scroll-behavior:smooth;scrollbar-color:#94a3b8 #fff;@media (prefers-color-scheme:dark){scrollbar-color:#334155 #1e1e2e}font-size:18px;@media (min-width:1280px){font-size:20px}@media (min-width:2000px){font-size:28px}}::-moz-selection{background-color:oklch(.625 .2 var(--accent-hue));--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}::selection{background-color:oklch(.625 .2 var(--accent-hue));--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}@media (prefers-color-scheme:dark){::-moz-selection{background-color:oklch(.798 .2 var(--accent-hue));--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}::selection{background-color:oklch(.798 .2 var(--accent-hue));--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}}body{&::-webkit-scrollbar{height:.375rem;width:.375rem}&::-webkit-scrollbar-track{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}&::-webkit-scrollbar-thumb{border-radius:.5rem;--tw-bg-opacity:1;background-color:oklch(.789063 .024 275/var(--tw-bg-opacity))}@media (prefers-color-scheme:dark){&::-webkit-scrollbar-thumb{--tw-bg-opacity:1;background-color:oklch(.523438 .024 275/var(--tw-bg-opacity))}}}*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#93c5fd80;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}@media (min-width:1750px){.container{max-width:1750px}}@media (min-width:2000px){.container{max-width:2000px}}.container{position:relative;margin-left:auto;margin-right:auto;box-sizing:border-box;display:flex;width:100%;max-width:80rem;flex-direction:column;gap:2rem;row-gap:4rem;padding:1rem}@media (min-width:768px){.container{row-gap:2rem;padding:.75rem 4rem .75rem 5rem}}.side-menu-item{--tw-text-opacity:1;color:oklch(.517578 .115625 240/var(--tw-text-opacity));text-decoration-line:underline;text-underline-offset:8px;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.side-menu-item:hover{text-underline-offset:4px}@media (prefers-color-scheme:dark){.side-menu-item{--tw-text-opacity:1;color:oklch(.783203 .114063 240/var(--tw-text-opacity))}}.side-menu-item{display:inline-flex;width:100%;flex-direction:column;align-items:center;gap:.5rem;border-radius:.125rem;padding:.5rem .25rem;text-align:center;line-height:1;color:oklch(.533 .2 var(--accent-hue));text-decoration-line:none;outline-width:2px;outline-offset:2px;outline-color:oklch(.738 .2 var(--accent-hue))}.side-menu-item:hover{background-color:oklch(.798 .2 var(--accent-hue));--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}.side-menu-item:focus{outline-style:solid}@media (prefers-color-scheme:dark){.side-menu-item{color:oklch(.738 .2 var(--accent-hue))}}@media (min-width:640px){.main{max-width:640px}}@media (min-width:768px){.main{max-width:768px}}@media (min-width:1024px){.main{max-width:1024px}}@media (min-width:1280px){.main{max-width:1280px}}@media (min-width:1536px){.main{max-width:1536px}}@media (min-width:1750px){.main{max-width:1750px}}@media (min-width:2000px){.main{max-width:2000px}}.main{position:relative;margin-left:auto;margin-right:auto;box-sizing:border-box;display:flex;width:100%;max-width:80rem;flex-direction:column;gap:2rem;row-gap:4rem;padding:1rem}@media (min-width:768px){.main{row-gap:2rem;padding:2rem 4rem .75rem 5rem}}.heading{margin-bottom:2rem;font-family:Wix Madefor Display,-apple-system,system-ui,sans-serif;font-weight:700;line-height:1.25;color:oklch(.533 .2 var(--accent-hue))}@media (prefers-color-scheme:dark){.heading{color:oklch(.738 .2 var(--accent-hue))}}.heading-1{margin-bottom:2rem;font-family:Wix Madefor Display,-apple-system,system-ui,sans-serif;font-weight:700;line-height:1.25;color:oklch(.533 .2 var(--accent-hue))}@media (prefers-color-scheme:dark){.heading-1{color:oklch(.738 .2 var(--accent-hue))}}.heading-1{font-size:1.875rem;line-height:2.25rem}@media (min-width:1024px){.heading-1{font-size:3.75rem;line-height:1}}.link{--tw-text-opacity:1;color:oklch(.517578 .115625 240/var(--tw-text-opacity));text-decoration-line:underline;text-underline-offset:8px;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.link:hover{text-underline-offset:4px}@media (prefers-color-scheme:dark){.link{--tw-text-opacity:1;color:oklch(.783203 .114063 240/var(--tw-text-opacity))}}.md-content{display:flex;flex-direction:column;gap:1rem;line-height:2;>*{position:relative;margin-right:auto;max-width:48rem}h1,h2,h3,h4,h5,h6{margin-bottom:2rem;font-family:Wix Madefor Display,-apple-system,system-ui,sans-serif;font-weight:700;line-height:1.25;color:oklch(.533 .2 var(--accent-hue))}@media (prefers-color-scheme:dark){h1,h2,h3,h4,h5,h6{color:oklch(.738 .2 var(--accent-hue))}}h1,h2,h3,h4,h5,h6{margin-top:.5rem;margin-bottom:.5rem;line-height:1.5}h1{font-size:3rem;line-height:1}h2{font-size:1.875rem;line-height:2.25rem}h3{font-size:1.5rem;line-height:2rem}h4{font-size:1.25rem;line-height:1.75rem}a{--tw-text-opacity:1;color:oklch(.517578 .115625 240/var(--tw-text-opacity));text-decoration-line:underline;text-underline-offset:8px;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}a:hover{text-underline-offset:4px}@media (prefers-color-scheme:dark){a{--tw-text-opacity:1;color:oklch(.783203 .114063 240/var(--tw-text-opacity))}}a{padding:0;line-height:1.25}a:before{top:1.2em;content:var(--tw-content);height:.125rem}s{position:relative;text-decoration-line:none}s:before{position:absolute;left:0;top:.625rem;display:block;height:.25rem;width:100%;--tw-skew-x:-32deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));content:var(--tw-content);background-color:currentColor}ol,ul{box-sizing:border-box;display:flex;flex-direction:column;padding-left:1.5rem}li{position:relative}ul{list-style-type:disc}ol{list-style-type:decimal}pre[class]{width:100%;border-radius:.75rem;font-size:.875rem;line-height:1.25rem;--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);line-height:2}kbd{box-sizing:initial;border-radius:.375rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(0 0 0/var(--tw-border-opacity));--tw-bg-opacity:1;background-color:oklch(.412109 .016 275/var(--tw-bg-opacity));padding:.125rem;padding-left:.5rem;padding-right:.5rem;padding-bottom:0;font-size:.875rem;line-height:1.25rem}blockquote{display:flex;width:100%;align-items:center;justify-content:center;padding-top:1rem;padding-bottom:1rem;padding-left:3rem;padding-right:3rem;font-style:italic;font-size:1.25rem;line-height:1.75rem}code{font-family:Roboto Mono,JetBrains Mono,monospace}code:not([class]){box-sizing:initial;border-radius:.375rem;--tw-border-opacity:1;border-color:oklch(.412109 .016 275/var(--tw-border-opacity));font-size:.8em;color:oklch(.738 .2 var(--accent-hue));--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}@media (prefers-color-scheme:dark){code:not([class]){color:oklch(.798 .2 var(--accent-hue))}}code.hljs{overflow:auto}}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.bottom-0{bottom:0}.left-0{left:0}.right-0{right:0}.z-50{z-index:50}.order-last{order:9999}.col-span-1{grid-column:span 1/span 1}.mx-1{margin-left:.25rem;margin-right:.25rem}.my-8{margin-top:2rem;margin-bottom:2rem}.mb-0{margin-bottom:0}.mb-2{margin-bottom:.5rem}.mb-20{margin-bottom:5rem}.mb-8{margin-bottom:2rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.box-border{box-sizing:border-box}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.contents{display:contents}.hidden{display:none}.h-20{height:5rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-auto{height:auto}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-20{width:5rem}.w-6{width:1.5rem}.w-auto{width:auto}.w-full{width:100%}.max-w-4xl{max-width:56rem}.max-w-\[300px\]{max-width:300px}.max-w-full{max-width:100%}.flex-shrink-0,.shrink-0{flex-shrink:0}.grow{flex-grow:1}.basis-1\/3{flex-basis:33.333333%}.translate-y-\[-200\%\]{--tw-translate-y:-200%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize{resize:both}.columns-2{-moz-columns:2;column-count:2}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-4{-moz-column-gap:1rem;column-gap:1rem}.gap-x-8{-moz-column-gap:2rem;column-gap:2rem}.gap-y-16{row-gap:4rem}.gap-y-2{row-gap:.5rem}.gap-y-4{row-gap:1rem}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-ellipsis{text-overflow:ellipsis}.whitespace-nowrap{white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-solid{border-style:solid}.border-accent-300{border-color:oklch(.859 .2 var(--accent-hue))}.border-accent-500{border-color:oklch(.738 .2 var(--accent-hue))}.border-teal-600{--tw-border-opacity:1;border-color:oklch(.59375 .135937 160/var(--tw-border-opacity))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-fill{-o-object-fit:fill;object-fit:fill}.p-2{padding:.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-16{padding-bottom:4rem}.text-center{text-align:center}.font-mono{font-family:Roboto Mono,JetBrains Mono,monospace}.font-sans{font-family:Jost,-apple-system,system-ui,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.text-accent-400{color:oklch(.798 .2 var(--accent-hue))}.text-accent-600{color:oklch(.625 .2 var(--accent-hue))}.text-accent-800{color:oklch(.418 .2 var(--accent-hue))}.text-gray-50{--tw-text-opacity:1;color:oklch(.988281 .0046875 275/var(--tw-text-opacity))}.text-gray-800{--tw-text-opacity:1;color:oklch(.412109 .016 275/var(--tw-text-opacity))}.text-inherit{color:inherit}.text-slate-600{--tw-text-opacity:1;color:oklch(.613281 .024 275/var(--tw-text-opacity))}.no-underline{text-decoration-line:none}.underline-offset-8{text-underline-offset:8px}.opacity-60{opacity:.6}.mix-blend-difference{mix-blend-mode:difference}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.bs-icon svg{width:1em;height:1em;display:block;font-size:inherit}.bs-icon{display:inline-flex;vertical-align:middle}.visited\:text-inherit:visited{color:inherit}.hover\:underline:hover{text-decoration-line:underline}.focus\:translate-y-0:focus{--tw-translate-y:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.focus\:outline-0:focus{outline-width:0}@media (prefers-color-scheme:dark){.dark\:border-accent-900{border-color:oklch(.306 .2 var(--accent-hue))}.dark\:border-teal-400{--tw-border-opacity:1;border-color:oklch(.775391 .114063 160/var(--tw-border-opacity))}.dark\:bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.dark\:text-accent-300{color:oklch(.859 .2 var(--accent-hue))}.dark\:text-accent-400{color:oklch(.798 .2 var(--accent-hue))}.dark\:text-gray-100{--tw-text-opacity:1;color:oklch(.964844 .016 275/var(--tw-text-opacity))}.dark\:text-slate-300{--tw-text-opacity:1;color:oklch(.853516 .024 275/var(--tw-text-opacity))}.dark\:text-slate-400{--tw-text-opacity:1;color:oklch(.789063 .024 275/var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}}@media (min-width:640px){.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}}@media (min-width:768px){.md\:sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.md\:top-0{top:0}.md\:order-none{order:0}.md\:col-span-2{grid-column:span 2/span 2}.md\:col-span-3{grid-column:span 3/span 3}.md\:mb-0{margin-bottom:0}.md\:h-screen{height:100vh}.md\:w-16{width:4rem}.md\:max-w-full{max-width:100%}.md\:grow-0{flex-grow:0}.md\:basis-0{flex-basis:0px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:flex-col{flex-direction:column}.md\:gap-y-12{row-gap:3rem}.md\:border-r{border-right-width:1px}.md\:border-t-0{border-top-width:0}.md\:py-8{padding-top:2rem;padding-bottom:2rem}}@media (min-width:1024px){.lg\:text-5xl{font-size:3rem;line-height:1}}@media (min-width:1280px){.xl\:w-1\/3{width:33.333333%}.xl\:max-w-7xl{max-width:80rem}.xl\:flex-row-reverse{flex-direction:row-reverse}.xl\:text-6xl{font-size:3.75rem;line-height:1}}@media (min-width:1536px){.\32xl\:pb-6{padding-bottom:1.5rem}}@media (min-width:1750px){.\33xl\:col-span-2{grid-column:span 2/span 2}.\33xl\:max-w-full{max-width:100%}.\33xl\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.\33xl\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}}</style>
+	<script type="module">if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/sw.js');
+		}</script>
+</head>
+
+<body class="min-h-screen flex flex-col box-border">
+	<a href="#content" class="p-2 rounded-md border-2 border-teal-600 dark:border-teal-400 inline-flex absolute right-0 translate-y-[-200%] focus:translate-y-0 focus:outline-0">Skip
+		to content</a>
+	<nav id="menu-pane" class="fixed dark:bg-black dark:text-white bg-white text-gray-50 h-auto w-full bottom-0 left-0 right-0 md:h-screen
+	md:top-0 md:w-16 md:py-8 z-50 transition-transform flex flex-col gap-4 items-start text-xs border-t md:border-t-0 md:border-r border-solid dark:border-accent-900 border-accent-300">
+	<menu class="flex w-full h-full md:flex-col grow md:grow-0">
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0 order-last md:order-none">
+			<a href="/" class="side-menu-item">
+				<img src="/images/pfp.png" alt="Alexander's profile picture" class="inline-flex shrink-0 object-fill w-6 h-6 rounded-full" loading="lazy">
+
+				Front page
+			</a>
+		</li>
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0">
+			<a href="/posts/" class="side-menu-item">
+				<span class="bs-icon text-2xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-journal-code">
+  <path fill-rule="evenodd" d="M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708z"></path>
+  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"></path>
+  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"></path>
+</svg></span>
+
+
+				Blog
+			</a>
+		</li>
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0">
+			<a href="/#projects" class="side-menu-item">
+				<span class="bs-icon text-2xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-joystick">
+  <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"></path>
+  <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"></path>
+</svg></span>
+
+
+				Projects
+			</a>
+		</li>
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0 mt-auto">
+			<a href="https://github.com/AlexAtHome" rel="noreferrer noopener" class="side-menu-item">
+				<span class="bs-icon text-2xl self-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg></span>
+
+
+				<span class="md:sr-only">Github</span>
+			</a>
+		</li>
+	</menu>
+</nav>
+
+	<div id="content">
+		<div role="presentation" class="container flex-col xl:flex-row-reverse max-w-full xl:max-w-7xl gap-6 items-center">
+	<div role="presentation" class="flex grow flex-col gap-6 2xl:pb-6 w-full">
+		<nav class="text-sm">
+			<ol class="inline-flex gap-4 flex-wrap">
+	<li><a href="/" class="link whitespace-nowrap">Front page</a></li>
+	
+		<li class="inline-flex gap-4 items-center">
+			<span class="bs-icon undefined"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+</svg></span>
+
+
+			
+			<a href="/posts/" class="link whitespace-nowrap">Posts</a>
+		</li>
+	
+
+		<li class="inline-flex gap-4 items-center">
+			<span class="bs-icon undefined"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+</svg></span>
+
+
+			<a aria-current="page" href="/posts/trust-root-certificates/" class="pointer-events-none text-inherit max-w-[300px] md:max-w-full block overflow-hidden whitespace-nowrap overflow-ellipsis">How to mark root certificates as trusted</a>
+			
+		</li>
+	
+</ol>
+
+		</nav>
+
+		<h1 class="heading-1 mb-0">How to mark root certificates as trusted</h1>
+
+		<div class="text-slate-600 dark:text-slate-400 flex flex-row flex-wrap gap-x-8 gap-y-4 items-center leading-tight text-sm">
+			<span class="inline-flex gap-2 items-center">
+				<span class="bs-icon undefined"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-calendar2-date">
+  <path d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"></path>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"></path>
+</svg></span>
+
+
+				<span class="sr-only">Created at</span>
+				<time datetime="2023-03-24">Mar 24, 2023</time>
+
+			</span>
+			
+			<span class="inline-flex gap-2 items-center flex-wrap">
+				<span class="sr-only">Tags</span>
+				<span class="inline-flex gap-2 items-center">
+					<span class="bs-icon undefined"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-tag">
+  <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"></path>
+  <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"></path>
+</svg></span>
+
+
+					macos
+				</span>
+			</span>
+			
+		</div>
+	</div>
+
+	
+</div>
+
+<article class="container my-8 max-w-4xl md-content"><h2>macOS</h2>
+<ol>
+<li>Open the "Keychain Access" app.</li>
+<li>Find the untrusted certificate</li>
+<li>Double-click on it</li>
+<li>Open up the "Trust" section</li>
+<li>Set the "When using this certificate" option to "Always trust"</li>
+</ol>
+</article>
+
+	</div>
+	<footer class="container mt-auto 3xl:max-w-full mb-20 md:mb-0">
+		<p>Designed and crafted by <a href="https://github.com/AlexAtHome/AlexAtHome.github.io" class="link text-accept">me :3</a></p>
+	</footer>
+	
+
+
+
+
+</body></html>
