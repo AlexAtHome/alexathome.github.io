@@ -19,6 +19,13 @@ title: Alex Bolotskov
 	<a href="#content"
 		class="p-2 rounded-md border-2 border-teal-600 dark:border-teal-400 inline-flex absolute right-0 translate-y-[-200%] focus:translate-y-0 focus:outline-0">Skip
 		to content</a>
+	<div class="sticky top-0 bg-green-500 text-center text-black p-1 z-100 text-sm" id="update-splash" hidden
+		aria-hidden="true" role="alert">
+		<bs-i @name="cloud-download"></bs-i>
+		Update available!
+		<button class="link text-current" onclick="location.reload()">Reload the page</button>
+	</div>
+
 	<side-menu :is-face-visible="page.url !== '/'" class="z-50"></side-menu>
 	<div id="content">
 		<template @html="content" webc:nokeep></template>
@@ -27,8 +34,29 @@ title: Alex Bolotskov
 		<p>Designed and crafted by <a :href="githubUrl" class="link text-accept">me :3</a></p>
 	</footer>
 	<script webc:if="eleventy.env.runMode === 'build'">
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/sw.js');
+		try {
+			async function setupSW() {
+				await navigator.serviceWorker.register('/sw.js')
+			}
+
+			async function detectSWUpdate() {
+				const registration = await navigator.serviceWorker.ready;
+
+				registration.addEventListener("updatefound", () => {
+					const newSW = registration.installing;
+					newSW.addEventListener("statechange", () => {
+						if (newSW.state == "installed") {
+							const splash = document.getElementById('update-splash')
+							splash.hidden = false
+							splash.ariaHidden = "false"
+						}
+					});
+				})
+			}
+
+			setupSW().then(() => detectSWUpdate())
+		} catch (e) {
+			console.error('Unable to get the service worker working. Womp womp', e)
 		}
 	</script>
 </body>
