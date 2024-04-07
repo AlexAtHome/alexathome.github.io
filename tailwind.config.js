@@ -2,7 +2,6 @@
 module.exports = {
 	content: ['./src/**/*.{md,webc,css}'],
 	theme: {
-		colors: require('@evilmartians/harmony/tailwind'),
 		extend: {
 			colors: {
 				accent: {
