@@ -1,14 +1,15 @@
 ---
 title: Xbox controller on Linux via Bluetooth
 tags:
-    - post
-    - linux
-    - gaming
+  - post
+  - linux
+  - gaming
 date: 2021-11-09
 updatedAt: 2023-06-17
 ---
 
 You need to install the `xboxdrv` driver to make it work.
+
 <!-- excerpt -->
 
 In Arch Linux, install `xboxdrv` from AUR.
@@ -24,4 +25,3 @@ yay -S xboxdrv
 5. Test out the controller in any game, Steam Big Picture mode or any gamepad tester on the internet.
 
 With this driver, the gamepad works flawlessly, without noticeable delays.
-

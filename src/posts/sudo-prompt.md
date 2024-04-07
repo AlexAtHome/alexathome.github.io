@@ -10,7 +10,7 @@ date: 2024-01-11
 
 Open the file `/etc/sudoers` and simply add this line:
 
-```
+```plain
 Defaults passprompt="󰯄 Password: "
 ```
 
@@ -36,13 +36,13 @@ unset SUDO_PROMPT
 
 In `/etc/sudoers`, find the line
 
-```
+```plain
 Defaults env_reset
 ```
 
 and add `,pwfeedback` in the end.
 
-```
+```plain
 Defaults env_reset,pwfeedback
 ```
 
@@ -50,6 +50,6 @@ Defaults env_reset,pwfeedback
 
 You can add this line to `/etc/sudoers` to make `sudo` insult you when you type in an incorrect password.
 
-```
+```plain
 Defaults insults
 ```

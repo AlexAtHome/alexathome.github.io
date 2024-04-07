@@ -112,12 +112,11 @@
 			@apply overflow-auto;
 		}
 
+		pre[class*='language-'],
 		code[class*='language-'] {
 			@apply font-mono;
-		}
 
-		pre[class*='language-'] {
-			@apply font-mono;
+			tab-size: 2;
 		}
 	}
 }

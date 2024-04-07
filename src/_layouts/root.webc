@@ -1,5 +1,6 @@
 ---
 title: Alex Bolotskov
+hasSnippets: false
 ---
 <!DOCTYPE html>
 <html lang="en" class="bg-white dark:bg-black text-gray-800 dark:text-gray-100 font-sans">
@@ -11,6 +12,10 @@ title: Alex Bolotskov
 	<title @text="title"></title>
 	<base href="/" />
 	<link webc:keep rel="stylesheet" href="style.css">
+	<link webc:if="hasSnippets" webc:keep rel="stylesheet" href="assets/styles/prism-dark.css"
+		media="(prefers-color-scheme: dark)">
+	<link webc:if="hasSnippets" webc:keep rel="stylesheet" href="assets/styles/prism-light.css"
+		media="(prefers-color-scheme: light)">
 	<style @html="getCSS(page.url)" webc:keep></style>
 	<script type="module" @html="getJS(page.url)" webc:keep></script>
 </head>

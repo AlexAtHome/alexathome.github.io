@@ -62,6 +62,9 @@ module.exports = function(config) {
 	config.setServerPassthroughCopyBehavior('passthrough')
 	config.addPassthroughCopy({
 		'src/icons': 'assets/icons',
+		'node_modules/bootstrap-icons/bootstrap-icons.svg': 'assets/icons/bootstrap.svg',
+		'node_modules/prism-themes/themes/prism-duotone-dark.css': 'assets/styles/prism-dark.css',
+		'node_modules/prism-themes/themes/prism-vs.css': 'assets/styles/prism-light.css',
 	})
 	config.addPassthroughCopy('src/images')
 	config.addPassthroughCopy('src/main.js')
@@ -78,7 +81,7 @@ module.exports = function(config) {
 	config.addLayoutAlias('posts', 'posts.webc')
 
 	// Global data
-	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/AlexAtHome.github.io')
+	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/website')
 
 	return {
 		dir: {
