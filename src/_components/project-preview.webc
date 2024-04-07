@@ -1,7 +1,7 @@
 <div class="flex relative flex-col gap-4 rounded-lg text-md bg-crust">
 	<a class="leading-snug inline-flex gap-2 items-center text-2xl link text-inherit visited:text-inherit no-underline hover:underline"
 		target="_blank" :href="webpageUrl || sourceCodeUrl">
-		<bs-i :@name="icon" @class-name="text-accent-400"></bs-i>
+		<bs-i :@name="icon" @class-name="text-accent-600 dark:text-accent-400"></bs-i>
 		<h3 class="leading-snug" @text="name"></h3>
 	</a>
 	<div class="text-sm line-clamp-2">
@@ -12,7 +12,7 @@
 			<a :href="sourceCodeUrl" target="_blank"
 				class="inline-flex gap-2 justify-center items-center text-sm link text-inherit visited:text-inherit">
 				<bs-i @name="github" @class-name="text-lg"></bs-i>
-				Repository
+				Source code
 			</a>
 		</li>
 		<li webc:if="webpageUrl">
