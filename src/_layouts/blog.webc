@@ -2,8 +2,7 @@
 layout: root
 date: git Created
 ---
-
-<link rel="stylesheet" href="../../node_modules/prism-themes/themes/prism-one-dark.css">
+<link rel="stylesheet" href="../../node_modules/prism-themes/themes/prism-duotone-dark.css">
 
 <div class="container flex-col xl:flex-row-reverse max-w-full xl:max-w-7xl gap-6 items-center" role="presentation">
 	<div class="flex grow flex-col gap-6 2xl:pb-6 w-full" role="presentation">
@@ -41,7 +40,8 @@ date: git Created
 		</div>
 	</div>
 
-	<figure webc:if="!!cover" class="xl:w-1/3 w-auto flex flex-col flex-shrink-0 gap-2 text-xs text-slate-600 dark:text-slate-400">
+	<figure webc:if="!!cover"
+		class="xl:w-1/3 w-auto flex flex-col flex-shrink-0 gap-2 text-xs text-slate-600 dark:text-slate-400">
 		<img class="rounded-xl w-full block" :src="cover.image" :alt="cover.alt">
 		<figcaption @html="cover.caption"></figcaption>
 	</figure>
