@@ -9,7 +9,7 @@ const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const eleventyGoogleFonts = require('eleventy-google-fonts')
 const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
-module.exports = function (config) {
+module.exports = function(config) {
 	// Plugins
 	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
@@ -70,7 +70,7 @@ module.exports = function (config) {
 	// Watch targets
 	config.addWatchTarget('tailwind.config.js')
 	config.addWatchTarget('src')
-	config.addWatchTarget('src/style.css')
+	config.addWatchTarget('_site/style.css')
 
 	// Layout aliases
 	config.addLayoutAlias('root', 'root.webc')
