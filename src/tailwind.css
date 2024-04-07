@@ -86,10 +86,6 @@
 
 		pre[class] {
 			@apply w-full rounded-xl backdrop-blur text-sm;
-
-			>code[class] {
-				@apply leading-loose;
-			}
 		}
 
 		kbd {
@@ -114,6 +110,14 @@
 
 		code.hljs {
 			@apply overflow-auto;
+		}
+
+		code[class*='language-'] {
+			@apply font-mono;
+		}
+
+		pre[class*='language-'] {
+			@apply font-mono;
 		}
 	}
 }
