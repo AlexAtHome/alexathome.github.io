@@ -10,18 +10,15 @@ collections: ["postlist"]
 		<span class="flex gap-2 flex-wrap" aria-label="My tech stach">
 			<tech-stack></tech-stack>
 		</span>
-		<ul class="flex gap-2 items-start">
-			<li aria-label="I'm 26 years old">26 y.o.</li>
-		</ul>
 		<p>Experienced frontend developer that doesn't hesitate to go a little beyond the&nbsp;web tech and likes to think
 			outside the box.</p>
 		<div role="presentation">
 			<p role="presentation">I like</p>
-			<ul aria-label="My favorite activities" class="columns-2 w-full whitespace-nowrap">
+			<ul aria-label="My favorite activities" class="columns-2 w-full">
 				<li><bs-i @name="controller"></bs-i> gaming</li>
 				<li><bs-i @name="code-slash"></bs-i> <span class="font-mono">coding</span></li>
 				<li><bs-i @name="bicycle"></bs-i> bycicles</li>
-				<li><bs-i @name="keyboard"></bs-i> keyboards</li>
+				<li><bs-i @name="keyboard"></bs-i> mechanical keyboards</li>
 			</ul>
 		</div>
 	</div>

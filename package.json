@@ -3,10 +3,10 @@
 	"version": "2.0.0",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 0",
-		"start": "eleventy --watch --serve --incremental & tailwindcss -i src/tailwind.css -c tailwind.config.js -o src/style.css --watch",
+		"start": "eleventy --watch --serve --incremental & tailwindcss -i src/tailwind.css -c tailwind.config.js -o _site/style.css --watch",
 		"debug": "DEBUG=Eleventy* npm run start",
 		"build": "npm run build:css && npm run build:pages",
-		"build:css": "NODE_ENV=production tailwindcss -i src/tailwind.css -c tailwind.config.js -o src/style.css --minify",
+		"build:css": "NODE_ENV=production tailwindcss -i src/tailwind.css -o _site/style.css --minify",
 		"build:pages": "eleventy"
 	},
 	"private": true,
@@ -14,7 +14,6 @@
 		"@11ty/eleventy": "^2.0.1",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"@11ty/eleventy-plugin-webc": "^0.11.1",
-		"@catppuccin/tailwindcss": "^0.1.1",
 		"@evilmartians/harmony": "^1.1.0",
 		"@pkvach/eleventy-plugin-pwa": "^2.0.0",
 		"bootstrap-icons": "^1.10.5",
@@ -23,9 +22,9 @@
 		"eleventy-plugin-lazyload": "^1.1.2",
 		"eleventy-plugin-target-safe": "^0.6.0",
 		"markdown-it-eleventy-img": "^0.10.1",
+		"postcss": "^8.4.38",
 		"prism-themes": "github:PrismJS/prism-themes",
-		"tailwindcss": "^3.3.2",
-		"postcss": "^8.4.24"
+		"tailwindcss": "^3.4.3"
 	},
 	"devDependencies": {
 		"@csstools/postcss-oklab-function": "^3.0.7",
