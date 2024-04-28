@@ -1,5 +1,5 @@
 <img src="/assets/icons/angular.svg" alt="Angular" class="w-6 h-6" width="32" height="32" role="presentation">
-<svg webc:for="lang of ['js', 'ts', 'node', 'bash', 'html', 'css', 'react', 'go']" class="w-6 h-6" width="32"
-	height="32" fill="currentColor" role="presentation" :aria-label="lang">
+<svg webc:for="lang of ['js', 'ts', 'node', 'bash', 'html', 'css', 'react']" class="w-6 h-6" width="32" height="32"
+	fill="currentColor" role="presentation" :aria-label="lang">
 	<use :xlink:href="`/assets/icons/langs.svg#${lang}`" />
 </svg>
