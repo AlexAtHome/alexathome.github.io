@@ -1,27 +1,16 @@
 const path = require('node:path')
 const markdownIt = require('markdown-it')
-const { EleventyRenderPlugin } = require('@11ty/eleventy')
-const eleventyTargetSafe = require('eleventy-plugin-target-safe')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
-const lazyloadPlugin = require('eleventy-plugin-lazyload')
+
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
-const eleventyGoogleFonts = require('eleventy-google-fonts')
 const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
-module.exports = function(config) {
+module.exports = function (config) {
 	// Plugins
 	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
-	config.addPlugin(EleventyRenderPlugin)
 	config.addPlugin(syntaxHighlight)
-	config.addPlugin(eleventyTargetSafe, {
-		opener: true,
-		follower: true,
-		referrer: true,
-	})
-	config.addPlugin(lazyloadPlugin)
-	config.addPlugin(eleventyGoogleFonts)
 
 	// Libraries
 	config.setLibrary(
@@ -40,6 +29,7 @@ module.exports = function(config) {
 			globalAttributes: {
 				class: 'markdown-image',
 				decoding: 'async',
+				loading: 'lazy',
 				sizes: '100vw',
 			},
 		})
