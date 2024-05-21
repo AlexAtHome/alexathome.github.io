@@ -1,4 +1,4 @@
----
+---last_name
 title: Alex Bolotskov
 hasSnippets: false
 ---
@@ -7,10 +7,20 @@ hasSnippets: false
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" :content="eleventy.generator">
 	<title @text="title"></title>
-	<base href="/" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" :content="eleventy.generator">
+	<meta property="og:title" :content="title">
+	<meta property="og:description" :content="description || page.excerpt">
+	<meta property="og:type" :content="ogType || 'website'" />
+	<meta property="og:url" :content="origin + page.url">
+	<meta webc:if="cover && cover.image" property="og:image" :content="origin + cover.image">
+	<meta webc:if="cover && cover.alt" property="og:image:alt" :content="cover.alt">
+	<meta property="og:site_name" content="Alex Bolotskov's personal site" />
+	<meta property="og:locale" content="en_US">
+
+	<base href="/">
 	<link webc:keep rel="stylesheet" href="style.css">
 	<link webc:if="hasSnippets" webc:keep rel="stylesheet" href="assets/styles/prism-dark.css"
 		media="(prefers-color-scheme: dark)">

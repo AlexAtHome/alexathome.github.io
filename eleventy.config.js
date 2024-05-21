@@ -6,7 +6,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
-module.exports = function (config) {
+module.exports = function(config) {
 	// Plugins
 	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
 	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
@@ -72,6 +72,7 @@ module.exports = function (config) {
 
 	// Global data
 	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/website')
+	config.addGlobalData('origin', 'https://alexalex.dev')
 
 	return {
 		dir: {

@@ -1,6 +1,8 @@
 ---
 layout: root
 collections: ["postlist"]
+title: Alex Bolotskov
+description: Experienced frontend developer that doesn't hesitate to go a little beyond the web tech.
 ---
 
 <main class="main grid grid-cols-1 md:grid-cols-3 3xl:grid-cols-5 3xl:max-w-full">
