@@ -119,6 +119,18 @@
 			tab-size: 2;
 		}
 	}
+
+	input[type='range'] {
+		@apply bg-accent-400 rounded-md h-1.5;
+	}
+
+	input[type='range']::-moz-range-thumb {
+		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		border: 1px solid #000000;
+		border-radius: 100%;
+		background: #ffffff;
+		cursor: pointer;
+	}
 }
 
 @layer base {

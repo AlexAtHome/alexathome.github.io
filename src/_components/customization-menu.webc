@@ -1,0 +1,21 @@
+<script webc:keep>
+	function setHue(value) {
+		document.documentElement.style.setProperty('--accent-hue', value)
+		localStorage.setItem('accent-hue', value)
+	}
+	document.addEventListener('DOMContentLoaded', function () {
+		let savedHue = +localStorage.getItem('accent-hue')
+		if (savedHue) {
+			setHue(savedHue)
+			document.querySelector('#hue-input').value = savedHue
+		}
+	}, {once: true})
+</script>
+
+<div popover id="customization-menu"
+	class="border-0 bg-slate-100 dark:bg-neutral-900 fixed bottom-16 right-0 left-auto md:bottom-16 md:left-20 top-auto m-0 text-gray-800 w-full max-w-56 dark:text-gray-100 p-4 rounded-lg">
+	<div>
+		<label class="heading mb-2" for="hue-input">Color</label>
+		<input id="hue-input" type="range" min="0" max="360" oninput="setHue(this.value)" class="border-accent-400 w-full">
+	</div>
+</div>

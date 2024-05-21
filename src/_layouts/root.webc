@@ -1,4 +1,4 @@
----last_name
+---
 title: Alex Bolotskov
 hasSnippets: false
 ---
@@ -42,6 +42,8 @@ hasSnippets: false
 	</div>
 
 	<side-menu :is-face-visible="page.url !== '/'" class="z-50"></side-menu>
+	<customization-menu></customization-menu>
+
 	<div id="content">
 		<template @html="content" webc:nokeep></template>
 	</div>
