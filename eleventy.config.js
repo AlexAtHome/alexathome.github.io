@@ -1,13 +1,13 @@
-const path = require('node:path')
-const fs = require('node:fs');
-const markdownIt = require('markdown-it')
-const markdownItEleventyImg = require('markdown-it-eleventy-img')
-const { DateTime } = require("luxon");
+import { resolve, join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import markdownIt from 'markdown-it';
+import markdownItEleventyImg from 'markdown-it-eleventy-img';
+import { DateTime } from "luxon";
 
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import pluginPWA from '@pkvach/eleventy-plugin-pwa';
 
-module.exports = function (config) {
+export default function (config) {
 	// Plugins
 	config.setLiquidOptions({
 		jsTruthy: true,
@@ -16,7 +16,7 @@ module.exports = function (config) {
 	config.addPlugin(syntaxHighlight)
 
 	config.addShortcode("bsicon", (name, className) => {
-		const content = fs.readFileSync(path.resolve('node_modules', 'bootstrap-icons', 'icons', `${name}.svg`), { encoding: 'utf8' });
+		const content = readFileSync(resolve('node_modules', 'bootstrap-icons', 'icons', `${name}.svg`), { encoding: 'utf8' });
 		return `<span class="bs-icon ${className ?? ''}" aria-hidden="true">${content}</span>`
 	})
 
@@ -43,7 +43,7 @@ module.exports = function (config) {
 			imgOptions: {
 				widths: [2400, 1200, 800],
 				urlPath: '/images/',
-				outputDir: path.join('_site', 'images'),
+				outputDir: join('_site', 'images'),
 				formats: ['avif', 'webp', 'png'],
 			},
 			globalAttributes: {
