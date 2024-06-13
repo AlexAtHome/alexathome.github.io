@@ -1,7 +1,0 @@
-<script webc:type="js">
-	const path = require('node:path');
-	const fs = require('node:fs');
-	const content = fs.readFileSync(path.resolve('node_modules', 'bootstrap-icons', 'icons', `${name}.svg`), { encoding: 'utf8' });
-	`<span class="bs-icon ${className}">${content}</span>`
-</script>
-

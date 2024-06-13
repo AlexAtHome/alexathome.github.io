@@ -1,6 +1,0 @@
-<button id="burger-btn" type="button"
-	class="relative inline-flex items-center gap-2 text-lg bg-black bg-clip-text mix-blend-difference"
-	aria-label="Open menu">
-	<bs-i @name="list" @class-name="text-3xl"></bs-i>
-	<span class="sr-only">Menu</span>
-</button>

@@ -1,0 +1,31 @@
+<nav class="fixed dark:bg-slate-950 dark:text-white bg-slate-50 text-gray-50 h-auto w-full bottom-0 left-0 right-0 md:h-screen md:top-0 md:w-16 md:py-8 z-50 transition-transform flex flex-col gap-4 items-start text-xs"
+	id="menu-pane">
+	<menu class="flex w-full h-full md:flex-col grow md:grow-0">
+		{% if page.url != "/" %}
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0 order-last md:order-none">
+			<a class="side-menu-item" href="/">
+				{% render 'face', class: "inline-flex shrink-0 object-fill w-6 h-6 rounded-full" %}
+				Front page
+			</a>
+		</li>
+		{% endif %}
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0">
+			<a class="side-menu-item" href="/posts/">
+				{% bsicon "journal-code" "text-2xl" %}
+				Blog
+			</a>
+		</li>
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0">
+			<a class="side-menu-item" href="/#projects">
+				{% bsicon "joystick" "text-2xl" %}
+				Projects
+			</a>
+		</li>
+		<li class="inline-flex grow md:grow-0 basis-1/3 md:basis-0 mt-auto">
+			<a href="https://github.com/AlexAtHome" rel="noreferrer noopener" class="side-menu-item">
+				{% bsicon "github" "text-2xl self-center" %}
+				<span class="md:sr-only">Github</span>
+			</a>
+		</li>
+	</menu>
+</nav>
