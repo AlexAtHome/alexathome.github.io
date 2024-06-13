@@ -28,7 +28,7 @@ hasSnippets: false
 	<div id="content">{{ content }}</div>
 
 	<footer class="container mt-auto 3xl:max-w-full mb-20 md:mb-0">
-		<p>Designed and crafted by <a :href="githubUrl" class="link text-accept">me :3</a></p>
+		<p>Designed and crafted by <a href="{{ githubUrl }}" class="link text-accept">me :3</a></p>
 	</footer>
 	{% if eleventy.env.runMode == 'build' %}
 	<script>
