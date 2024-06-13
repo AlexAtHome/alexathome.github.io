@@ -1,0 +1,13 @@
+<ol class="inline-flex gap-4 flex-wrap">
+	<li><a class="link whitespace-nowrap" href="/">Front page</a></li>
+	{%- for crumb in list -%}
+		<li class="inline-flex gap-4 items-center">
+			{% bsicon "arrow-right" %}
+			{% if crumb.current %}
+				<a aria-current="page" href="{{ crumb.href }}" class="pointer-events-none text-inherit max-w-[300px] md:max-w-full block overflow-hidden whitespace-nowrap overflow-ellipsis">{{ crumb.label }}</a>
+			{% else %}
+				<a class="link whitespace-nowrap" href="{{ crumb.href }}">{{ crumb.label }}</a>
+			{% endif %}
+		</li>
+	{%- endfor -%}
+</ol>

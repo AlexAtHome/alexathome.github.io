@@ -1,0 +1,7 @@
+<img src="/assets/icons/angular.svg" alt="Angular" class="w-6 h-6" width="32" height="32" role="presentation">
+{% assign tech = "js,ts,node,bash,html,css,react" | split: "," %}
+{%- for item in tech -%}
+	<svg class="w-6 h-6" width="32" height="32" fill="currentColor" role="presentation" aria-label="{{ item }}">
+		<use xlink:href="/assets/icons/langs.svg#{{ item }}" />
+</svg>
+{%- endfor -%}

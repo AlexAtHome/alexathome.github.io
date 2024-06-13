@@ -1,0 +1,30 @@
+<div class="flex relative flex-col gap-4 rounded-lg text-md bg-crust">
+	<a class="leading-snug inline-flex gap-2 items-center text-2xl link text-inherit visited:text-inherit no-underline hover:underline"
+		target="_blank" href="{{ webpageUrl | default: sourceCodeUrl }}">
+		{% bsicon icon, "text-accent-600 dark:text-accent-400" %}
+		<h3 class="leading-snug">{{ name }}</h3>
+	</a>
+	{% if description %}
+	<div class="text-sm line-clamp-2">
+		{{ description }}
+	</div>
+	{% endif %}
+	<ul class="flex gap-4 mt-auto">
+		<li>
+			<a href="{{ sourceCodeUrl }}" target="_blank"
+				class="inline-flex gap-2 justify-center items-center text-sm link text-inherit visited:text-inherit">
+				{% bsicon "github", "text-lg" %}
+				Source code
+			</a>
+		</li>
+		{% if webpageUrl %}
+		<li>
+			<a href="{{ webpageUrl }}" target="_blank"
+				class="inline-flex gap-2 justify-center items-center text-sm link text-inherit visited:text-inherit">
+				{% bsicon "globe2", "text-lg" %}
+				Website
+			</a>
+		</li>
+		{% endif %}
+	</ul>
+</div>

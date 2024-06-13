@@ -1,16 +1,36 @@
 const path = require('node:path')
+const fs = require('node:fs');
 const markdownIt = require('markdown-it')
 const markdownItEleventyImg = require('markdown-it-eleventy-img')
+const { DateTime } = require("luxon");
 
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const pluginWebc = require('@11ty/eleventy-plugin-webc')
 const pluginPWA = require('@pkvach/eleventy-plugin-pwa')
 
 module.exports = function (config) {
 	// Plugins
+	config.setLiquidOptions({
+		jsTruthy: true,
+	});
 	config.addPlugin(pluginPWA, { swDest: './_site/sw.js' })
-	config.addPlugin(pluginWebc, { components: 'src/_components/**/*.webc' })
 	config.addPlugin(syntaxHighlight)
+
+	config.addShortcode("bsicon", (name, className) => {
+		const content = fs.readFileSync(path.resolve('node_modules', 'bootstrap-icons', 'icons', `${name}.svg`), { encoding: 'utf8' });
+		return `<span class="bs-icon ${className ?? ''}" aria-hidden="true">${content}</span>`
+	})
+
+	config.addShortcode("timestamp", (value, format = 'DD') => {
+		const dt =
+			value instanceof Date
+				? DateTime.fromJSDate(value, { zone: "utc" })
+				: DateTime.fromISO(value);
+
+		const datetime = dt.toFormat("yyyy-LL-dd");
+		const display = dt.toFormat(format);
+
+		return `<time datetime="${datetime}">${display}</time>`;
+	})
 
 	// Libraries
 	config.setLibrary(
@@ -66,9 +86,9 @@ module.exports = function (config) {
 	config.addWatchTarget('_site/style.css')
 
 	// Layout aliases
-	config.addLayoutAlias('root', 'root.webc')
-	config.addLayoutAlias('blog', 'blog.webc')
-	config.addLayoutAlias('posts', 'posts.webc')
+	config.addLayoutAlias('root', 'root.liquid')
+	config.addLayoutAlias('blog', 'blog.liquid')
+	config.addLayoutAlias('posts', 'posts.liquid')
 
 	// Global data
 	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/website')

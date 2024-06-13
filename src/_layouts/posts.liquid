@@ -1,0 +1,28 @@
+---
+layout: root
+title: My findings
+tag: all
+pagination:
+  size: 8
+breadcrumbs: [{ label: 'Posts', href: '/posts', current: tag === 'posts' }, { label: 'All', href: page.url, current: true }]
+---
+
+<div class="container 3xl:max-w-full gap-4 mb-8">
+	<h1 class="heading-1 mb-0">{{ title }}</h1>
+	<nav class="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
+		{% render 'breadcrumbs', list: breadcrumbs %}
+		{% render 'tag-filter', currentTag: tag %}
+	</nav>
+</div>
+
+<main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 3xl:max-w-full">
+	{%- for post in pagination.items -%}
+		{% render 'article-excerpt', href: post.url, title: post.data.title, createdAt: post.page.date %}
+	{%- endfor -%}
+</main>
+
+{% if pagination.hrefs.length > 1 %}
+<nav class="block relative w-full mt-4 px-4 3xl:max-w-full">
+	{% render 'pagination', page: page, pagination: pagination %}
+</nav>
+{% endif %}
