@@ -5,17 +5,17 @@ module.exports = {
 		extend: {
 			colors: {
 				accent: {
-					50: 'oklch(0.988 0.2 var(--accent-hue))',
-					100: 'oklch(0.966 0.2 var(--accent-hue))',
-					200: 'oklch(0.922 0.2 var(--accent-hue))',
-					300: 'oklch(0.859 0.2 var(--accent-hue))',
-					400: 'oklch(0.798 0.2 var(--accent-hue))',
-					500: 'oklch(0.738 0.2 var(--accent-hue))',
-					600: 'oklch(0.625 0.2 var(--accent-hue))',
-					700: 'oklch(0.533 0.2 var(--accent-hue))',
-					800: 'oklch(0.418 0.2 var(--accent-hue))',
-					900: 'oklch(0.306 0.2 var(--accent-hue))',
-					950: 'oklch(0.195 0.2 var(--accent-hue))',
+					50: 'oklch(0.988 0.2 var(--accent-hue) / <alpha-value>)',
+					100: 'oklch(0.966 0.2 var(--accent-hue) / <alpha-value>)',
+					200: 'oklch(0.922 0.2 var(--accent-hue) / <alpha-value>)',
+					300: 'oklch(0.859 0.2 var(--accent-hue) / <alpha-value>)',
+					400: 'oklch(0.798 0.2 var(--accent-hue) / <alpha-value>)',
+					500: 'oklch(0.738 0.2 var(--accent-hue) / <alpha-value>)',
+					600: 'oklch(0.625 0.2 var(--accent-hue) / <alpha-value>)',
+					700: 'oklch(0.533 0.2 var(--accent-hue) / <alpha-value>)',
+					800: 'oklch(0.418 0.2 var(--accent-hue) / <alpha-value>)',
+					900: 'oklch(0.306 0.2 var(--accent-hue) / <alpha-value>)',
+					950: 'oklch(0.195 0.2 var(--accent-hue) / <alpha-value>)',
 				},
 			},
 			screens: {
@@ -24,8 +24,8 @@ module.exports = {
 			},
 			fontFamily: {
 				heading: 'Wix Madefor Display, -apple-system, system-ui, sans-serif',
-				sans: 'Jost, -apple-system, system-ui, sans-serif',
-				mono: 'Roboto Mono, JetBrains Mono, monospace',
+				sans: 'Lexend, Jost, -apple-system, system-ui, sans-serif',
+				mono: 'JetBrains Mono NF, JetBrains Mono, monospace',
 			},
 			zIndex: {
 				100: '100',
