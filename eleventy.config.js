@@ -92,6 +92,7 @@ export default function (config) {
 
 	// Global data
 	config.addGlobalData('githubUrl', 'https://github.com/AlexAtHome/website')
+	config.addGlobalData('githubProfile', 'https://github.com/AlexAtHome')
 
 	return {
 		dir: {

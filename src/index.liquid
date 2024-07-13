@@ -8,9 +8,12 @@ eleventyImport:
 	<div class="flex flex-col items-stretch gap-4 col-span-1" id="twitter-bio-lmao">
 		{% render "face", class: "inline-flex shrink-0 object-fill w-20 h-20 rounded-full" %}
 		<span class="heading text-4xl mb-2">Alex Bolotskov</span>
-		<span class="flex gap-2 flex-wrap" aria-label="My tech stach">
+		<div class="flex gap-2 flex-wrap" aria-label="My tech stach">
 			{% render 'tech-stack' %}
-		</span>
+		</div>
+		<div>
+			<a target="_blank" href="{{ githubProfile }}" class="inline-flex gap-2 items-center link w-auto dark:text-white text-black">{% bsicon "github" %} AlexAtHome</a>
+		</div>
 		<p>Experienced frontend developer that doesn't hesitate to go a little beyond the&nbsp;web tech and likes to think
 			outside the box.</p>
 		<div role="presentation">
