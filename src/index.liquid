@@ -11,11 +11,19 @@ eleventyImport:
 		<div class="flex gap-2 flex-wrap" aria-label="My tech stach">
 			{% render 'tech-stack' %}
 		</div>
-		<div>
-			<a target="_blank" href="{{ githubProfile }}" class="inline-flex gap-2 items-center link w-auto dark:text-white text-black">{% bsicon "github" %} AlexAtHome</a>
-		</div>
-		<p>Experienced frontend developer that doesn't hesitate to go a little beyond the&nbsp;web tech and likes to think
-			outside the box.</p>
+		<dl class="flex flex-col gap-2">
+			<dt class="sr-only">Github Profile</dt>
+			<dd>
+				<a target="_blank" href="{{ githubProfile }}" class="inline-flex gap-2 items-center link w-auto dark:text-white text-black">
+					{% bsicon "github" %} AlexAtHome
+				</a>
+			</dd>
+			<dt class="sr-only">Pronouns</dt>
+			<dd>
+				{% bsicon "gender-male" %} he / him
+			</dd>
+		</dl>
+		<p>i code</p>
 		<div role="presentation">
 			<p role="presentation">I like</p>
 			<ul aria-label="My favorite activities" class="columns-2 w-full">
@@ -27,19 +35,7 @@ eleventyImport:
 		</div>
 	</div>
 
-	<section class="md:col-span-2" id="projects">
-		<h2 class="heading-1">My projects</h2>
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-12">
-			{% render 'project-preview', name:"viewport", sourceCodeUrl: "https://github.com/AlexAtHome/viewport", webpageUrl: "https://viewport.alexalex.dev", icon: "arrows-fullscreen", description: "Just a webpage that shows the current viewport and screen resolution" %}
-			{% render 'project-preview', name: "json", sourceCodeUrl: "https://github.com/AlexAtHome/json", webpageUrl: "https://json.alexalex.dev", icon: "braces", description: "JSON format tool" %}
-			{% render 'project-preview', name: "vscode-fish-text", sourceCodeUrl: "https://github.com/AlexAtHome/vscode-fish-text", webpageUrl: "https://marketplace.visualstudio.com/items?itemName: mamoru.vscode-fish-text", icon: "body-text", description: "Soviet style text generator for Visual Studio Code" %}
-			{% render 'project-preview', name: "speech-code", sourceCodeUrl: "https://github.com/AlexAtHome/speech-code", webpageUrl: "https://speech.alexalex.dev", icon: "body-text", description: "Soviet style text generator" %}
-			{% render 'project-preview', name: "sitealert", sourceCodeUrl: "https://github.com/AlexAtHome/sitealert", icon: "exclamation-diamond", description: "A Python script that checks if the given URL does not return the 4xx or 5xx status." %}
-			{% render 'project-preview', name: "keycap", sourceCodeUrl: "https://github.com/AlexAtHome/keycap", webpageUrl: "https://keycap.alexalex.dev", icon: "keyboard", description: "Keyboard testing app" %}
-		</div>
-	</section>
-
-	<section class="md:col-span-3 3xl:col-span-2">
+	<section class="md:col-span-2" >
 		<h2 class="heading-1">Latest posts</h2>
 		<ol class="grid grid-cols-1 gap-6 items-start">
 			{%- for post in collections.postlist limit: 5 -%}
@@ -51,5 +47,17 @@ eleventyImport:
 				{% bsicon "arrow-right" %}
 			</a>
 		</ol>
+	</section>
+
+	<section class="md:col-span-3 3xl:col-span-2">
+		<h2 class="heading-1">My projects</h2>
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-12">
+			{% render 'project-preview', name:"viewport", sourceCodeUrl: "https://github.com/AlexAtHome/viewport", webpageUrl: "https://viewport.alexalex.dev", icon: "arrows-fullscreen", description: "Just a webpage that shows the current viewport and screen resolution" %}
+			{% render 'project-preview', name: "json", sourceCodeUrl: "https://github.com/AlexAtHome/json", webpageUrl: "https://json.alexalex.dev", icon: "braces", description: "JSON format tool" %}
+			{% render 'project-preview', name: "vscode-fish-text", sourceCodeUrl: "https://github.com/AlexAtHome/vscode-fish-text", webpageUrl: "https://marketplace.visualstudio.com/items?itemName: mamoru.vscode-fish-text", icon: "body-text", description: "Soviet style text generator for Visual Studio Code" %}
+			{% render 'project-preview', name: "speech-code", sourceCodeUrl: "https://github.com/AlexAtHome/speech-code", webpageUrl: "https://speech.alexalex.dev", icon: "body-text", description: "Soviet style text generator" %}
+			{% render 'project-preview', name: "sitealert", sourceCodeUrl: "https://github.com/AlexAtHome/sitealert", icon: "exclamation-diamond", description: "A Python script that checks if the given URL does not return the 4xx or 5xx status." %}
+			{% render 'project-preview', name: "keycap", sourceCodeUrl: "https://github.com/AlexAtHome/keycap", webpageUrl: "https://keycap.alexalex.dev", icon: "keyboard", description: "Keyboard testing app" %}
+		</div>
 	</section>
 </main>
