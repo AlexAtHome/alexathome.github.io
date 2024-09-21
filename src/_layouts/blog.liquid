@@ -2,13 +2,13 @@
 layout: root
 date: git Created
 hasSnippets: true
-breadcrumbs: [{ href: '/posts/', label: 'Posts' }, { href: page.url, current: true, label: title }]
+breadcrumbs: [{ href: '/posts/', label: 'My notes' }, { href: page.url, current: true }]
 ---
 
 <div class="container flex-col xl:flex-row-reverse max-w-full xl:max-w-7xl gap-6 items-center" role="presentation">
 	<div class="flex grow flex-col gap-6 2xl:pb-6 w-full" role="presentation">
 		<nav class="text-sm">
-			{% render 'breadcrumbs', list: breadcrumbs %}
+			{% render 'breadcrumbs', list: breadcrumbs, title: title %}
 		</nav>
 
 		<h1 class="heading-1 mb-0">{{ title }}</h1>

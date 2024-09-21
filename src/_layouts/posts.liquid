@@ -1,18 +1,18 @@
 ---
 layout: root
-title: My findings
+title: My notes
 tag: all
 pagination:
   size: 8
-breadcrumbs: [{ label: 'Posts', href: '/posts', current: tag === 'posts' }, { label: 'All', href: page.url, current: true }]
+breadcrumbs: [{ label: 'My notes', href: '/posts', current: tag === 'posts' }]
 ---
 
 <div class="container 3xl:max-w-full gap-4 mb-8">
-	<h1 class="heading-1 mb-0">{{ title }}</h1>
-	<nav class="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
-		{% render 'breadcrumbs', list: breadcrumbs %}
+	<nav class="flex flex-col sm:flex-row gap-4 text-sm sm:justify-between sm:items-center">
+		{% render 'breadcrumbs', list: breadcrumbs, title: title %}
 		{% render 'tag-filter', currentTag: tag %}
 	</nav>
+	<h1 class="heading-1 mb-0">{{ title }}</h1>
 </div>
 
 <main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 3xl:max-w-full">
