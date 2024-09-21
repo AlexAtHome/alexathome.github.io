@@ -1,7 +1,10 @@
+import harmonyPalette from "@evilmartians/harmony/tailwind";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{md,webc,liquid,css}'],
 	theme: {
+		colors: harmonyPalette,
 		extend: {
 			colors: {
 				accent: {
