@@ -7,7 +7,7 @@ pagination:
 breadcrumbs: [{ label: 'My notes', href: '/posts', current: tag === 'posts' }]
 ---
 
-<div class="container 3xl:max-w-full gap-4 mb-8">
+<div class="container max-w-full xl:max-w-7xl gap-6 mb-8">
 	<nav class="flex flex-col sm:flex-row gap-4 text-sm sm:justify-between sm:items-center">
 		{% render 'breadcrumbs', list: breadcrumbs, title: title %}
 		{% render 'tag-filter', currentTag: tag %}
@@ -15,14 +15,14 @@ breadcrumbs: [{ label: 'My notes', href: '/posts', current: tag === 'posts' }]
 	<h1 class="heading-1 mb-0">{{ title }}</h1>
 </div>
 
-<main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 3xl:max-w-full">
+<main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 max-w-full xl:max-w-7xl">
 	{%- for post in pagination.items -%}
 		{% render 'article-excerpt', href: post.url, title: post.data.title, createdAt: post.page.date %}
 	{%- endfor -%}
 </main>
 
 {% if pagination.hrefs.length > 1 %}
-<nav class="block relative w-full mt-4 px-4 3xl:max-w-full">
+<nav class="block relative w-full mt-4 mx-auto px-4 xl:max-w-7xl">
 	{% render 'pagination', page: page, pagination: pagination %}
 </nav>
 {% endif %}
