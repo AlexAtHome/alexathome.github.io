@@ -156,6 +156,10 @@
 		}
 	}
 
+	@view-transition {
+		navigation: auto;
+	}
+
 	::selection {
 		@apply dark:bg-accent-400 dark:text-black bg-accent-600 text-white;
 	}

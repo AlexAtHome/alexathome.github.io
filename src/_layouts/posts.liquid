@@ -17,7 +17,7 @@ breadcrumbs: [{ label: 'My notes', href: '/posts', current: tag === 'posts' }]
 
 <main class="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 container pb-16 3xl:grid-cols-3 max-w-full xl:max-w-7xl">
 	{%- for post in pagination.items -%}
-		{% render 'article-excerpt', href: post.url, title: post.data.title, createdAt: post.page.date %}
+		{% render 'article-excerpt', href: post.url, fileSlug: post.fileSlug, title: post.data.title, createdAt: post.page.date %}
 	{%- endfor -%}
 </main>
 

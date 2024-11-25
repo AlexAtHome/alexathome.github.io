@@ -39,7 +39,7 @@ eleventyImport:
 		<h2 class="heading-1">Latest posts</h2>
 		<ol class="grid grid-cols-1 gap-6 items-start">
 			{%- for post in collections.postlist limit: 5 -%}
-				{% render 'article-excerpt', href: post.url, title: post.data.title, createdAt: post.page.date, tag: post.data.tags[1] || post.data.tags[0] %}
+				{% render 'article-excerpt', href: post.url, fileSlug: post.fileSlug, title: post.data.title, createdAt: post.page.date, tag: post.data.tags[1] || post.data.tags[0] %}
 			{%- endfor -%}
 
 			<a href="/posts/" class="inline-flex gap-2 items-center link w-auto">

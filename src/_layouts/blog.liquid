@@ -11,7 +11,7 @@ breadcrumbs: [{ href: '/posts/', label: 'My notes' }, { href: page.url, current:
 			{% render 'breadcrumbs', list: breadcrumbs, title: title %}
 		</nav>
 
-		<h1 class="heading-1 mb-0">{{ title }}</h1>
+		<h1 class="heading-1 mb-0" style="view-transition-name: article-{{ page.fileSlug }}">{{ title }}</h1>
 
 		<div
 			class="text-slate-600 dark:text-slate-400 flex flex-row flex-wrap gap-x-8 gap-y-4 items-center leading-tight text-sm">

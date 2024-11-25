@@ -11,6 +11,7 @@ hasSnippets: false
 	<meta name="generator" content="{{ eleventy.generator }}">
 	<title>{{ title }}</title>
 	<base href="/" />
+	<link rel="expect" href="#content" blocking="render" />
 	<link rel="stylesheet" href="style.css">
 	{% if hasSnippets %}
 	<link rel="stylesheet" href="assets/styles/prism-dark.css" media="(prefers-color-scheme: dark)">
